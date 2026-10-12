@@ -71,20 +71,7 @@ document.querySelectorAll('.faq').forEach(faq => {
   }));
 });
 
-const heroSlides =document.querySelectorAll('.hero-visual .slide');
-const heroCaption = document.querySelector('.hero-caption');
-if (heroSlides.length > 1) {
-  let current = 0;
-  setInterval(() => {
-    heroSlides[current].classList.remove('active');
-    current = (current + 1) % heroSlides.length;
-    const next = heroSlides[current];
-    next.classList.add('active');
-    if (heroCaption && next.dataset.line1) {
-      heroCaption.innerHTML = `${next.dataset.line1}<br><strong>${next.dataset.line2}</strong>`;
-    }
-  }, 4000);
-}
+// The hero now shows a single photo; the rotating-slideshow code was removed.
 
 const prospectusModal = document.getElementById('prospectus-modal');
 if (prospectusModal) {

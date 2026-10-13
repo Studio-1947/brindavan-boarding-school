@@ -5,3 +5,6 @@ next-env.d.ts
 *.tsbuildinfo
 .env*.local
 node_modules
+
+# Staff records with personal data (Aadhaar, dates of birth, phone numbers). Never publish or commit.
+private/

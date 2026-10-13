@@ -1,7 +1,51 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FacultyGrid } from '@/components/FacultyGrid';
+import { LearningShowcase, type LearningItem } from '@/components/LearningShowcase';
+import { StageJourney, type Stage } from '@/components/StageJourney';
 import { staff } from '@/data/staff';
+
+const stages: Stage[] = [
+  {
+    label: 'THE FOUNDATIONS',
+    title: 'Primary years',
+    photo: '/assets/hero/hero-7.webp',
+    link: { href: '/admissions', text: 'Discuss entry-level admission' },
+  },
+  {
+    label: 'GROWING IN CONFIDENCE',
+    title: 'Middle & secondary',
+    photo: '/assets/classrooms/secondary.webp',
+    link: { href: '/admissions', text: 'Ask about classes & subjects' },
+  },
+  {
+    label: 'THE NEXT CHAPTER',
+    title: 'Senior secondary',
+    photo: '/assets/classrooms/senior.webp',
+    link: { href: '/admissions', text: 'Enquire about ISC options' },
+  },
+];
+
+const learning: LearningItem[] = [
+  {
+    label: 'Timetabled subjects',
+    text: 'Classes follow a timetabled structure across core subjects.',
+    photo: '/assets/classrooms/secondary.webp',
+    alt: 'A teacher at the blackboard taking a lesson with a class of secondary students',
+  },
+  {
+    label: 'Regular assessment',
+    text: 'Homework, class tests and project work run throughout the year, with periodic tests and terminal examinations tracking progress. The ICSE and ISC examinations become the culmination of ongoing assessment rather than a single high-stakes moment.',
+    photo: '/assets/hero/hero-5.webp',
+    alt: 'Students bent over their desks, working on drawings and written work in class',
+  },
+  {
+    label: 'Individual support',
+    text: 'Teachers work with students individually where extra support or stretch is needed.',
+    photo: '/assets/hero/hero-2.webp',
+    alt: 'Young students holding up the craft work they made in class',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Academics | Brindavan Boarding School',
@@ -74,39 +118,7 @@ export default function AcademicsPage() {
           </div>
           <p>Each stage builds on the last, so that skills learned early carry through to the ISC years.</p>
         </div>
-        <div className="academic-grid">
-          <article>
-            <span className="card-number">01</span>
-            <span className="stage">THE FOUNDATIONS</span>
-            <h3>Primary years</h3>
-            <p>
-              Reading, expression, numeracy and an early introduction to science, social studies and the arts.
-              The focus is on curiosity, confident communication and building study habits.
-            </p>
-            <Link href="/admissions">Discuss entry-level admission</Link>
-          </article>
-          <article>
-            <span className="card-number">02</span>
-            <span className="stage">GROWING IN CONFIDENCE</span>
-            <h3>Middle &amp; secondary</h3>
-            <p>
-              Subject teaching deepens across languages, mathematics, the sciences, social studies and
-              computer applications, alongside structured revision and assessment as students approach the
-              ICSE examinations.
-            </p>
-            <Link href="/admissions">Ask about classes &amp; subjects</Link>
-          </article>
-          <article className="blue-card">
-            <span className="card-number">03</span>
-            <span className="stage">THE NEXT CHAPTER</span>
-            <h3>Senior secondary</h3>
-            <p>
-              Students choose subject combinations for the ISC pathway that align with their interests:
-              sciences, commerce or humanities, with more independent, exam-focused study.
-            </p>
-            <Link href="/admissions">Enquire about ISC options</Link>
-          </article>
-        </div>
+        <StageJourney stages={stages} />
         <p className="footnote">
           *ICSE/ISC affiliation, school code and medium of instruction are described in public listings.
           Confirm current affiliation, available classes, subject combinations and entry requirements directly
@@ -124,47 +136,34 @@ export default function AcademicsPage() {
             </h2>
           </div>
           <p>
-            Twenty teaching staff across the subject timetable, alongside the boarding and support teams who
-            keep the school running day to day.
+            Twenty-six teaching staff across the subject timetable, alongside the boarding and support teams
+            who keep the school running day to day.
           </p>
         </div>
         <h3 className="faculty-group">Science stream</h3>
-        <FacultyGrid members={staff.science} />
+        <FacultyGrid members={staff.science} linked />
         <h3 className="faculty-group">Commerce &amp; Arts stream</h3>
-        <FacultyGrid members={staff.commerceArts} />
+        <FacultyGrid members={staff.commerceArts} linked />
+        <h3 className="faculty-group">Primary &amp; other teaching staff</h3>
+        <FacultyGrid members={staff.otherTeaching} linked />
         <h3 className="faculty-group">Boarding &amp; hostel team</h3>
         <FacultyGrid members={staff.boarding} />
         <h3 className="faculty-group">Support staff</h3>
         <FacultyGrid members={staff.support} />
       </section>
-      <section className="section about">
-        <div>
-          <p className="eyebrow">HOW LEARNING HAPPENS</p>
-          <h2>
-            Classroom
-            <br />
-            teaching &amp;
-            <br />
-            <em>assessment.</em>
-          </h2>
-        </div>
-        <div className="about-copy">
-          <p className="lead">Structured teaching, regular assessment, steady progress.</p>
-          <p>
-            Classes follow a timetabled structure across core subjects, with periodic tests and terminal
-            examinations used to track progress ahead of the board examinations. Teachers work with students
-            individually where extra support or stretch is needed.
-          </p>
-          <p>
-            Homework, class tests and project work are used throughout the year, so that the ICSE and ISC
-            examinations are the culmination of ongoing assessment rather than a single high-stakes moment.
-          </p>
-          <div className="values">
-            <span>Timetabled subjects</span>
-            <span>Regular assessment</span>
-            <span>Individual support</span>
+      <section className="section learning">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">HOW LEARNING HAPPENS</p>
+            <h2>
+              Classroom teaching
+              <br />
+              &amp; <em>assessment.</em>
+            </h2>
           </div>
+          <p>Structured teaching, regular assessment, steady progress.</p>
         </div>
+        <LearningShowcase items={learning} />
       </section>
       <section className="section pt-0">
         <div className="quick-links">

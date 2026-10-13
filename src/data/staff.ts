@@ -6,7 +6,10 @@ export type StaffMember = {
 };
 
 /** Teaching staff are grouped by the stream they teach in: move an entry between `science` and `commerceArts` to regroup it. */
-export const staff: Record<'science' | 'commerceArts' | 'boarding' | 'support', StaffMember[]> = {
+export const staff: Record<
+  'science' | 'commerceArts' | 'otherTeaching' | 'boarding' | 'support',
+  StaffMember[]
+> = {
   science: [
     {
       name: 'Mr Deepen Gurung',
@@ -180,6 +183,33 @@ export const staff: Record<'science' | 'commerceArts' | 'boarding' | 'support', 
         height: 700,
       },
     },
+    {
+      name: 'Miss Priti Tamang',
+      title: 'Nepali',
+    },
+    {
+      name: 'Miss Sushma Rai',
+      title: 'English',
+    },
+  ],
+  // Teachers who are not tied to the Science or Commerce & Arts stream, or whose subject is not on record yet.
+  otherTeaching: [
+    {
+      name: 'Miss Sunita Subba',
+      title: 'Pre-primary',
+    },
+    {
+      name: 'Miss Sumi Pradhan',
+      title: 'Assistant Teacher',
+    },
+    {
+      name: 'Miss Anjali Ghatani',
+      title: 'Teacher',
+    },
+    {
+      name: 'Miss Renu Pradhan',
+      title: 'Assistant Teacher',
+    },
   ],
   boarding: [
     {
@@ -226,3 +256,14 @@ export const staff: Record<'science' | 'commerceArts' | 'boarding' | 'support', 
     },
   ],
 };
+
+/** Teachers who have their own profile page at /faculty/<slug>. */
+export const teachers: StaffMember[] = [...staff.science, ...staff.commerceArts, ...staff.otherTeaching];
+
+/** URL slug for a staff member: "Mr Deepen Gurung" becomes "deepen-gurung". */
+export const staffSlug = (member: StaffMember) =>
+  member.name
+    .replace(/^(Mr|Mrs|Ms|Miss|Sri|Sister)\s+/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');

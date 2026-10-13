@@ -1,0 +1,25 @@
+/* Tailwind is loaded without Preflight on purpose: the hand-written site styles
+   below rely on browser defaults, and a reset would shift the existing layout. */
+@layer theme, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Existing site styles. They sit in the components layer so Tailwind utilities can override them. */
+@import '../styles/site.css' layer(components);
+@import '../styles/profile-card.css' layer(components);
+
+@source not '../../legacy';
+
+/* Brand tokens as Tailwind theme values: text-blue, bg-ink, border-line, font-display, ... */
+@theme {
+  --color-blue: #193de8;
+  --color-navy: #000881;
+  --color-ink: #142039;
+  --color-orange: #f5c518;
+  --color-muted: #626b7c;
+  --color-line: #e2e6ed;
+  --color-pale: #f3f6fb;
+  --font-sans: 'DM Sans', Arial, sans-serif;
+  --font-display: Manrope, Arial, sans-serif;
+  --radius-card: 18px;
+}

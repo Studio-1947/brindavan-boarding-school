@@ -5,8 +5,12 @@ export type StaffMember = {
   photo?: { src: string; width: number; height: number };
 };
 
-export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> = {
-  teaching: [
+/** Teaching staff are grouped by the stream they teach in: move an entry between `science` and `commerceArts` to regroup it. */
+export const staff: Record<
+  'science' | 'commerceArts' | 'otherTeaching' | 'boarding' | 'support',
+  StaffMember[]
+> = {
+  science: [
     {
       name: 'Mr Deepen Gurung',
       title: 'Mathematics',
@@ -43,6 +47,17 @@ export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> =
         height: 700,
       },
     },
+    {
+      name: 'Mr Ranjit Bhandari',
+      title: 'Computer',
+      photo: {
+        src: '/assets/teachers/ranjit-bhandari.webp',
+        width: 560,
+        height: 700,
+      },
+    },
+  ],
+  commerceArts: [
     {
       name: 'Miss Dipna Lama',
       title: 'English I',
@@ -133,15 +148,6 @@ export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> =
       },
     },
     {
-      name: 'Mr Ranjit Bhandari',
-      title: 'Computer',
-      photo: {
-        src: '/assets/teachers/ranjit-bhandari.webp',
-        width: 560,
-        height: 700,
-      },
-    },
-    {
       name: 'Mr Saptak Chettri',
       title: 'Physical Training (PTI)',
       photo: {
@@ -176,6 +182,33 @@ export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> =
         width: 560,
         height: 700,
       },
+    },
+    {
+      name: 'Miss Priti Tamang',
+      title: 'Nepali',
+    },
+    {
+      name: 'Miss Sushma Rai',
+      title: 'English',
+    },
+  ],
+  // Teachers who are not tied to the Science or Commerce & Arts stream, or whose subject is not on record yet.
+  otherTeaching: [
+    {
+      name: 'Miss Sunita Subba',
+      title: 'Pre-primary',
+    },
+    {
+      name: 'Miss Sumi Pradhan',
+      title: 'Assistant Teacher',
+    },
+    {
+      name: 'Miss Anjali Ghatani',
+      title: 'Teacher',
+    },
+    {
+      name: 'Miss Renu Pradhan',
+      title: 'Assistant Teacher',
     },
   ],
   boarding: [
@@ -223,3 +256,14 @@ export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> =
     },
   ],
 };
+
+/** Teachers who have their own profile page at /faculty/<slug>. */
+export const teachers: StaffMember[] = [...staff.science, ...staff.commerceArts, ...staff.otherTeaching];
+
+/** URL slug for a staff member: "Mr Deepen Gurung" becomes "deepen-gurung". */
+export const staffSlug = (member: StaffMember) =>
+  member.name
+    .replace(/^(Mr|Mrs|Ms|Miss|Sri|Sister)\s+/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');

@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
+import Link from 'next/link';
 import type { StaffMember } from '@/data/staff';
 import { setupProfileCard } from '@/lib/profile-card';
 
 /** Staff portrait card that tilts and catches the light under the pointer. */
-export function ProfileCard({ member }: { member: StaffMember }) {
+export function ProfileCard({ member, href }: { member: StaffMember; href?: string }) {
   const card = useRef<HTMLLIElement>(null);
   const { name, title, photo } = member;
 
@@ -39,7 +40,7 @@ export function ProfileCard({ member }: { member: StaffMember }) {
       data-intro="false"
       data-backdrop={photo ? undefined : 'ink'}
     >
-      <div className="profile-card__body">
+      <Body href={href}>
         <div className="profile-card__tile">
           {photo ? (
             <img
@@ -76,7 +77,17 @@ export function ProfileCard({ member }: { member: StaffMember }) {
         </div>
         <span className="profile-card__shade" />
         <span className="profile-card__rim" />
-      </div>
+      </Body>
     </li>
+  );
+}
+
+/** The tilting part of the card. With an href the whole card is one link to the person's page. */
+function Body({ href, children }: { href?: string; children: ReactNode }) {
+  if (!href) return <div className="profile-card__body">{children}</div>;
+  return (
+    <Link className="profile-card__body" href={href}>
+      {children}
+    </Link>
   );
 }

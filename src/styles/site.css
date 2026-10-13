@@ -912,11 +912,25 @@ nav > a:not(.button):hover {
    the section and the heading sits in the white space above the hills, top left.
    The paragraphs get a white panel lower down, over the hillside. */
 .story {
+  position: relative;
+  isolation: isolate;
   align-items: start;
+}
+/* The photo is painted on a layer as wide as the window, so it runs edge to edge even on very
+   wide screens where the page content itself is capped at 1800px. */
+.story:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
   background: #fff url('/assets/about/mirik.webp') center bottom / max(100%, 1300px) auto no-repeat;
 }
 .story .about-copy {
-  margin-top: clamp(150px, 25vw, 480px);
+  margin-top: clamp(150px, 25vw, 475px);
   padding: clamp(28px, 3vw, 48px);
   border-radius: 28px;
   /* frosted glass: the hills show through, blurred, behind a light tint */
@@ -928,6 +942,13 @@ nav > a:not(.button):hover {
   box-shadow:
     0 34px 60px -28px rgba(20, 32, 57, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+/* Past 1900px the photo keeps growing with the window while the text column stops at 1800px,
+   so the card is pushed down faster to keep white sky above the hills for the heading. */
+@media (min-width: 1900px) {
+  .story .about-copy {
+    margin-top: calc(475px + (100vw - 1900px) * 0.45);
+  }
 }
 .story .about-copy .lead {
   margin-bottom: 20px;
@@ -975,7 +996,7 @@ nav > a:not(.button):hover {
 }
 @media (max-width: 800px) {
   /* the photo fills the section; its white sky is tall enough here to hold the heading */
-  .story {
+  .story:before {
     background-size: auto 100%;
   }
   .story .about-copy {

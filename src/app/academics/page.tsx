@@ -30,20 +30,21 @@ const learning: LearningItem[] = [
   {
     label: 'Timetabled subjects',
     text: 'Classes follow a timetabled structure across core subjects.',
-    photo: '/assets/classrooms/secondary.webp',
-    alt: 'A teacher at the blackboard taking a lesson with a class of secondary students',
+    photo: '/assets/classrooms/class5.webp',
+    alt: 'A teacher standing at the front of a full classroom, taking a lesson',
+    focus: '15% center',
   },
   {
     label: 'Regular assessment',
     text: 'Homework, class tests and project work run throughout the year, with periodic tests and terminal examinations tracking progress. The ICSE and ISC examinations become the culmination of ongoing assessment rather than a single high-stakes moment.',
-    photo: '/assets/hero/hero-5.webp',
-    alt: 'Students bent over their desks, working on drawings and written work in class',
+    photo: '/assets/classrooms/class6.webp',
+    alt: 'Students at their desks with notebooks open, listening closely in class',
   },
   {
     label: 'Individual support',
     text: 'Teachers work with students individually where extra support or stretch is needed.',
-    photo: '/assets/hero/hero-2.webp',
-    alt: 'Young students holding up the craft work they made in class',
+    photo: '/assets/hero/hero-5.webp',
+    alt: 'Young students at their desks, each working on their own drawing',
   },
 ];
 

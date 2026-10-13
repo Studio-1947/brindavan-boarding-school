@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CurrentYear } from './CurrentYear';
+import { FooterMap } from './FooterMap';
 
 export function Footer() {
   return (
@@ -76,43 +77,9 @@ export function Footer() {
             Facebook
           </a>
         </div>
-        <div className="footer-col">
+        <div className="footer-col footer-find">
           <h4>FIND US</h4>
-          <a
-            className="footer-map"
-            href="https://www.google.com/maps/search/?api=1&amp;query=Brindavan+Boarding+School+Seeyok+Fatak+Mirik"
-            target="_blank"
-            rel="noopener"
-          >
-            <svg viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                d="M4 42C48 22 78 57 118 37C150 22 180 47 216 32"
-                stroke="currentColor"
-                strokeWidth="1"
-                strokeOpacity=".45"
-              />
-              <path
-                d="M10 118C53 93 83 113 116 88C148 66 183 98 210 76"
-                stroke="currentColor"
-                strokeWidth="1"
-                strokeOpacity=".45"
-              />
-              <path d="M58 8C58 52 28 72 28 108" stroke="currentColor" strokeWidth="1" strokeOpacity=".3" />
-              <path
-                d="M168 12C168 48 193 62 193 102"
-                stroke="currentColor"
-                strokeWidth="1"
-                strokeOpacity=".3"
-              />
-              <path
-                d="M110 38C123 38 133 48 133 61C133 80 110 110 110 110C110 110 87 80 87 61C87 48 97 38 110 38Z"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <circle cx="110" cy="61" r="6" stroke="currentColor" strokeWidth="2" />
-            </svg>
-            <span>Open in Google Maps</span>
-          </a>
+          <FooterMap />
         </div>
       </div>
       <div className="footer-bottom">

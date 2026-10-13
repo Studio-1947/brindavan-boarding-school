@@ -150,6 +150,53 @@ export default function AboutPage() {
         </div>
       </section>
       <SchoolEvolution then={schoolThen} now={schoolNow} chapters={evolutionChapters} />
+      {/* Facts and figures below are translated from the Nepali newspaper report in the photo. */}
+      <section className="section press" aria-labelledby="press-title">
+        <Reveal className="press-copy">
+          <p className="eyebrow">IN THE NEWS · 2015</p>
+          <h2 id="press-title">
+            The day the ICSE
+            <br />
+            <em>said yes.</em>
+          </h2>
+          <p>
+            A framed clipping still hangs at the school. Its headline reads “ICSE recognition for Brindavan
+            Boarding School”, and the report, datelined Mirik, 24 December, tells how the school at Seeyok
+            Fatak won affiliation from the council in New Delhi, soon after receiving its permanent NOC in May
+            2014.
+          </p>
+          <p>
+            Principal Sudhir Subba told the paper the school had opened with 145 children, to bring quality
+            education to the villages around Mirik, and that Classes 11 and 12 were the next goal.
+          </p>
+          <ul className="press-facts">
+            <li>
+              <strong>145 → 550</strong>
+              <span>students, from opening day to the day of the report</span>
+            </li>
+            <li>
+              <strong>20 + 7</strong>
+              <span>teachers and non-teaching staff at the time</span>
+            </li>
+            <li>
+              <strong>9 years</strong>
+              <span>from founding to board affiliation</span>
+            </li>
+          </ul>
+        </Reveal>
+        <figure className="press-clipping">
+          <a href="/assets/about/icse-clipping-2015.webp" target="_blank" rel="noopener">
+            <img
+              src="/assets/about/icse-clipping-2015.webp"
+              width="1400"
+              height="1120"
+              loading="lazy"
+              alt="Nepali-language newspaper clipping headlined ‘ICSE recognition for Brindavan Boarding School’, with a photograph of students in the school yard"
+            />
+          </a>
+          <figcaption>The original report, in Nepali. Click to read it full size.</figcaption>
+        </figure>
+      </section>
       <section className="section about story">
         <div>
           <p className="eyebrow">OUR STORY</p>

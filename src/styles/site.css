@@ -824,6 +824,90 @@ nav > a:not(.button):hover {
   }
 }
 
+/* In the news (About page): the framed ICSE clipping beside what it reports. */
+.press {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 6vw, 110px);
+  align-items: center;
+  padding-top: 0;
+}
+.press .eyebrow {
+  color: var(--blue);
+}
+.press-copy h2 {
+  margin-bottom: 22px;
+}
+.press-copy > p:not(.eyebrow) {
+  max-width: 54ch;
+  font-size: var(--body);
+  line-height: 1.75;
+  color: var(--muted);
+}
+.press-facts {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.press-facts li {
+  padding-top: 18px;
+  border-top: 2px solid var(--line);
+}
+.press-facts strong {
+  display: block;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(24px, 2.3vw, 36px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.press-facts span {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.press-clipping {
+  margin: 0;
+}
+/* pinned to the page like a cutting: slightly askew, straightening on hover */
+.press-clipping a {
+  display: block;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 30px 60px -30px rgba(20, 32, 57, 0.6);
+  transform: rotate(2deg);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.press-clipping a:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.press-clipping img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.press-clipping figcaption {
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--muted);
+}
+@media (max-width: 900px) {
+  .press {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .press-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Our story (About page). The Mirik photo has a white sky, so it is anchored to the bottom of
    the section and the heading sits in the white space above the hills, top left.
    The paragraphs get a white panel lower down, over the hillside. */

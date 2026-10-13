@@ -1,5 +1,60 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PhotoDeck, type DeckPhoto } from '@/components/PhotoDeck';
+import { Reveal } from '@/components/Reveal';
+import { SchoolEvolution, type EvolutionChapter } from '@/components/SchoolEvolution';
+
+const schoolPhotos: DeckPhoto[] = [
+  {
+    src: '/assets/about/courtyard.webp',
+    alt: 'Students playing in the paved courtyard between the blue classroom blocks',
+    caption: 'The courtyard between the classroom blocks',
+  },
+  {
+    src: '/assets/about/staff.webp',
+    alt: 'The school staff standing together in front of the main building',
+    caption: 'The staff, in front of the main building',
+  },
+  {
+    src: '/assets/about/auditorium.webp',
+    alt: 'Students seated in rows filling the school auditorium',
+    caption: 'A full auditorium',
+  },
+  {
+    src: '/assets/about/alumni-wall.webp',
+    alt: 'Framed batch photographs covering a corridor wall',
+    caption: 'Batch photographs on the alumni wall',
+  },
+];
+
+const schoolThen = {
+  year: 2005,
+  photo: '/assets/history/school-2005.webp',
+  alt: 'Brindavan Boarding School in 2005: a single two-storey building with green trim beside a dirt yard',
+};
+const schoolNow = {
+  year: 2026,
+  photo: '/assets/history/school-2026.webp',
+  alt: 'Brindavan Boarding School in 2026: long blue classroom blocks with the school name across the front, beside a paved courtyard',
+};
+// TODO(school data): the wording below only describes what the two photos show. Replace with the school's own history.
+const evolutionChapters: EvolutionChapter[] = [
+  {
+    eyebrow: '2005',
+    title: 'Where it began',
+    text: 'One two-storey building on the hillside at Seeyok Fatak, with the school’s name on the roof and an open dirt yard in front.',
+  },
+  {
+    eyebrow: '2005 – 2026',
+    title: 'Built up, block by block',
+    text: 'Over twenty-one years the school grew on the same ground: more classrooms, more floors and a paved courtyard where the yard used to be.',
+  },
+  {
+    eyebrow: '2026',
+    title: 'The campus today',
+    text: 'Several classroom blocks stand around the courtyard, which doubles as the assembly ground and games court.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'About Brindavan Boarding School | Mirik',
@@ -15,26 +70,29 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main id="main">
-      <section className="section page-intro">
-        <Link className="text-link" href="/" prefetch={false}>
-          <span className="back-arrow">←</span> Back to home
-        </Link>
-        <p className="eyebrow">OUR SCHOOL</p>
-        <h1>
-          A school built on
-          <br />
-          curiosity, character
-          <br />
-          <em>and community.</em>
-        </h1>
-        <p className="lead">
-          Brindavan Boarding School sits at Seeyok Fatak in Mirik, part of the Darjeeling hills’ close-knit
-          educational community. Public listings describe it as a co-educational boarding school following the
-          ICSE and ISC pathway, and this page brings together what is publicly known about its story, setting
-          and outlook.
-        </p>
+      <section className="section page-intro page-intro--photo">
+        <Reveal className="page-intro-copy">
+          <Link className="text-link" href="/" prefetch={false}>
+            <span className="back-arrow">←</span> Back to home
+          </Link>
+          <p className="eyebrow">OUR SCHOOL</p>
+          <h1>
+            A school built on
+            <br />
+            curiosity, character
+            <br />
+            <em>and community.</em>
+          </h1>
+          <p className="lead">
+            Brindavan Boarding School sits at Seeyok Fatak in Mirik, part of the Darjeeling hills’ close-knit
+            educational community. Public listings describe it as a co-educational boarding school following
+            the ICSE and ISC pathway, and this page brings together what is publicly known about its story,
+            setting and outlook.
+          </p>
+        </Reveal>
+        <PhotoDeck photos={schoolPhotos} />
       </section>
-      <div className="facts">
+      <Reveal className="facts" stagger={0.12}>
         <div>
           <span>01 / FOUNDED</span>
           <strong>Est. 2005*</strong>
@@ -51,8 +109,48 @@ export default function AboutPage() {
           <span>04 / CURRICULUM</span>
           <strong>ICSE &amp; ISC (WB353)*</strong>
         </div>
-      </div>
-      <section className="section about">
+      </Reveal>
+      {/* TODO(school data): add the founders' names and their own account of starting the school. */}
+      <section className="section founders" aria-labelledby="founders-title">
+        <figure className="founders-photo">
+          <img
+            src="/assets/about/founders.webp"
+            width="541"
+            height="812"
+            loading="lazy"
+            alt="The two founders of Brindavan Boarding School standing side by side"
+          />
+        </figure>
+        <Reveal className="founders-copy">
+          <p className="eyebrow">OUR FOUNDERS</p>
+          <h2 id="founders-title">
+            The people who
+            <br />
+            <em>began it.</em>
+          </h2>
+          <p>
+            Brindavan Boarding School was founded in 2005 at Seeyok Fatak, Mirik. Its founders set out to give
+            children of the hills a school of their own, built on the motto that still sits on the crest:
+          </p>
+          <blockquote>Love All, Serve All.</blockquote>
+          <p className="founders-caption">The founders of Brindavan Boarding School</p>
+        </Reveal>
+      </section>
+      <section className="section evolution-intro">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">THEN AND NOW</p>
+            <h2>
+              One hillside,
+              <br />
+              <em>twenty-one years.</em>
+            </h2>
+          </div>
+          <p>Scroll to watch the school grow from its 2005 building into the campus it is today.</p>
+        </div>
+      </section>
+      <SchoolEvolution then={schoolThen} now={schoolNow} chapters={evolutionChapters} />
+      <section className="section about story">
         <div>
           <p className="eyebrow">OUR STORY</p>
           <h2>

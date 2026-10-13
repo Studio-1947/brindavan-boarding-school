@@ -764,6 +764,371 @@ nav > a:not(.button):hover {
   padding-top: 14px;
   border-color: rgba(255, 255, 255, 0.4);
 }
+/* Founders (About page): portrait beside a short introduction. */
+.founders {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) 1fr;
+  gap: clamp(28px, 6vw, 110px);
+  align-items: center;
+}
+.founders-photo {
+  margin: 0;
+  max-width: 440px;
+  justify-self: end;
+  overflow: hidden;
+  border-radius: 24px 0 24px 24px;
+  background: var(--pale);
+  box-shadow: 0 34px 60px -34px rgba(20, 32, 57, 0.55);
+}
+.founders-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.founders .eyebrow {
+  color: var(--blue);
+}
+.founders-copy h2 {
+  margin-bottom: 22px;
+}
+.founders-copy > p:not(.eyebrow) {
+  max-width: 48ch;
+  font-size: var(--body);
+  line-height: 1.75;
+  color: var(--muted);
+}
+.founders-copy blockquote {
+  margin: 0 0 22px;
+  padding-left: 20px;
+  border-left: 3px solid var(--orange);
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(26px, 2.6vw, 40px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.founders-copy .founders-caption {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--ink);
+}
+@media (max-width: 800px) {
+  .founders {
+    grid-template-columns: 1fr;
+  }
+  .founders-photo {
+    justify-self: start;
+    max-width: 320px;
+  }
+}
+
+/* Our story (About page). The Mirik photo has a white sky, so it is anchored to the bottom of
+   the section and the heading sits in the white space above the hills, top left.
+   The paragraphs get a white panel lower down, over the hillside. */
+.story {
+  align-items: start;
+  background: #fff url('/assets/about/mirik.webp') center bottom / max(100%, 1300px) auto no-repeat;
+}
+.story .about-copy {
+  margin-top: clamp(150px, 25vw, 480px);
+  padding: clamp(28px, 3vw, 48px);
+  border-radius: 28px;
+  /* frosted glass: the hills show through, blurred, behind a light tint */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.48));
+  -webkit-backdrop-filter: blur(3px) saturate(1.3);
+  backdrop-filter: blur(3px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+  box-shadow:
+    0 34px 60px -28px rgba(20, 32, 57, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.story .about-copy .lead {
+  margin-bottom: 20px;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(25px, 2.3vw, 36px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+/* short blue rule above the headline */
+.story .about-copy .lead:before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  background: var(--blue);
+}
+.story .about-copy > p:not(.lead) {
+  font-size: 14px;
+  line-height: 1.65;
+  margin-bottom: 14px;
+  color: #24304a;
+}
+.story .about-copy > p:last-of-type {
+  margin-bottom: 26px;
+}
+.story .about-copy .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 0;
+  padding: 13px 20px;
+  border-radius: 14px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.story .about-copy .text-link:hover {
+  background: #102da9;
+  color: #fff;
+}
+@media (max-width: 800px) {
+  /* the photo fills the section; its white sky is tall enough here to hold the heading */
+  .story {
+    background-size: auto 100%;
+  }
+  .story .about-copy {
+    margin-top: 60vw;
+  }
+  /* keep the heading's line breaks here; without them its words run together */
+  .about.story h2 br {
+    display: inline;
+  }
+}
+
+/* Photo pile (src/components/PhotoDeck.tsx). GSAP positions the cards; this is their look. */
+.photo-deck-stack {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin: 46px 24px 0;
+}
+.photo-deck-card {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 6px solid #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--pale);
+  box-shadow: 0 24px 50px -28px rgba(20, 32, 57, 0.6);
+  cursor: pointer;
+}
+.photo-deck-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo-deck-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin: 20px 24px 0;
+}
+.photo-deck-foot p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.photo-deck-foot button {
+  flex-shrink: 0;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+/* Then and now (src/components/SchoolEvolution.tsx).
+   Default layout: the two photos and the text simply stack. The component adds .is-scrolly
+   when the scroll scene is running; the photo stage is then pinned with position: sticky
+   and the text chapters scroll over it. */
+.evolution-intro {
+  padding-bottom: clamp(20px, 2vw, 36px);
+}
+.evolution-intro .eyebrow,
+.evolution-card .eyebrow {
+  color: var(--blue);
+}
+.evolution-intro .section-heading {
+  margin-bottom: 0;
+}
+.evolution {
+  padding: 0 max(5.5vw, 24px);
+  /* breathing room before the photo-backed section that follows */
+  margin-bottom: var(--sp-sec);
+}
+.evolution-frame {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.evolution-frame figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: var(--pale);
+}
+.evolution-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.evolution-frame figcaption {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+.evolution-divider,
+.evolution-year {
+  display: none;
+}
+.evolution-chapters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+.evolution-card {
+  padding: clamp(22px, 2vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card) 0 var(--r-card) var(--r-card);
+  background: #fff;
+}
+.evolution-card h3 {
+  margin-bottom: 12px;
+  font-size: clamp(22px, 1.9vw, 30px);
+}
+.evolution-card p:last-child {
+  margin: 0;
+  font-size: var(--body);
+  line-height: 1.7;
+  color: var(--muted);
+}
+@media (max-width: 800px) {
+  .evolution-frame,
+  .evolution-chapters {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- the scroll scene --- */
+.evolution.is-scrolly {
+  --stage-top: 80px;
+  position: relative;
+  padding: 0;
+}
+.evolution.is-scrolly .evolution-stage {
+  position: sticky;
+  top: var(--stage-top);
+  height: calc(100vh - var(--stage-top));
+  height: calc(100svh - var(--stage-top));
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--pale);
+}
+.evolution.is-scrolly .evolution-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 0 40px 80px -40px rgba(20, 32, 57, 0.6);
+  will-change: transform;
+}
+.evolution.is-scrolly .evolution-frame figure {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+.evolution.is-scrolly .evolution-frame figcaption {
+  display: none;
+}
+.evolution.is-scrolly .evolution-divider {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--orange);
+  box-shadow: 0 0 24px rgba(245, 197, 24, 0.7);
+}
+.evolution.is-scrolly .evolution-year {
+  display: block;
+  position: absolute;
+  left: clamp(20px, 4vw, 64px);
+  bottom: clamp(12px, 3vw, 40px);
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(72px, 15vw, 240px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.45);
+}
+.evolution.is-scrolly .evolution-chapters {
+  position: relative;
+  display: block;
+  /* pull the chapters up over the pinned photo, leaving the first screen clear */
+  margin-top: -35vh;
+  padding: 0 max(5.5vw, 24px);
+  pointer-events: none;
+}
+/* cards keep to the right so they never cover the year in the bottom-left corner */
+.evolution.is-scrolly .evolution-chapter {
+  min-height: 125vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.evolution.is-scrolly .evolution-card {
+  width: min(440px, 100%);
+  border: 0;
+  box-shadow: 0 30px 60px -30px rgba(20, 32, 57, 0.55);
+}
+@media (max-width: 800px) {
+  .evolution.is-scrolly {
+    --stage-top: 66px;
+  }
+  /* portrait screens: a square photo in the top half, leaving the lower half for the text cards */
+  .evolution.is-scrolly .evolution-stage {
+    align-items: start;
+  }
+  .evolution.is-scrolly .evolution-frame {
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .evolution.is-scrolly .evolution-chapter {
+    align-items: flex-end;
+    padding-bottom: 12vh;
+  }
+}
+
 /* How learning happens (src/components/LearningShowcase.tsx): a list of points beside a photo. */
 .learning .eyebrow {
   color: var(--blue);
@@ -1235,8 +1600,8 @@ footer:before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/assets/footer-photo.webp') center/cover no-repeat;
-  opacity: 0.05;
+  background: url('/assets/outdoor/footer.webp') center/cover no-repeat;
+  opacity: 0.25;
   pointer-events: none;
 }
 .footer-top,
@@ -1328,7 +1693,7 @@ footer:before {
 .footer-map {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
-  padding: 14px;
+  padding: 10px 10px 12px;
   display: block;
   transition:
     border-color 0.2s,
@@ -1340,18 +1705,29 @@ footer:before {
   text-decoration: none;
   opacity: 1;
 }
-.footer-map svg {
-  width: 100%;
-  height: auto;
-  display: block;
+.footer-map-frame {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  border-radius: 6px;
   margin-bottom: 10px;
-  color: #c9d3ff;
+  background: rgba(255, 255, 255, 0.08);
 }
-.footer-map span {
+.footer-map iframe {
   display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* On phones the footer is two columns; the map needs the full width to be usable. */
+@media (max-width: 800px) {
+  .footer-find {
+    grid-column: 1 / -1;
+  }
+}
+.footer-map a {
+  margin-bottom: 0;
   font-size: 13px;
   font-weight: 650;
-  color: #fff;
   opacity: 1;
 }
 .skip {

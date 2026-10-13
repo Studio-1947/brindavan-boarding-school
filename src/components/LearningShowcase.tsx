@@ -11,6 +11,8 @@ export type LearningItem = {
   text: string;
   photo: string;
   alt: string;
+  /** Which part of the photo to keep when it is cropped to the frame, e.g. 'left center'. Defaults to the middle. */
+  focus?: string;
 };
 
 /** Seconds each item stays up before the next one takes over. */
@@ -126,6 +128,7 @@ export function LearningShowcase({ items }: { items: LearningItem[] }) {
             className={i === active ? 'is-active' : undefined}
             src={item.photo}
             alt={item.alt}
+            style={item.focus ? { objectPosition: item.focus } : undefined}
             loading="lazy"
           />
         ))}

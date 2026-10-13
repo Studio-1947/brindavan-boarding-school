@@ -5,8 +5,9 @@ export type StaffMember = {
   photo?: { src: string; width: number; height: number };
 };
 
-export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> = {
-  teaching: [
+/** Teaching staff are grouped by the stream they teach in: move an entry between `science` and `commerceArts` to regroup it. */
+export const staff: Record<'science' | 'commerceArts' | 'boarding' | 'support', StaffMember[]> = {
+  science: [
     {
       name: 'Mr Deepen Gurung',
       title: 'Mathematics',
@@ -43,6 +44,17 @@ export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> =
         height: 700,
       },
     },
+    {
+      name: 'Mr Ranjit Bhandari',
+      title: 'Computer',
+      photo: {
+        src: '/assets/teachers/ranjit-bhandari.webp',
+        width: 560,
+        height: 700,
+      },
+    },
+  ],
+  commerceArts: [
     {
       name: 'Miss Dipna Lama',
       title: 'English I',
@@ -128,15 +140,6 @@ export const staff: Record<'teaching' | 'boarding' | 'support', StaffMember[]> =
       title: 'Sociology',
       photo: {
         src: '/assets/teachers/poonam-tamang.webp',
-        width: 560,
-        height: 700,
-      },
-    },
-    {
-      name: 'Mr Ranjit Bhandari',
-      title: 'Computer',
-      photo: {
-        src: '/assets/teachers/ranjit-bhandari.webp',
         width: 560,
         height: 700,
       },

@@ -128,8 +128,10 @@ export default function AcademicsPage() {
             keep the school running day to day.
           </p>
         </div>
-        <h3 className="faculty-group">Teaching faculty</h3>
-        <FacultyGrid members={staff.teaching} />
+        <h3 className="faculty-group">Science stream</h3>
+        <FacultyGrid members={staff.science} />
+        <h3 className="faculty-group">Commerce &amp; Arts stream</h3>
+        <FacultyGrid members={staff.commerceArts} />
         <h3 className="faculty-group">Boarding &amp; hostel team</h3>
         <FacultyGrid members={staff.boarding} />
         <h3 className="faculty-group">Support staff</h3>

@@ -69,24 +69,23 @@ const schoolPhotos: DeckPhoto[] = [
 const schoolThen = {
   year: 2005,
   photo: '/assets/history/school-2005.webp',
-  alt: 'Brindavan Boarding School in 2005: a single two-storey building with green trim beside a dirt yard',
+  alt: 'Brindavan Boarding School in 2005–06: low single-storey buildings with tin roofs behind a dirt yard, beside a Seeyok tea estate sign',
 };
 const schoolNow = {
   year: 2026,
   photo: '/assets/history/school-2026.webp',
   alt: 'Brindavan Boarding School in 2026: long blue classroom blocks with the school name across the front, beside a paved courtyard',
 };
-// TODO(school data): the wording below only describes what the two photos show. Replace with the school's own history.
 const evolutionChapters: EvolutionChapter[] = [
   {
     eyebrow: '2005',
     title: 'Where it began',
-    text: 'One two-storey building on the hillside at Seeyok Fatak, with the school’s name on the roof and an open dirt yard in front.',
+    text: 'A small wooden structure with just six rooms at Seeyok Fatak, built on ₹1,60,000 collected with the help of near and dear ones, beside the tea gardens.',
   },
   {
     eyebrow: '2005 – 2026',
     title: 'Built up, block by block',
-    text: 'Over twenty-one years the school grew on the same ground: more classrooms, more floors and a paved courtyard where the yard used to be.',
+    text: 'Over twenty-one years the school grew on the same ground: multi-storey classroom blocks and a paved courtyard where the dirt yard used to be.',
   },
   {
     eyebrow: '2026',
@@ -189,7 +188,7 @@ export default function AboutPage() {
             <span className="story-num">01</span>
             <h3>Six rooms and a little faith</h3>
             <p>
-              The beginning was far from easy. There was no substantial financial support or capital in hand:
+              The beginning was far from easy. There was no substantial financial support or capital in hand,
               only ₹1,60,000 collected with the help of near and dear ones. With that modest beginning, a
               small wooden structure with just six rooms was built at Seeyok Fatak, Mirik, nestled amidst the
               green tea gardens and pine forests along the India–Nepal border.
@@ -208,7 +207,7 @@ export default function AboutPage() {
           <article>
             <span className="story-num">03</span>
             <h3>A purpose, not just a name</h3>
-            <p>But the heart of BBS was not simply its name: it was its purpose.</p>
+            <p>But the heart of BBS was not simply its name, it was its purpose.</p>
             <p>
               The founders had witnessed children from underprivileged areas travelling long distances to
               Mirik every day in search of education. Many students also came from across the Nepal border,
@@ -259,6 +258,16 @@ export default function AboutPage() {
               <br />
               <em>thriving school.</em>
             </h2>
+            <figure className="story-today-photo">
+              <img
+                src="/assets/outdoor/footer.webp"
+                width="1600"
+                height="900"
+                loading="lazy"
+                alt="Brindavan Boarding School today: Block 1 and Block 2 around the paved courtyard, with boarders playing basketball"
+              />
+              <figcaption>The campus today: Block 1 and Block 2 around the courtyard.</figcaption>
+            </figure>
           </div>
           <div className="story-today-copy">
             <p>
@@ -279,29 +288,6 @@ export default function AboutPage() {
               surrounded by fresh mountain air.
             </p>
           </div>
-        </Reveal>
-
-        <Reveal className="story-close">
-          <p className="story-close-lead">
-            Yet, perhaps the greatest achievement of BBS cannot be measured in percentages, trophies,
-            buildings, or affiliations.
-          </p>
-          <p>
-            It lies in the children who once travelled long distances simply for the opportunity to study. It
-            lies in the students who were given education despite financial difficulties. It lies in the young
-            people who learned not only how to succeed, but also how to care, serve, respect, and give back.
-          </p>
-          <p>
-            From ₹1,60,000 and six small rooms to a growing institution serving students from across regions,
-            the journey of BBS is a reminder that great things do not always begin with great resources.
-            Sometimes, they begin with a dream, a little faith, and the courage to serve.
-          </p>
-          <p>And that is why the words “LOVE ALL, SERVE ALL” continue to define the spirit of BBS.</p>
-          <p className="story-close-final">
-            Because at BBS, education is not only about creating successful individuals. It is about creating
-            human beings who understand that knowledge becomes truly meaningful when it is used to love, to
-            serve, and to make the world a little better for someone else.
-          </p>
         </Reveal>
       </section>
       <section className="section evolution-intro">

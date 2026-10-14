@@ -1,8 +1,47 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { JourneyTimeline, type Milestone } from '@/components/JourneyTimeline';
 import { PhotoDeck, type DeckPhoto } from '@/components/PhotoDeck';
 import { Reveal } from '@/components/Reveal';
 import { SchoolEvolution, type EvolutionChapter } from '@/components/SchoolEvolution';
+
+const milestones: Milestone[] = [
+  {
+    year: '2005',
+    title: 'The school opens',
+    text: 'Founded by Mrs. Prava Chettri and Mr. Sudhir Subba in a six-room wooden building at Seeyok Fatak, Mirik.',
+  },
+  {
+    year: '2010',
+    title: 'The first ICSE batch',
+    text: 'Even before receiving its own affiliation, the first batch of BBS students appeared for the ICSE examination through Cambridge English School, with every student securing the first position.',
+  },
+  {
+    year: '2014',
+    title: 'NOC received',
+    text: 'The school received its NOC from Salt Lake, Kolkata.',
+  },
+  {
+    year: '2015',
+    title: 'CISCE affiliation',
+    text: 'BBS was affiliated to the CISCE.',
+  },
+  {
+    year: '2017',
+    title: '100% in the first ICSE under BBS',
+    text: 'The first batch of students appeared for the ICSE examination under BBS, achieving a remarkable 100% result.',
+  },
+  {
+    year: '2020–21',
+    title: 'ISC affiliation',
+    text: 'During the challenging years of the pandemic, BBS continued to look towards the future and was granted affiliation for the ISC level.',
+  },
+  {
+    year: '2025',
+    title: 'A 100% record',
+    text: 'The school has maintained a 100% ICSE result every year since 2017, with BBS students repeatedly achieving top positions in the Mirik Valley.',
+  },
+];
 
 const schoolPhotos: DeckPhoto[] = [
   {
@@ -110,7 +149,6 @@ export default function AboutPage() {
           <strong>ICSE &amp; ISC (WB353)*</strong>
         </div>
       </Reveal>
-      {/* TODO(school data): add the founders' names and their own account of starting the school. */}
       <section className="section founders" aria-labelledby="founders-title">
         <figure className="founders-photo">
           <img
@@ -118,22 +156,152 @@ export default function AboutPage() {
             width="541"
             height="812"
             loading="lazy"
-            alt="The two founders of Brindavan Boarding School standing side by side"
+            alt="Mrs. Prava Chettri and Mr. Sudhir Subba, founders of Brindavan Boarding School"
           />
+          <figcaption>
+            <strong> Mr. Sudhir Subba &amp; Mrs. Prava Chettri</strong>
+            Founders, 2005
+          </figcaption>
         </figure>
         <Reveal className="founders-copy">
           <p className="eyebrow">OUR FOUNDERS</p>
           <h2 id="founders-title">
-            The people who
+            A journey of love, service
             <br />
-            <em>began it.</em>
+            and <em>education.</em>
           </h2>
-          <p>
-            Brindavan Boarding School was founded in 2005 at Seeyok Fatak, Mirik. Its founders set out to give
-            children of the hills a school of their own, built on the motto that still sits on the crest:
+          <p className="founders-lead">
+            Every great institution begins with a dream. Some dreams begin with wealth and resources; others
+            begin with nothing but faith, determination, and a desire to make a difference.
           </p>
-          <blockquote>Love All, Serve All.</blockquote>
-          <p className="founders-caption">The founders of Brindavan Boarding School</p>
+          <p>
+            BBS Brindavan Boarding School began its journey in 2005, founded by Mrs. Prava Chettri and Mr.
+            Sudhir Subba, with a simple yet powerful vision: to provide quality education to children,
+            especially those from underprivileged communities, and to create an environment where every child
+            could learn, grow, and dream without limitations.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="section founders-story" aria-label="How the school began">
+        <Reveal className="story-chapters">
+          <article>
+            <span className="story-num">01</span>
+            <h3>Six rooms and a little faith</h3>
+            <p>
+              The beginning was far from easy. There was no substantial financial support or capital in hand:
+              only ₹1,60,000 collected with the help of near and dear ones. With that modest beginning, a
+              small wooden structure with just six rooms was built at Seeyok Fatak, Mirik, nestled amidst the
+              green tea gardens and pine forests along the India–Nepal border.
+            </p>
+          </article>
+          <article>
+            <span className="story-num">02</span>
+            <h3>A name found in a bhajan</h3>
+            <p>
+              Even the name of the school carries a story of faith. Finding the right name was not easy. Then,
+              one Thursday, while singing the regular bhajans of Bhagwan Sri Sathya Sai Baba, the word
+              “Brindavan” appeared in the fifth bhajan, associated with Lord Krishna. The word felt deeply
+              spiritual and captivating, and in that moment, the name Brindavan was chosen.
+            </p>
+          </article>
+          <article>
+            <span className="story-num">03</span>
+            <h3>A purpose, not just a name</h3>
+            <p>But the heart of BBS was not simply its name: it was its purpose.</p>
+            <p>
+              The founders had witnessed children from underprivileged areas travelling long distances to
+              Mirik every day in search of education. Many students also came from across the Nepal border,
+              where difficult road conditions made their journey even harder. This strengthened the founders’
+              resolve to make education accessible at a nominal fee and to ensure that circumstances would
+              never become a barrier to a child’s education.
+            </p>
+          </article>
+        </Reveal>
+
+        <Reveal className="story-motto">
+          <p className="story-motto-kicker">And so, BBS embraced its guiding philosophy:</p>
+          <blockquote>
+            Love All,
+            <br />
+            <em>Serve All.</em>
+          </blockquote>
+          <p>
+            For BBS, these words were never meant to be merely a motto written on a wall. They became a way of
+            life.
+          </p>
+          <p>
+            When the road became a difficulty for students travelling from nearby areas, cement was provided
+            by the school and support came from others as well, helping create a small road for the children.
+            Every challenge became an opportunity to serve, and every obstacle became another reason to
+            persevere.
+          </p>
+        </Reveal>
+
+        <div className="story-journey">
+          <div className="story-journey-head">
+            <p className="eyebrow">THE JOURNEY</p>
+            <h2>
+              Faith and
+              <br />
+              <em>determination.</em>
+            </h2>
+            <p>The journey continued with faith and determination.</p>
+          </div>
+          <JourneyTimeline milestones={milestones} />
+        </div>
+
+        <Reveal className="story-today">
+          <div>
+            <p className="eyebrow">BBS TODAY</p>
+            <h2>
+              From six rooms to a
+              <br />
+              <em>thriving school.</em>
+            </h2>
+          </div>
+          <div className="story-today-copy">
+            <p>
+              Today, the small six-room wooden structure has grown into a strong and thriving institution. BBS
+              now provides education to students from India and Nepal, with boarders coming from Siliguri, the
+              North-East, Kolkata, Delhi, and beyond. The school has also opened its doors to children from
+              underprivileged backgrounds by providing free education to deserving students, keeping alive the
+              very purpose with which the institution began.
+            </p>
+            <p>
+              Academics remain at the heart of BBS, but education here goes far beyond examination results.
+              The school strives for excellence in sports, co-curricular activities, discipline, and
+              character-building, supported by highly qualified teaching faculty and dedicated staff.
+            </p>
+            <p>
+              Situated at approximately 4,905 feet above sea level, amidst tea gardens and pine forests, BBS
+              offers its students the privilege of growing up in a peaceful, pollution-free environment
+              surrounded by fresh mountain air.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal className="story-close">
+          <p className="story-close-lead">
+            Yet, perhaps the greatest achievement of BBS cannot be measured in percentages, trophies,
+            buildings, or affiliations.
+          </p>
+          <p>
+            It lies in the children who once travelled long distances simply for the opportunity to study. It
+            lies in the students who were given education despite financial difficulties. It lies in the young
+            people who learned not only how to succeed, but also how to care, serve, respect, and give back.
+          </p>
+          <p>
+            From ₹1,60,000 and six small rooms to a growing institution serving students from across regions,
+            the journey of BBS is a reminder that great things do not always begin with great resources.
+            Sometimes, they begin with a dream, a little faith, and the courage to serve.
+          </p>
+          <p>And that is why the words “LOVE ALL, SERVE ALL” continue to define the spirit of BBS.</p>
+          <p className="story-close-final">
+            Because at BBS, education is not only about creating successful individuals. It is about creating
+            human beings who understand that knowledge becomes truly meaningful when it is used to love, to
+            serve, and to make the world a little better for someone else.
+          </p>
         </Reveal>
       </section>
       <section className="section evolution-intro">

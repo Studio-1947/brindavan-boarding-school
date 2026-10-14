@@ -797,23 +797,6 @@ nav > a:not(.button):hover {
   line-height: 1.75;
   color: var(--muted);
 }
-.founders-copy blockquote {
-  margin: 0 0 22px;
-  padding-left: 20px;
-  border-left: 3px solid var(--orange);
-  font-family: Manrope, Arial, sans-serif;
-  font-size: clamp(26px, 2.6vw, 40px);
-  font-weight: 650;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: var(--ink);
-}
-.founders-copy .founders-caption {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 650;
-  color: var(--ink);
-}
 @media (max-width: 800px) {
   .founders {
     grid-template-columns: 1fr;
@@ -905,6 +888,237 @@ nav > a:not(.button):hover {
 @media (max-width: 500px) {
   .press-facts {
     grid-template-columns: 1fr;
+  }
+}
+
+.founders-photo figcaption {
+  padding: 16px 20px 18px;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.founders-photo figcaption strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--ink);
+}
+.founders-copy .founders-lead {
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(20px, 1.7vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+/* The founders' story (About page) */
+.founders-story {
+  padding-top: 0;
+}
+.founders-story .eyebrow {
+  color: var(--blue);
+}
+.story-chapters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.8vw, 28px);
+}
+.story-chapters article {
+  padding: clamp(24px, 2.4vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 24px 0 24px 24px;
+  background: #fff;
+}
+.story-num {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+}
+.story-chapters h3 {
+  margin: 0 0 14px;
+  font-size: var(--h3);
+}
+.story-chapters p {
+  margin: 0 0 12px;
+  font-size: var(--body-sm);
+  line-height: 1.75;
+  color: var(--muted);
+}
+.story-chapters p:last-child {
+  margin-bottom: 0;
+}
+.story-motto {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(40px, 5vw, 80px);
+  padding: clamp(36px, 5vw, 80px);
+  border-radius: 32px 32px 0 32px;
+  background: #000881;
+  color: #fff;
+}
+.story-motto-kicker {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9d3ff;
+}
+.story-motto blockquote {
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(48px, 7vw, 112px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+}
+.story-motto blockquote em {
+  color: var(--orange);
+}
+.story-motto > p:not(.story-motto-kicker) {
+  max-width: 62ch;
+  margin: 0 0 14px;
+  font-size: var(--body);
+  line-height: 1.75;
+  color: #c9d3ff;
+}
+.story-journey {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(32px, 6vw, 110px);
+  margin-top: var(--sp-sec);
+}
+.story-journey-head {
+  align-self: start;
+  position: sticky;
+  top: 120px;
+}
+.story-journey-head h2 {
+  margin-bottom: 20px;
+}
+.story-journey-head > p:last-child {
+  color: var(--muted);
+}
+.journey-timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 44px;
+}
+.jt-line {
+  position: absolute;
+  left: 9px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--line);
+}
+.jt-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--blue);
+  transform-origin: top;
+}
+.jt-item {
+  position: relative;
+  padding-bottom: clamp(30px, 3vw, 46px);
+}
+.jt-item:last-child {
+  padding-bottom: 0;
+}
+.jt-dot {
+  position: absolute;
+  left: -44px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #c7d0e9;
+  background: #fff;
+  transition:
+    background 0.4s,
+    border-color 0.4s,
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.jt-item.is-reached .jt-dot {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: scale(1.15);
+}
+.jt-year {
+  display: block;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(26px, 2.4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--blue);
+}
+.jt-body h3 {
+  margin: 10px 0 8px;
+  font-size: var(--h3);
+}
+.jt-body p {
+  margin: 0;
+  max-width: 56ch;
+  font-size: var(--body-sm);
+  line-height: 1.75;
+  color: var(--muted);
+}
+.story-today {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(32px, 6vw, 110px);
+  margin-top: var(--sp-sec);
+  padding: clamp(28px, 4vw, 64px);
+  border-radius: 24px 0 24px 24px;
+  background: var(--pale);
+}
+.story-today-copy p {
+  font-size: var(--body);
+  line-height: 1.75;
+  color: var(--muted);
+}
+.story-today-copy p:last-child {
+  margin-bottom: 0;
+}
+.story-close {
+  max-width: 820px;
+  margin: var(--sp-sec) auto 0;
+  text-align: center;
+}
+.story-close p {
+  font-size: var(--body);
+  line-height: 1.8;
+  color: var(--muted);
+}
+.story-close .story-close-lead,
+.story-close .story-close-final {
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.story-close .story-close-final {
+  margin: 30px 0 0;
+  padding-top: 30px;
+  border-top: 2px solid var(--orange);
+}
+@media (max-width: 900px) {
+  .story-chapters,
+  .story-journey,
+  .story-today {
+    grid-template-columns: 1fr;
+  }
+  .story-journey-head {
+    position: static;
   }
 }
 
@@ -1231,6 +1445,501 @@ nav > a:not(.button):hover {
   .evolution.is-scrolly .evolution-chapter {
     align-items: flex-end;
     padding-bottom: 12vh;
+  }
+}
+
+/* ---------- Boarding page ---------- */
+
+/* Hero (src/components/boarding/BoardingHero.tsx) */
+.bh-intro {
+  position: relative;
+  overflow: hidden;
+}
+.bh-intro > :not(svg) {
+  position: relative;
+}
+.bh-birds {
+  position: absolute;
+  top: 70px;
+  right: 12%;
+  width: clamp(90px, 10vw, 160px);
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0.55;
+  animation: bh-float 6s ease-in-out infinite;
+}
+@keyframes bh-float {
+  50% {
+    transform: translate(-14px, 8px);
+  }
+}
+.bh-title {
+  max-width: 16ch;
+}
+.bh-photo {
+  position: relative;
+  margin: clamp(10px, 2vw, 30px) 0 0;
+  height: clamp(320px, 62vw, 760px);
+  overflow: hidden;
+}
+.bh-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* keep the buildings and courtyard in frame rather than the open sky */
+  object-position: center 75%;
+}
+.bh-chip {
+  position: absolute;
+  left: max(5.5vw, 24px);
+  bottom: clamp(18px, 3vw, 44px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--ink);
+  box-shadow: 0 16px 34px -18px rgba(20, 32, 57, 0.6);
+}
+.bh-chip span {
+  color: var(--orange);
+  animation: bh-pulse 1.6s ease-in-out infinite;
+}
+@keyframes bh-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* A typical day (src/components/boarding/DayCycle.tsx) */
+.dc-section .eyebrow,
+.explore-visit .eyebrow,
+.boarding-questions .eyebrow {
+  color: var(--blue);
+}
+.dc-section {
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+.dc-section .section-heading {
+  margin-bottom: 0;
+}
+.daycycle {
+  padding: 0 max(5.5vw, 24px);
+}
+.dc-stage {
+  position: relative;
+  height: clamp(420px, 60vw, 720px);
+  overflow: hidden;
+  border-radius: 32px;
+}
+/* every layer shares the photo's 4:3 box, which covers the stage like object-fit: cover */
+.dc-stage {
+  container-type: size;
+  background: #0f1b30;
+}
+.dc-frame {
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  width: max(100cqw, calc(100cqh * 4 / 3));
+  height: max(100cqh, calc(100cqw * 3 / 4));
+  transform: translate(-38%, -50%);
+}
+.dc-sky,
+.dc-photo,
+.dc-tint,
+.dc-haze {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.dc-photo {
+  display: block;
+  object-fit: fill;
+  filter: brightness(var(--fg-bright)) saturate(var(--fg-sat));
+}
+/* colour wash on the photo only (masked to its non-sky pixels) */
+.dc-tint {
+  background: var(--tint);
+  opacity: var(--tint-a);
+  mix-blend-mode: multiply;
+  -webkit-mask: url('/assets/boarding/courtyard-foreground.webp') 0 0 / 100% 100% no-repeat;
+  mask: url('/assets/boarding/courtyard-foreground.webp') 0 0 / 100% 100% no-repeat;
+}
+/* low warm light from the horizon at sunrise and sunset */
+.dc-haze {
+  background: linear-gradient(to top, rgba(255, 150, 80, 0.55), transparent 55%);
+  opacity: var(--haze);
+  mix-blend-mode: soft-light;
+}
+.dc-stars circle {
+  fill: #fff;
+  animation: dc-twinkle 3.2s ease-in-out infinite;
+}
+@keyframes dc-twinkle {
+  50% {
+    opacity: 0.25;
+  }
+}
+.dc-birds {
+  stroke: #1d2b48;
+  animation: dc-fly 9s ease-in-out infinite;
+}
+@keyframes dc-fly {
+  50% {
+    transform: translate(60px, -24px);
+  }
+}
+.dc-night {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: var(--night);
+}
+/* without the scroll scene: daytime picture with the parts of the day listed below it */
+.dc-phases {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.dc-phases li {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: #fff;
+}
+.dc-phase-label {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+}
+.dc-phases h3 {
+  margin: 0 0 8px;
+  font-size: var(--h3);
+}
+.dc-phases li > p:last-child {
+  margin: 0;
+  font-size: var(--body-sm);
+  line-height: 1.6;
+  color: var(--muted);
+}
+.dc-rail {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .dc-phases {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .dc-phases {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* the scroll scene: one screen of scrolling per part of the day */
+.daycycle.is-scrolly {
+  --stage-top: 96px;
+  height: calc(var(--phases) * 85vh + 100vh);
+}
+.daycycle.is-scrolly .dc-stage {
+  position: sticky;
+  top: var(--stage-top);
+  height: calc(100vh - var(--stage-top) - 24px);
+  height: calc(100svh - var(--stage-top) - 24px);
+}
+.daycycle.is-scrolly .dc-phases {
+  position: absolute;
+  left: clamp(16px, 3vw, 44px);
+  bottom: clamp(16px, 3vw, 44px);
+  display: block;
+  width: min(400px, calc(100% - 32px));
+  margin: 0;
+}
+.daycycle.is-scrolly .dc-phases li {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  backdrop-filter: blur(10px) saturate(1.3);
+  box-shadow: 0 24px 50px -24px rgba(5, 11, 36, 0.6);
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.daycycle.is-scrolly .dc-phases li.is-active {
+  opacity: 1;
+  transform: none;
+}
+.daycycle.is-scrolly .dc-phases h3 {
+  font-size: clamp(24px, 2.2vw, 34px);
+}
+.daycycle.is-scrolly .dc-phases li > p:last-child {
+  color: #2b3650;
+}
+.daycycle.is-scrolly .dc-rail {
+  position: absolute;
+  top: clamp(16px, 3vw, 40px);
+  right: clamp(16px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.dc-rail li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.4s;
+}
+.dc-rail li:before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  transition:
+    background 0.4s,
+    transform 0.4s;
+}
+.dc-rail li.is-reached {
+  color: #fff;
+}
+.dc-rail li.is-reached:before {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+@media (max-width: 800px) {
+  .daycycle.is-scrolly {
+    --stage-top: 78px;
+  }
+  .daycycle.is-scrolly .dc-rail {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .dc-rail span {
+    display: none;
+  }
+}
+
+/* What to explore on your visit */
+.explore-visit {
+  padding-top: calc(var(--sp-sec) + 20px);
+}
+.explore-visit .section-heading {
+  align-items: end;
+}
+.explore-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.6vw, 24px);
+}
+.explore-cards article {
+  position: relative;
+  padding: clamp(26px, 2.4vw, 38px);
+  border-radius: 24px 0 24px 24px;
+  background: #122240;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.explore-cards article:hover {
+  transform: translateY(-8px);
+}
+.explore-cards article:after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 197, 24, 0.28), transparent 70%);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.explore-cards article:hover:after {
+  transform: scale(1.6);
+}
+.explore-cards svg {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 30px;
+  color: var(--orange);
+}
+.explore-num {
+  position: absolute;
+  top: clamp(26px, 2.4vw, 38px);
+  right: clamp(26px, 2.4vw, 38px);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #9fb0f5;
+}
+.explore-cards h3 {
+  margin: 0 0 12px;
+  font-size: var(--h3);
+  color: #fff;
+}
+.explore-cards p {
+  margin: 0;
+  font-size: var(--body-sm);
+  line-height: 1.7;
+  color: #bcc6d9;
+}
+@media (max-width: 900px) {
+  .explore-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Questions worth raising: flip cards (src/components/boarding/FlipCards.tsx) */
+.flip-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  perspective: 1400px;
+}
+.flip-card {
+  display: block;
+  min-height: 320px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.flip-inner {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+@media (hover: hover) {
+  .flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card.is-flipped:hover .flip-inner {
+    transform: none;
+  }
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: 24px 0 24px 24px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-front {
+  background: #fff;
+  box-shadow: 0 20px 40px -30px rgba(20, 32, 57, 0.5);
+}
+.flip-back {
+  justify-content: center;
+  gap: 16px;
+  background: var(--blue);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+.flip-num {
+  font-size: 16px;
+  color: var(--blue);
+}
+.flip-icon svg {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: 26px 0 auto;
+  color: var(--blue);
+}
+.flip-topic {
+  margin-top: 26px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.flip-back .flip-topic {
+  margin: 0;
+  color: #c9d3ff;
+}
+.flip-title {
+  margin-top: 8px;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.flip-hint {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--blue);
+}
+.flip-text {
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(19px, 1.5vw, 23px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+@media (max-width: 900px) {
+  .flip-cards {
+    grid-template-columns: 1fr;
+  }
+  .flip-card {
+    min-height: 280px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bh-birds,
+  .bh-chip span,
+  .dc-stars circle,
+  .dc-birds {
+    animation: none;
   }
 }
 

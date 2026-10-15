@@ -138,7 +138,6 @@ export const home: Record<string, string> = {
     'मिरिकमा पढाइ, छात्रावास र हुर्काइबारे क्यामेराअगाडि विद्यार्थी र शिक्षकहरू।',
 
   // vision, principal
-  'OUR VISION': 'हाम्रो दृष्टि',
   'A vision rooted in the school’s own motto': 'विद्यालयकै आदर्श वाक्यमा आधारित दृष्टि',
   'Brindavan Boarding School aims to nurture confident, capable young people who carry curiosity, character and a spirit of service into whatever they choose to do next.':
     'वृन्दावन बोर्डिङ स्कूलको लक्ष्य आत्मविश्वासी र सक्षम युवा तयार पार्नु हो, जसले जुनसुकै बाटो रोजे पनि जिज्ञासा, चरित्र र सेवाभाव साथमा लैजाऊन्।',
@@ -147,8 +146,9 @@ export const home: Record<string, string> = {
   Confidence: 'आत्मविश्वास',
   Integrity: 'निष्ठा',
   Service: 'सेवा',
-  'FROM THE PRINCIPAL': 'प्रधानाध्यापकबाट',
-  'Crest of Brindavan Boarding School': 'वृन्दावन बोर्डिङ स्कूलको चिह्न',
+  'FROM THE FOUNDER & DIRECTOR': 'संस्थापक तथा निर्देशकबाट',
+  'Mr Sudhir Subba, Founder and Director of Brindavan Boarding School, at his desk':
+    'वृन्दावन बोर्डिङ स्कूलका संस्थापक तथा निर्देशक श्री सुधीर सुब्बा, आफ्नो टेबलमा',
   'A school in the hills carries a particular responsibility: children are here to learn, but they are also growing up in our care. We try to send every child home more curious, more capable and kinder than the year before.':
     'पहाडको विद्यालयमा एउटा विशेष जिम्मेवारी हुन्छ: बच्चाहरू यहाँ सिक्न आउँछन्, तर हाम्रो हेरचाहमा हुर्किरहेका पनि हुन्छन्। हामी हरेक बच्चालाई अघिल्लो वर्षभन्दा बढी जिज्ञासु, सक्षम र दयालु बनाएर घर पठाउने प्रयास गर्छौं।',
   'Read the full message': 'पूरा सन्देश पढ्नुहोस्',
@@ -209,11 +209,10 @@ export const homePhrases: Record<string, string> = {
   'Join <1>Brindavan Boarding School.</1>': '<1>वृन्दावन बोर्डिङ स्कुलमा</1> भर्ना हुनुहोस्।',
   'Proof, not <1>promises.</1>': 'वाचा होइन, <1>प्रमाण।</1>',
   'Voices of <1>Brindavan.</1>': '<1>वृन्दावनका</1> आवाजहरू।',
-  'Educating for a<1/>life of purpose<2/><3>and service.</3>':
-    'उद्देश्य<1/><3>र सेवाको</3><2/>जीवनका लागि शिक्षा।',
-  'Love All,<1/>Serve All.': 'सबैलाई प्रेम गर,<1/>सबैको सेवा गर।',
+  'Love <1/> All,': 'सबैलाई <1/> प्रेम गर,',
+  'Serve <1/> All.': 'सबैको <1/> सेवा गर।',
   'A word of <1>welcome.</1>': '<1>स्वागतका</1> दुई शब्द।',
-  'The Principal<1>Brindavan Boarding School</1>': 'प्रधानाध्यापक<1>वृन्दावन बोर्डिङ स्कूल</1>',
+  'Founder & Director<1>Brindavan Boarding School</1>': 'संस्थापक तथा निर्देशक<1>वृन्दावन बोर्डिङ स्कूल</1>',
   '<1/>ADMISSIONS 2026': '<1/>भर्ना 2026',
   'Admissions for 2026 are <1>open.</1>': '2026 का लागि भर्ना <1>खुला छ।</1>',
   'Pemba Sherpa<1>Parent, Class 8</1>': 'Pemba Sherpa<1>अभिभावक, कक्षा 8</1>',

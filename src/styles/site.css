@@ -2430,15 +2430,16 @@ footer {
   margin-left: -50vw;
   padding-top: 100px;
   padding-bottom: 50px;
-  background: var(--blue);
+  background: #0b1a4d;
   color: #fff;
 }
+/* students at 10% over the navy, just enough texture to feel like the school */
 footer:before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/assets/outdoor/footer.webp') center/cover no-repeat;
-  opacity: 0.25;
+  background: url('/assets/hero/hero-2.webp') center 30% / cover no-repeat;
+  opacity: 0.1;
   pointer-events: none;
 }
 .footer-top,
@@ -2528,10 +2529,13 @@ footer:before {
   flex-shrink: 0;
 }
 .footer-map {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
   padding: 10px 10px 12px;
   display: block;
+  color: #fff;
+  margin-bottom: 0;
+  opacity: 1;
   transition:
     border-color 0.2s,
     background 0.2s;
@@ -2542,18 +2546,79 @@ footer:before {
   text-decoration: none;
   opacity: 1;
 }
-.footer-map-frame {
-  aspect-ratio: 16 / 11;
-  overflow: hidden;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.08);
-}
-.footer-map iframe {
+.footer-map-art {
   display: block;
   width: 100%;
-  height: 100%;
-  border: 0;
+  height: auto;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.fm-contours path {
+  stroke: rgba(201, 211, 255, 0.16);
+  stroke-width: 1;
+}
+.fm-roads path {
+  stroke: rgba(201, 211, 255, 0.4);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+.fm-roads .fm-main {
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 2.2;
+}
+.fm-dot {
+  fill: var(--orange);
+}
+.fm-ring {
+  fill: #0b1a4d;
+  stroke: var(--orange);
+  stroke-width: 1.6;
+}
+.fm-pulse {
+  fill: rgba(245, 197, 24, 0.18);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fm-pulse 2.4s ease-out infinite;
+}
+@keyframes fm-pulse {
+  from {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fm-pulse {
+    animation: none;
+  }
+}
+.fm-label {
+  fill: #fff;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+}
+.fm-sub {
+  fill: rgba(201, 211, 255, 0.75);
+  font-size: 8.5px;
+}
+.footer-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-map-link svg {
+  width: 12px;
+  height: 12px;
+}
+.footer-motto {
+  font-family: Manrope, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 /* On phones the footer is two columns; the map needs the full width to be usable. */
 @media (max-width: 800px) {
@@ -2561,11 +2626,10 @@ footer:before {
     grid-column: 1 / -1;
   }
 }
-.footer-map a {
+.footer-map-link {
   margin-bottom: 0;
   font-size: 13px;
   font-weight: 650;
-  opacity: 1;
 }
 .skip {
   position: fixed;
@@ -3358,67 +3422,174 @@ footer:before {
     grid-template-columns: 1fr;
   }
 }
-.vision-top {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 6vw, 110px);
-  align-items: stretch;
+/* Motto stage (src/components/VisionMotto.tsx): the motto in giant type, with photos opening
+   inside the lines and popping in around them. */
+.vm-stage {
+  /* The motto is sized by height as well as width. The photos fill the room left around it
+     (--side, --inner, --band-top and --band-bottom are measured by VisionMotto.tsx). */
+  --fs: max(56px, min(9.6vw, 17.5vh, 190px));
+  --side: 12vw;
+  --inner: 18vw;
+  --band-top: 12vh;
+  --band-bottom: 18vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  /* centre the motto in the area below the fixed header, not the whole screen */
+  padding: 80px max(5.5vw, 24px) 0;
+  overflow: hidden;
+  background: #fff;
 }
-.vision .eyebrow {
+.vm-eyebrow {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 clamp(16px, 2vw, 28px);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--blue);
 }
-.vision h2 {
-  font-size: var(--h2);
-  line-height: 1.05;
-}
-.vision-heading {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.vision-motto {
+.vm-motto {
   position: relative;
-  overflow: hidden;
+  z-index: 2;
   margin: 0;
-  min-height: clamp(250px, 21vw, 340px);
-  padding: clamp(26px, 2.6vw, 44px);
-  border-radius: 24px 0 24px 24px;
-  background: var(--blue);
-  color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 18px;
-}
-.vision-motto-mark {
-  position: absolute;
-  top: -0.18em;
-  right: 0.06em;
+  align-items: center;
   font-family: Manrope, Arial, sans-serif;
-  font-size: clamp(170px, 15vw, 260px);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--orange);
-}
-.vision-motto blockquote {
-  margin: 0;
-  font-family: Manrope, Arial, sans-serif;
-  font-size: clamp(34px, 3.4vw, 54px);
+  font-size: var(--fs);
   font-weight: 650;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  color: var(--ink);
+  text-align: center;
 }
-.vision-motto figcaption {
-  font-size: 14px;
-  color: #c9d3ff;
+.vm-line {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.vm-line + .vm-line {
+  color: var(--blue);
+}
+.vm-pill {
+  display: inline-block;
+  width: 1.7em;
+  height: 0.72em;
+  margin: 0.06em 0.16em 0;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 18px 40px -22px rgba(20, 32, 57, 0.55);
+}
+.vm-float {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 26px 50px -28px rgba(20, 32, 57, 0.6);
+}
+/* side columns */
+.vm-f1 {
+  top: calc(50% - var(--side) * 0.667);
+  left: 2vw;
+  width: var(--side);
+  aspect-ratio: 3 / 4;
+}
+.vm-f4 {
+  bottom: calc(50% - var(--side) * 0.667);
+  right: 2vw;
+  width: var(--side);
+  aspect-ratio: 3 / 4;
+}
+/* band above the motto (below the fixed header) */
+.vm-f5 {
+  top: calc(80px + 10px);
+  left: var(--inner);
+  width: var(--band-top);
+  aspect-ratio: 1;
+}
+.vm-f2 {
+  top: calc(80px + 10px);
+  right: var(--inner);
+  width: calc(var(--band-top) * 4 / 3);
+  aspect-ratio: 4 / 3;
+}
+/* band below the motto */
+.vm-f3 {
+  bottom: 20px;
+  left: var(--inner);
+  width: calc(var(--band-bottom) * 1.5);
+  aspect-ratio: 3 / 2;
+}
+.vm-f6 {
+  bottom: 20px;
+  right: var(--inner);
+  width: calc(var(--band-bottom) * 4 / 3);
+  aspect-ratio: 4 / 3;
+}
+@media (max-width: 800px) {
+  .vm-stage {
+    min-height: 0;
+    padding-top: 46vw;
+    padding-bottom: 46vw;
+  }
+  .vm-eyebrow {
+    max-width: 26ch;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .vm-motto {
+    font-size: 15vw;
+  }
+  .vm-pill {
+    width: 1.4em;
+  }
+  .vm-f1 {
+    top: 4%;
+    left: 4%;
+    width: 24vw;
+  }
+  .vm-f2 {
+    top: 3%;
+    right: 4%;
+    width: 34vw;
+  }
+  .vm-f3 {
+    bottom: 3%;
+    left: 6%;
+    width: 38vw;
+  }
+  .vm-f4 {
+    bottom: 5%;
+    right: 6%;
+    width: 22vw;
+  }
+  .vm-f5,
+  .vm-f6 {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .voices-cta-text {
+    display: none;
+  }
+  .voices-cta-title {
+    font-size: 21px;
+  }
+  .voices-cta-link {
+    font-size: 13px;
+  }
 }
 .vision-copy {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(24px, 4vw, 64px);
-  margin-top: clamp(40px, 4vw, 64px);
-  padding-top: clamp(28px, 3vw, 40px);
-  border-top: 1px solid var(--line);
 }
 .vision-copy p {
   margin: 0;
@@ -3580,13 +3751,9 @@ footer:before {
   }
 }
 @media (max-width: 900px) {
-  .vision-top,
   .vision-copy,
   .faq {
     grid-template-columns: 1fr;
-  }
-  .vision-heading {
-    gap: 0;
   }
   .vision-pillars {
     grid-template-columns: 1fr;
@@ -4310,16 +4477,17 @@ nav > a:not(.button):focus-visible:after {
   border-radius: 24px 0 24px 24px;
 }
 .principal-photo {
-  display: grid;
-  place-items: center;
   aspect-ratio: 4/5;
   border-radius: var(--r-card);
   background: #fff;
-  padding: 24px;
+  overflow: hidden;
 }
 .principal-photo img {
-  width: min(46%, 150px);
-  height: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
 }
 .principal-copy h2 {
   margin: 0 0 18px;
@@ -4926,5 +5094,169 @@ nav > a:not(.button):focus-visible:after {
   nav .button.small {
     gap: 12px;
     padding-inline: 16px;
+  }
+}
+
+/* FAQ: no question numbers, so the answer lines up with its question */
+.faq summary:before {
+  content: none;
+}
+.faq details p {
+  padding-left: 24px;
+}
+@media (max-width: 500px) {
+  .faq details p {
+    padding-left: 16px;
+  }
+}
+/* homepage FAQ: the photo grows to end level with the bottom of the question list */
+@media (min-width: 901px) {
+  .faq:has(.faq-photo) {
+    align-items: stretch;
+  }
+  .faq:has(.faq-photo) > div:first-child {
+    display: flex;
+    flex-direction: column;
+  }
+  .faq:has(.faq-photo) .faq-photo {
+    flex: 1 1 auto;
+    max-width: none;
+    min-height: 280px;
+    aspect-ratio: auto;
+  }
+}
+
+/* Footer admissions card (every page): compact, with the three actions stacked */
+.footer-contact {
+  margin-top: 26px;
+}
+.footer-contact address {
+  margin-bottom: 12px;
+}
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.88;
+}
+.footer-contact a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.footer-cta-card {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  border-radius: 20px 20px 0 20px;
+  background: #000881;
+  box-shadow: 0 24px 48px -28px rgba(0, 4, 60, 0.8);
+}
+.footer-cta-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #c9d3ff;
+}
+.footer-cta-eyebrow span {
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+}
+.footer-cta-card h3 {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 1.6vw, 24px);
+  line-height: 1.15;
+  color: #fff;
+}
+.footer-cta-card h3 em {
+  color: var(--orange);
+}
+.footer-cta-actions {
+  display: grid;
+  gap: 8px;
+}
+.footer-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--orange);
+  border-radius: 12px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.footer-col .footer-cta-btn {
+  margin: 0;
+  opacity: 1;
+  min-height: 0;
+}
+.footer-cta-btn:hover,
+.footer-col .footer-cta-btn:hover {
+  background: var(--orange);
+  color: #000881;
+  text-decoration: none;
+}
+.footer-cta-btn.is-primary {
+  background: var(--orange);
+  color: #000881;
+}
+.footer-cta-btn.is-primary:hover {
+  background: #ffd966;
+  border-color: #ffd966;
+}
+.footer-cta-btn svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+.footer-cta-btn .swoosh-arrow {
+  width: 18px;
+  height: 13px;
+}
+@media (max-width: 1100px) and (min-width: 801px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* beat the generic footer link rules (display: block, no padding) */
+.footer-col a.footer-cta-btn,
+.footer-col button.footer-cta-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  min-height: 0;
+  font-size: 14px;
+}
+.footer-contact address {
+  margin: 0 0 12px;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #c9d3ff;
+}
+@media (max-width: 800px) {
+  .footer-contact address,
+  .footer-contact a {
+    font-size: 15.5px;
+  }
+  .footer-cta {
+    grid-column: 1 / -1;
   }
 }

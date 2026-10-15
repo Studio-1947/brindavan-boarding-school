@@ -5,11 +5,21 @@ import { FaqSection } from '@/components/FaqSection';
 import { SpotlightGrid } from '@/components/SpotlightGrid';
 import { SwooshArrow } from '@/components/icons';
 import { Marquee } from '@/components/Marquee';
-import { ProspectusButton } from '@/components/Prospectus';
 import { ValueCards } from '@/components/ValueCards';
+import { VisionMotto } from '@/components/VisionMotto';
 import { VoiceReel } from '@/components/VoiceReel';
 import { WarpText, type WarpTextOptions } from '@/components/WarpText';
 import { WelcomeParallax } from '@/components/WelcomeParallax';
+
+/* Photos that pop in around the motto, in the order they appear. */
+const VISION_PHOTOS = [
+  '/assets/hero/hero-6.webp',
+  '/assets/hero/hero-2.webp',
+  '/assets/about/staff.webp',
+  '/assets/hero/hero-4.webp',
+  '/assets/hero/hero-7.webp',
+  '/assets/hero/hero-1.webp',
+];
 
 const OUTCOMES = [
   {
@@ -713,29 +723,21 @@ export default function HomePage() {
         </div>
         <VoiceReel />
       </section>
-      <section className="section vision" aria-labelledby="vision-title">
-        <div className="vision-top">
-          <div className="vision-heading">
-            <p className="eyebrow">OUR VISION</p>
-            <h2 id="vision-title">
-              Educating for a<br />
-              life of purpose
-              <br />
-              <em>and service.</em>
-            </h2>
-          </div>
-          <figure className="vision-motto">
-            <span className="vision-motto-mark" aria-hidden="true">
-              “
-            </span>
-            <blockquote>
-              Love All,
-              <br />
-              Serve All.
-            </blockquote>
-            <figcaption>A vision rooted in the school’s own motto</figcaption>
-          </figure>
-        </div>
+      <VisionMotto>
+        <p className="vm-eyebrow">A vision rooted in the school’s own motto</p>
+        <blockquote className="vm-motto">
+          <span className="vm-line">
+            Love <img className="vm-pill" src="/assets/hero/hero-5.webp" alt="" /> All,
+          </span>
+          <span className="vm-line">
+            Serve <img className="vm-pill" src="/assets/hero/hero-9.webp" alt="" /> All.
+          </span>
+        </blockquote>
+        {VISION_PHOTOS.map((src, i) => (
+          <img key={src} className={`vm-float vm-f${i + 1}`} src={src} alt="" loading="lazy" />
+        ))}
+      </VisionMotto>
+      <section className="section vision">
         <div className="vision-copy">
           <p>
             Brindavan Boarding School aims to nurture confident, capable young people who carry curiosity,
@@ -763,15 +765,15 @@ export default function HomePage() {
         <div className="principal-card">
           <div className="principal-photo">
             <img
-              src="/assets/logo.png"
-              width="192"
-              height="194"
+              src="/assets/sudhir-subba.webp"
+              width="960"
+              height="1200"
               loading="lazy"
-              alt="Crest of Brindavan Boarding School"
+              alt="Mr Sudhir Subba, Founder and Director of Brindavan Boarding School, at his desk"
             />
           </div>
           <div className="principal-copy">
-            <p className="eyebrow">FROM THE PRINCIPAL</p>
+            <p className="eyebrow">FROM THE FOUNDER &amp; DIRECTOR</p>
             <h2 id="pr-title">
               A word of <em>welcome.</em>
             </h2>
@@ -781,7 +783,7 @@ export default function HomePage() {
               kinder than the year before.
             </p>
             <p className="principal-name">
-              The Principal<em>Brindavan Boarding School</em>
+              Founder &amp; Director<em>Brindavan Boarding School</em>
             </p>
             <Link className="text-link" href="/about">
               Read the full message{' '}
@@ -871,70 +873,6 @@ export default function HomePage() {
           </details>
         </div>
       </FaqSection>
-      <section className="section admissions-cta" aria-labelledby="cta-title">
-        <div className="cta-card">
-          <svg className="cta-hills" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
-            <path
-              className="cta-hills-back"
-              d="M0 150 L140 90 L230 125 L360 40 L470 115 L560 80 L690 140 L810 55 L930 110 L1040 70 L1200 130 V220 H0Z"
-            />
-            <path
-              className="cta-hills-line"
-              d="M0 185 L120 140 L210 165 L330 100 L440 160 L540 125 L660 175 L780 110 L900 150 L1010 120 L1120 165 L1200 140"
-            />
-          </svg>
-          <div className="cta-copy">
-            <p className="cta-eyebrow">
-              <span />
-              ADMISSIONS 2026
-            </p>
-            <h2 id="cta-title">
-              Admissions for 2026 are <em>open.</em>
-            </h2>
-            <p>Request the prospectus, speak to the school, or come and see Mirik for yourself.</p>
-          </div>
-          <div className="cta-actions">
-            <ProspectusButton className="pill-btn">
-              Request prospectus{' '}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M12 3v12" />
-                <path d="M7 10l5 5 5-5" />
-                <path d="M5 19h14" />
-              </svg>
-            </ProspectusButton>
-            {/* TODO(contact): placeholder. Replace +910000000000 with the school's real phone number. */}
-            <a className="pill-btn pill-btn-outline" href="tel:+910000000000">
-              Call the school{' '}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z" />
-              </svg>
-            </a>
-            <Link className="pill-btn pill-btn-outline" href="/visit">
-              Plan a visit <SwooshArrow />
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

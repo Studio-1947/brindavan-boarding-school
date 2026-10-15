@@ -26,8 +26,8 @@ const ui: Record<string, string> = {
   'Boarding School': 'बोर्डिङ स्कूल',
   'Brindavan Boarding School': 'वृन्दावन बोर्डिङ स्कूल',
   // footer
-  'Learn with curiosity.': 'जिज्ञासाका साथ सिक।',
-  'Grow with purpose.': 'उद्देश्यका साथ बढ।',
+  'Love All,': 'सबैलाई प्रेम गर,',
+  'Serve All.': 'सबैको सेवा गर।',
   'Back to top': 'माथि जानुहोस्',
   EXPLORE: 'हेर्नुहोस्',
   CONNECT: 'सम्पर्क',
@@ -35,10 +35,17 @@ const ui: Record<string, string> = {
   'Seeyok Fatak, Mirik': 'सियोक फाटक, मिरिक',
   'Darjeeling, West Bengal · 734214': 'दार्जिलिङ, पश्चिम बंगाल · 734214',
   Facebook: 'फेसबुक',
-  'Website Designed by :': 'वेबसाइट डिजाइन :',
+  'Designed and Developed by :': 'वेबसाइट डिजाइन :',
   'Open in Google Maps': 'गुगल म्यापमा खोल्नुहोस्',
   'Map showing Brindavan Boarding School, Seeyok Fatak, Mirik':
     'वृन्दावन बोर्डिङ स्कूल, सियोक फाटक, मिरिक देखाउने नक्सा',
+  // admissions card in the footer
+  'ADMISSIONS 2026': 'भर्ना 2026',
+  'Admissions for 2026 are': '2026 का लागि भर्ना',
+  'open.': 'खुला छ।',
+  'Request prospectus': 'विवरणिका माग्नुहोस्',
+  'Call the school': 'विद्यालयमा फोन गर्नुहोस्',
+  'Plan a visit': 'भ्रमणको योजना बनाउनुहोस्',
   // mobile quick actions
   'Book a visit': 'भ्रमण बुक गर्नुहोस्',
   'Quick actions': 'छिटो पहुँच',

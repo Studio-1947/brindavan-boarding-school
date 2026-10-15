@@ -46,7 +46,7 @@ const VOICES: Voice[] = [
   },
   {
     slug: 'saikriti-chettri',
-    name: 'Saikriti Chettri',
+    name: 'Miss Saikriti Chettri',
     role: 'Teacher',
     detail: 'English Teacher',
     portrait: true,
@@ -63,7 +63,7 @@ const VOICES: Voice[] = [
   },
   {
     slug: 'sanjok-pradhan',
-    name: 'Sanjok Pradhan',
+    name: 'Mr Sanjok Pradhan',
     role: 'Teacher',
     detail: 'Biology Teacher',
     portrait: false,
@@ -72,7 +72,7 @@ const VOICES: Voice[] = [
   { slug: 'khadka', name: 'Khadka', role: 'Student', detail: 'Class 6', portrait: true, duration: 49 },
   {
     slug: 'chandana-ghimire',
-    name: 'Chandana Ghimire',
+    name: 'Miss Chandana Ghimire',
     role: 'Teacher',
     detail: 'Economics & Geography Teacher',
     portrait: true,

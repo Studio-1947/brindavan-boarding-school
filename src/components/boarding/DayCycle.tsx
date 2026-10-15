@@ -4,6 +4,7 @@ import { useRef, useState, type CSSProperties } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { gsap, useGSAP } from '@/lib/gsap';
+import { useT } from '@/i18n/ui';
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -107,6 +108,7 @@ const STARS = Array.from({ length: 70 }, (_, i) => {
  */
 export function DayCycle({ phases }: { phases: DayPhase[] }) {
   const root = useRef<HTMLDivElement>(null);
+  const t = useT();
   const [active, setActive] = useState(0);
   const last = phases.length - 1;
 
@@ -115,7 +117,8 @@ export function DayCycle({ phases }: { phases: DayPhase[] }) {
       const el = root.current;
       if (!el) return;
       const mm = gsap.matchMedia();
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // short screens (phones held sideways) get the static layout: a pinned scene would leave no room
+      mm.add('(prefers-reduced-motion: no-preference) and (min-height: 520px)', () => {
         el.classList.add('is-scrolly');
         const frame = el.querySelector('.dc-frame');
         gsap.set(frame, toVars(LOOKS[0]));
@@ -196,7 +199,9 @@ export function DayCycle({ phases }: { phases: DayPhase[] }) {
             src={PHOTO}
             width="1800"
             height="1350"
-            alt="The Brindavan courtyard and blue school building, with boarders playing in house colours"
+            alt={t(
+              'The Brindavan courtyard and blue school building, with boarders playing in house colours',
+            )}
           />
           <span className="dc-tint" aria-hidden="true" />
           <span className="dc-haze" aria-hidden="true" />

@@ -132,6 +132,7 @@ void main() {
 const getFontValue = (value: number | string) => (typeof value === 'number' ? `${value}px` : value);
 
 const measureLine = (ctx: CanvasRenderingContext2D, line: string, letterSpacing: number) => {
+  if (!letterSpacing) return ctx.measureText(line).width;
   const chars = Array.from(line);
   const textWidth = chars.reduce((width, char) => width + ctx.measureText(char).width, 0);
   return textWidth + Math.max(0, chars.length - 1) * letterSpacing;
@@ -164,6 +165,11 @@ const drawLine = (
     ctx.restore();
   }
 
+  // without letter spacing, draw whole lines so scripts that join letters (such as Devanagari) shape correctly
+  if (!letterSpacing) {
+    ctx.fillText(line, cursor, y);
+    return;
+  }
   chars.forEach((char, index) => {
     ctx.fillText(char, cursor, y);
     cursor += ctx.measureText(char).width + (index === chars.length - 1 ? 0 : letterSpacing);

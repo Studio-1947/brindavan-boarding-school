@@ -1,11 +1,62 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CountUp } from '@/components/CountUp';
 import { FaqSection } from '@/components/FaqSection';
+import { SpotlightGrid } from '@/components/SpotlightGrid';
 import { SwooshArrow } from '@/components/icons';
 import { Marquee } from '@/components/Marquee';
 import { ProspectusButton } from '@/components/Prospectus';
 import { ValueCards } from '@/components/ValueCards';
+import { VoiceReel } from '@/components/VoiceReel';
 import { WarpText, type WarpTextOptions } from '@/components/WarpText';
+import { WelcomeParallax } from '@/components/WelcomeParallax';
+
+const OUTCOMES = [
+  {
+    value: 98,
+    suffix: '%',
+    label: 'ICSE Class 10 pass rate',
+    icon: (
+      <>
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+        <path d="M14 3v5h5" />
+        <path d="m9 14 2 2 4-4" />
+      </>
+    ),
+  },
+  {
+    value: 96,
+    suffix: '%',
+    label: 'ISC Class 12 pass rate',
+    icon: (
+      <>
+        <path d="M12 4 2 9l10 5 10-5-10-5Z" />
+        <path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5" />
+        <path d="M22 9v6" />
+      </>
+    ),
+  },
+  {
+    value: 64,
+    suffix: '',
+    label: 'Students scoring 90% and above',
+    icon: <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3l-5.5 2.9 1-6.2L3 9.6l6.2-.9z" />,
+  },
+  {
+    value: 27,
+    suffix: '',
+    label: 'Inter-school competition wins',
+    icon: (
+      <>
+        <path d="M8 4h8v5a4 4 0 0 1-8 0z" />
+        <path d="M8 6H5a3 3 0 0 0 3 4" />
+        <path d="M16 6h3a3 3 0 0 1-3 4" />
+        <path d="M12 13v4" />
+        <path d="M8.5 20h7l-.8-3H9.3z" />
+      </>
+    ),
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Brindavan Boarding School | Learning in the hills of Mirik',
@@ -122,7 +173,7 @@ export default function HomePage() {
           </div>
           <div className="pill-actions">
             <Link className="pill-btn" href="/visit">
-              Book a campus visit{' '}
+              Visit us{' '}
               <svg
                 width="17"
                 height="17"
@@ -138,7 +189,7 @@ export default function HomePage() {
               </svg>
             </Link>
             <Link className="pill-btn pill-btn-outline" href="/admissions">
-              Admissions 2026–27{' '}
+              Admission{' '}
               <span>
                 <SwooshArrow />
               </span>
@@ -306,7 +357,7 @@ export default function HomePage() {
                     strokeLinejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M12 21s-7-4.35-9.5-9C.5 8 2 4 6 4c2.2 0 3.7 1.3 4.5 2.8C11.3 5.3 12.8 4 15 4c4 0 5.5 4 3.5 8-2.5 4.65-9.5 9-9.5 9Z" />
+                    <path d="M12 20.5s-7.6-4.7-9.6-9.4C.9 7.3 3.2 4 6.8 4c2.1 0 3.7 1.1 5.2 3 1.5-1.9 3.1-3 5.2-3 3.6 0 5.9 3.3 4.4 7.1-2 4.7-9.6 9.4-9.6 9.4Z" />
                   </svg>
                   <div className="value-card-top">
                     <span className="value-card-icon">
@@ -320,7 +371,7 @@ export default function HomePage() {
                         strokeLinejoin="round"
                         aria-hidden="true"
                       >
-                        <path d="M12 21s-7-4.35-9.5-9C.5 8 2 4 6 4c2.2 0 3.7 1.3 4.5 2.8C11.3 5.3 12.8 4 15 4c4 0 5.5 4 3.5 8-2.5 4.65-9.5 9-9.5 9Z" />
+                        <path d="M12 20.5s-7.6-4.7-9.6-9.4C.9 7.3 3.2 4 6.8 4c2.1 0 3.7 1.1 5.2 3 1.5-1.9 3.1-3 5.2-3 3.6 0 5.9 3.3 4.4 7.1-2 4.7-9.6 9.4-9.6 9.4Z" />
                       </svg>
                     </span>
                     <span className="value-card-num">02</span>
@@ -382,8 +433,8 @@ export default function HomePage() {
                       space, looking out for one another and finding a place to belong.
                     </p>
                     <ul>
-                      <li>Living together</li>
-                      <li>Looking out for others</li>
+                      <li>Sharing</li>
+                      <li>Caring</li>
                       <li>Belonging</li>
                     </ul>
                   </div>
@@ -394,7 +445,7 @@ export default function HomePage() {
         </div>
       </section>
       <section className="section explore-school" id="explore-school">
-        <div className="about-illustration">
+        <WelcomeParallax>
           <div className="welcome-overlay">
             <p className="welcome-eyebrow">WELCOME TO BRINDAVAN</p>
             <h2 className="welcome-title">
@@ -404,14 +455,7 @@ export default function HomePage() {
               beginning.
             </h2>
           </div>
-          <img
-            src="/assets/hero-illustration.webp"
-            width="2400"
-            height="1397"
-            loading="lazy"
-            alt="Illustrated Brindavan Boarding School students celebrating with trophies and books in the Mirik hills"
-          />
-        </div>
+        </WelcomeParallax>
         <div className="explore-school-body">
           <div className="section-heading">
             <div>
@@ -551,23 +595,56 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* TODO(school data): figures below are illustrative. Replace with the school's verified results before launch. */}
+      <section className="section outcomes" aria-labelledby="outcomes-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">RESULTS AND OUTCOMES</p>
+            <h2 id="outcomes-title">
+              Proof, not <em>promises.</em>
+            </h2>
+          </div>
+          <p>
+            Board results, competition wins and where our students go next — updated after every academic
+            year.
+          </p>
+        </div>
+        <SpotlightGrid className="outcome-grid">
+          {OUTCOMES.map(({ value, suffix, label, icon }) => (
+            <li key={label}>
+              <svg
+                className="outcome-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                {icon}
+              </svg>
+              <strong>
+                <CountUp target={value}>{value}</CountUp>
+                {suffix && <em>{suffix}</em>}
+              </strong>
+              <span className="outcome-label">{label}</span>
+            </li>
+          ))}
+        </SpotlightGrid>
+      </section>
       {/* Admissions journey: steps mirror admissions.html. NOTE: no interview/interaction step is shown because the school's actual process is not documented - add one here once confirmed. */}
       <section className="section journey" id="admissions-journey" aria-labelledby="journey-title">
         <div className="section-heading">
           <div>
             <p className="eyebrow">ADMISSIONS 2026–27</p>
             <h2 id="journey-title">
-              How to join <em>Brindavan.</em>
+              Join <em>Brindavan Boarding School.</em>
             </h2>
           </div>
-          <p>
-            Four steps from your first question to a confirmed place. Dates, eligibility and fees come
-            directly from the school.
-          </p>
         </div>
         <ol className="journey-steps">
           <li>
-            <span className="journey-num">01</span>
             <h3>Enquire</h3>
             <p>
               Tell us your child’s age, current class, and whether you are considering day scholar or boarding
@@ -575,14 +652,12 @@ export default function HomePage() {
             </p>
           </li>
           <li>
-            <span className="journey-num">02</span>
             <h3>Visit</h3>
             <p>
               See the campus in Mirik, meet the staff, and discuss academics, boarding and your child’s needs.
             </p>
           </li>
           <li>
-            <span className="journey-num">03</span>
             <h3>Apply</h3>
             <p>
               Request the application form, current fee structure, document checklist and eligibility
@@ -590,7 +665,6 @@ export default function HomePage() {
             </p>
           </li>
           <li>
-            <span className="journey-num">04</span>
             <h3>Confirm</h3>
             <p>
               The admissions team confirms the next steps, key dates and your child’s place at the school.
@@ -598,14 +672,14 @@ export default function HomePage() {
           </li>
         </ol>
         <div className="journey-foot">
-          <Link className="button small" href="/admissions">
-            See the full process{' '}
+          <Link className="button small" href="/visit">
+            Enquire now for Admission{' '}
             <span>
               <SwooshArrow />
             </span>
           </Link>
-          <a className="text-link" href="#faq">
-            Read admission FAQs{' '}
+          <Link className="text-link" href="/admissions">
+            Know our Admission Process in Detail{' '}
             <svg
               className="icon-arrow"
               width="13"
@@ -623,41 +697,8 @@ export default function HomePage() {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
+          </Link>
         </div>
-      </section>
-      {/* TODO(school data): figures below are illustrative. Replace with the school's verified results before launch. */}
-      <section className="section outcomes" aria-labelledby="outcomes-title">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">RESULTS AND OUTCOMES</p>
-            <h2 id="outcomes-title">
-              Proof, not <em>promises.</em>
-            </h2>
-          </div>
-          <p>
-            Board results, competition wins and where our students go next — updated after every academic
-            year.
-          </p>
-        </div>
-        <ul className="outcome-grid">
-          <li>
-            <strong>98%</strong>
-            <span>ICSE Class 10 pass rate</span>
-          </li>
-          <li>
-            <strong>96%</strong>
-            <span>ISC Class 12 pass rate</span>
-          </li>
-          <li>
-            <strong>64</strong>
-            <span>Students scoring 90% and above</span>
-          </li>
-          <li>
-            <strong>27</strong>
-            <span>Inter-school competition wins</span>
-          </li>
-        </ul>
       </section>
       {/* TODO(school data): quotes and names below are illustrative. Replace with real testimonials, collected with written consent, before launch. */}
       <section className="section testimonials" aria-labelledby="tst-title">
@@ -665,55 +706,12 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">IN THEIR WORDS</p>
             <h2 id="tst-title">
-              Families on <em>Brindavan.</em>
+              Voices of <em>Brindavan.</em>
             </h2>
           </div>
-          <p>What families, students and alumni say about their years in Mirik.</p>
+          <p>Students and teachers, on camera, about learning, boarding and growing up in Mirik.</p>
         </div>
-        <div className="tgrid">
-          <figure className="tcard">
-            <blockquote>
-              “We moved to Mirik three years ago and the school made our daughter feel at home within a week.
-              The teachers call us before we have to call them, and that has made all the difference.”
-            </blockquote>
-            <figcaption>
-              <span className="tavatar" aria-hidden="true">
-                PS
-              </span>
-              <span className="tname">
-                Pemba Sherpa<em>Parent, Class 8</em>
-              </span>
-            </figcaption>
-          </figure>
-          <figure className="tcard">
-            <blockquote>
-              “The teachers here push you without making you afraid of getting things wrong. I joined the
-              debate club in Class 9 and it changed how I speak up in every class.”
-            </blockquote>
-            <figcaption>
-              <span className="tavatar" aria-hidden="true">
-                AR
-              </span>
-              <span className="tname">
-                Anjali Rai<em>Student, Class 11</em>
-              </span>
-            </figcaption>
-          </figure>
-          <figure className="tcard">
-            <blockquote>
-              “Boarding taught me to look after myself and after other people. I still visit every winter, and
-              the hills still feel like the place I grew up in.”
-            </blockquote>
-            <figcaption>
-              <span className="tavatar" aria-hidden="true">
-                TB
-              </span>
-              <span className="tname">
-                Tenzing Bhutia<em>Alumnus, Class of 2019</em>
-              </span>
-            </figcaption>
-          </figure>
-        </div>
+        <VoiceReel />
       </section>
       <section className="section vision" aria-labelledby="vision-title">
         <div className="vision-top">

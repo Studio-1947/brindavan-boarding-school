@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { gsap, useGSAP } from '@/lib/gsap';
+import { useT } from '@/i18n/ui';
 
 export type DeckPhoto = { src: string; alt: string; caption: string };
 
@@ -19,6 +20,7 @@ const POSES = [
  */
 export function PhotoDeck({ photos }: { photos: DeckPhoto[] }) {
   const root = useRef<HTMLDivElement>(null);
+  const t = useT();
   // order[0] is the photo on top
   const [order, setOrder] = useState(() => photos.map((_, i) => i));
   const leaving = useRef<number | null>(null);
@@ -72,7 +74,7 @@ export function PhotoDeck({ photos }: { photos: DeckPhoto[] }) {
             className="photo-deck-card"
             onClick={next}
             tabIndex={i === top ? 0 : -1}
-            aria-label="Show the next photo"
+            aria-label={t('Show the next photo')}
           >
             <img src={photo.src} alt={photo.alt} />
           </button>
@@ -81,7 +83,7 @@ export function PhotoDeck({ photos }: { photos: DeckPhoto[] }) {
       <div className="photo-deck-foot">
         <p aria-live="polite">{photos[top].caption}</p>
         <button type="button" onClick={next}>
-          {top + 1} / {photos.length} · Next →
+          {top + 1} / {photos.length} · {t('Next →')}
         </button>
       </div>
     </div>

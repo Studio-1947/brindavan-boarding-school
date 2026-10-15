@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { gsap, useGSAP } from '@/lib/gsap';
+import { localizeHref } from '@/i18n/lang';
+import { useLang, useT } from '@/i18n/ui';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -14,6 +16,8 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
  */
 export function BoardingHero() {
   const root = useRef<HTMLDivElement>(null);
+  const lang = useLang();
+  const t = useT();
 
   useGSAP(
     () => {
@@ -69,22 +73,22 @@ export function BoardingHero() {
           <path className="bh-bird" d="M100 48 q5 -6 10 0 q5 -6 10 0" />
         </svg>
         <div className="bh-kicker">
-          <Link className="text-link" href="/" prefetch={false}>
-            <span className="back-arrow">←</span> Back to home
+          <Link className="text-link" href={localizeHref('/', lang)} prefetch={false}>
+            <span className="back-arrow">←</span> {t('Back to home')}
           </Link>
-          <p className="eyebrow">A COMMUNITY TO CALL YOUR OWN</p>
+          <p className="eyebrow">{t('A COMMUNITY TO CALL YOUR OWN')}</p>
         </div>
         <h1 className="bh-title">
-          School is a chapter.
+          {t('School is a chapter.')}
           <br />
-          Belonging is
+          {t('Belonging is')}
           <br />
-          <em>for life.</em>
+          <em>{t('for life.')}</em>
         </h1>
         <p className="lead bh-lead">
-          Choosing a boarding school is a personal decision. This page walks through what boarding life at
-          Brindavan generally involves, so a visit can focus on the specific details that matter to your
-          family.
+          {t(
+            'Choosing a boarding school is a personal decision. This page walks through what boarding life at Brindavan generally involves, so a visit can focus on the specific details that matter to your family.',
+          )}
         </p>
       </section>
       <figure className="bh-photo">
@@ -92,10 +96,10 @@ export function BoardingHero() {
           src="/assets/boarding/courtyard-blocks.webp"
           width="1800"
           height="1013"
-          alt="Boarders playing football in the courtyard between the blue classroom blocks"
+          alt={t('Boarders playing football in the courtyard between the blue classroom blocks')}
         />
         <figcaption className="bh-chip">
-          <span aria-hidden="true">●</span> The courtyard, between classes
+          <span aria-hidden="true">●</span> {t('The courtyard, between classes')}
         </figcaption>
       </figure>
     </div>

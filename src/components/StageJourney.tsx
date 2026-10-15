@@ -38,71 +38,77 @@ export function StageJourney({ stages }: { stages: Stage[] }) {
       const cards = gsap.utils.toArray<HTMLElement>('.photo-card', el);
       const mm = gsap.matchMedia();
 
-      mm.add('(min-width: 1001px) and (prefers-reduced-motion: no-preference)', () => {
-        el.classList.add('is-scrolly');
-        gsap.set(cards, { flexGrow: (i) => (i === 0 ? FOCUS_GROW : 1) });
+      mm.add(
+        '(min-width: 1001px) and (min-height: 560px) and (prefers-reduced-motion: no-preference)',
+        () => {
+          el.classList.add('is-scrolly');
+          gsap.set(cards, { flexGrow: (i) => (i === 0 ? FOCUS_GROW : 1) });
 
-        // Cards rise in once as the row first comes into view.
-        gsap.from(cards, {
-          opacity: 0,
-          y: 48,
-          duration: 0.9,
-          stagger: 0.12,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-        });
-
-        // One unit of timeline per step between stages, tied to the scroll position.
-        const journey = gsap.timeline({
-          defaults: { ease: 'none' },
-          scrollTrigger: {
-            trigger: el,
-            start: 'center center',
-            end: `+=${last * SCROLL_PER_STAGE}`,
-            pin: true,
-            scrub: 0.5,
-            anticipatePin: 1,
-            onUpdate: (self) => setActive(Math.round(self.progress * last)),
-          },
-        });
-        journey.to('.stage-rail-fill', { scaleX: 1, duration: last }, 0);
-        journey.to('.stage-rail-marker', { left: '100%', duration: last }, 0);
-        for (let i = 0; i < last; i++) {
-          journey.to(cards[i], { flexGrow: 1, duration: 1, ease: 'power1.inOut' }, i);
-          journey.to(cards[i + 1], { flexGrow: FOCUS_GROW, duration: 1, ease: 'power1.inOut' }, i);
-        }
-        trigger.current = journey.scrollTrigger ?? null;
-
-        // Web fonts change heights further up the page; measure again once they are in.
-        document.fonts?.ready.then(() => ScrollTrigger.refresh());
-
-        // Pinning makes the page longer, which strands a visitor who arrived at a #link further
-        // down (the "All teachers" link lands on #faculty). Put them back on their target.
-        const target = document.getElementById(window.location.hash.slice(1));
-        if (target) {
-          requestAnimationFrame(() =>
-            requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant' })),
-          );
-        }
-
-        return () => {
-          trigger.current = null;
-          el.classList.remove('is-scrolly');
-          setActive(0);
-        };
-      });
-
-      mm.add('(max-width: 1000px) and (prefers-reduced-motion: no-preference)', () => {
-        cards.forEach((card) => {
-          gsap.from(card, {
+          // Cards rise in once as the row first comes into view.
+          gsap.from(cards, {
             opacity: 0,
-            y: 40,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+            y: 48,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true },
           });
-        });
-      });
+
+          // One unit of timeline per step between stages, tied to the scroll position.
+          const journey = gsap.timeline({
+            defaults: { ease: 'none' },
+            scrollTrigger: {
+              trigger: el,
+              start: 'center center',
+              end: `+=${last * SCROLL_PER_STAGE}`,
+              pin: true,
+              scrub: 0.5,
+              anticipatePin: 1,
+              onUpdate: (self) => setActive(Math.round(self.progress * last)),
+            },
+          });
+          journey.to('.stage-rail-fill', { scaleX: 1, duration: last }, 0);
+          journey.to('.stage-rail-marker', { left: '100%', duration: last }, 0);
+          for (let i = 0; i < last; i++) {
+            journey.to(cards[i], { flexGrow: 1, duration: 1, ease: 'power1.inOut' }, i);
+            journey.to(cards[i + 1], { flexGrow: FOCUS_GROW, duration: 1, ease: 'power1.inOut' }, i);
+          }
+          trigger.current = journey.scrollTrigger ?? null;
+
+          // Web fonts change heights further up the page; measure again once they are in.
+          document.fonts?.ready.then(() => ScrollTrigger.refresh());
+
+          // Pinning makes the page longer, which strands a visitor who arrived at a #link further
+          // down (the "All teachers" link lands on #faculty). Put them back on their target.
+          const target = document.getElementById(window.location.hash.slice(1));
+          if (target) {
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant' })),
+            );
+          }
+
+          return () => {
+            trigger.current = null;
+            el.classList.remove('is-scrolly');
+            setActive(0);
+          };
+        },
+      );
+
+      mm.add(
+        '((max-width: 1000px) or (max-height: 559px)) and (prefers-reduced-motion: no-preference)',
+        () => {
+          cards.forEach((card) => {
+            gsap.from(card, {
+              opacity: 0,
+              y: 40,
+              duration: 0.8,
+              ease: 'power2.out',
+              scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+            });
+          });
+        },
+      );
     },
     { scope: root, dependencies: [last] },
   );

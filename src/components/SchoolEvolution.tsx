@@ -31,7 +31,8 @@ export function SchoolEvolution({ then, now, chapters }: SchoolEvolutionProps) {
       if (!el) return;
       const mm = gsap.matchMedia();
 
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // short screens (phones held sideways) get the static layout: a pinned scene would leave no room
+      mm.add('(prefers-reduced-motion: no-preference) and (min-height: 520px)', () => {
         el.classList.add('is-scrolly');
         const year = el.querySelector<HTMLElement>('.evolution-year');
         const count = { value: then.year };

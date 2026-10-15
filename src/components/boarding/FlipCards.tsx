@@ -3,6 +3,7 @@
 import { useRef, useState, type ReactNode } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap, useGSAP } from '@/lib/gsap';
+import { useT } from '@/i18n/ui';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +15,7 @@ export type FlipCard = { topic: string; title: string; text: string; icon: React
  */
 export function FlipCards({ cards }: { cards: FlipCard[] }) {
   const root = useRef<HTMLDivElement>(null);
+  const t = useT();
   const [flipped, setFlipped] = useState<boolean[]>(() => cards.map(() => false));
 
   useGSAP(
@@ -53,7 +55,7 @@ export function FlipCards({ cards }: { cards: FlipCard[] }) {
               <span className="flip-icon">{card.icon}</span>
               <span className="flip-topic">{card.topic}</span>
               <span className="flip-title">{card.title}</span>
-              <span className="flip-hint">What to ask ↻</span>
+              <span className="flip-hint">{t('What to ask ↻')}</span>
             </span>
             <span className="flip-face flip-back">
               <span className="flip-topic">{card.topic}</span>

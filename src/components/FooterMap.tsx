@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useT } from '@/i18n/ui';
 
 const PLACE = 'Brindavan+Boarding+School+Seeyok+Fatak+Mirik';
 
@@ -12,6 +13,7 @@ const PLACE = 'Brindavan+Boarding+School+Seeyok+Fatak+Mirik';
 export function FooterMap() {
   const box = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     const el = box.current;
@@ -33,7 +35,7 @@ export function FooterMap() {
       <div className="footer-map-frame">
         {show && (
           <iframe
-            title="Map showing Brindavan Boarding School, Seeyok Fatak, Mirik"
+            title={t('Map showing Brindavan Boarding School, Seeyok Fatak, Mirik')}
             src={`https://www.google.com/maps?q=${PLACE}&z=15&output=embed`}
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
@@ -41,7 +43,7 @@ export function FooterMap() {
         )}
       </div>
       <a href={`https://www.google.com/maps/search/?api=1&query=${PLACE}`} target="_blank" rel="noopener">
-        Open in Google Maps
+        {t('Open in Google Maps')}
       </a>
     </div>
   );

@@ -8,3 +8,8 @@ node_modules
 
 # Staff records with personal data (Aadhaar, dates of birth, phone numbers). Never publish or commit.
 private/
+
+.i18n-missing.txt
+
+# Raw testimonial footage (2.2 GB, HEVC). Web versions live in public/assets/voices.
+raw-footage/

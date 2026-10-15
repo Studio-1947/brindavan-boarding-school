@@ -10,6 +10,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from 'react';
+import { useT } from '@/i18n/ui';
 
 const ProspectusContext = createContext<() => void>(() => {});
 
@@ -18,6 +19,7 @@ export const useProspectus = () => useContext(ProspectusContext);
 
 export function ProspectusProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useT();
   const form = useRef<HTMLFormElement>(null);
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
@@ -57,22 +59,22 @@ export function ProspectusProvider({ children }: { children: ReactNode }) {
         }}
       >
         <div className="modal-box" role="dialog" aria-modal="true" aria-labelledby="prospectus-title">
-          <button type="button" className="modal-close" aria-label="Close" onClick={close}>
+          <button type="button" className="modal-close" aria-label={t('Close')} onClick={close}>
             ×
           </button>
-          <h3 id="prospectus-title">Get the Prospectus</h3>
-          <p>Share your details and we will send you the prospectus on WhatsApp.</p>
+          <h3 id="prospectus-title">{t('Get the Prospectus')}</h3>
+          <p>{t('Share your details and we will send you the prospectus on WhatsApp.')}</p>
           <form id="prospectus-form" ref={form} onSubmit={onSubmit}>
             <label>
-              Full name
+              {t('Full name')}
               <input type="text" name="name" required />
             </label>
             <label>
-              WhatsApp number
+              {t('WhatsApp number')}
               <input type="tel" name="whatsapp" required placeholder="+91 XXXXX XXXXX" />
             </label>
             <button type="submit" className="button">
-              Send request
+              {t('Send request')}
             </button>
           </form>
         </div>

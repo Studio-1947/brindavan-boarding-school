@@ -110,7 +110,7 @@ export default async function TeacherPage({ params }: Params) {
           <dl className="mt-7 mb-0 flex flex-wrap gap-x-10 gap-y-5 border-t border-line pt-6">
             {facts.map(([label, value]) => (
               <div key={label}>
-                <dt className="mb-1.5 text-[10px] tracking-[0.12em] text-muted uppercase">{label}</dt>
+                <dt className="mb-1.5 text-[11px] tracking-[0.12em] text-muted uppercase">{label}</dt>
                 <dd className="m-0 text-[17px] font-[550]">{value}</dd>
               </div>
             ))}

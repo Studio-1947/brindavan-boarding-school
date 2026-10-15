@@ -1,0 +1,227 @@
+/* Nepali: staff cards, teacher profile pages and their labels.
+   Staff names are kept as written in English. */
+
+export const staff: Record<string, string> = {
+  // profile page labels
+  Subject: 'विषय',
+  Classes: 'कक्षा',
+  'At Brindavan since': 'वृन्दावनमा आएको वर्ष',
+  Languages: 'भाषा',
+  'All teachers': 'सबै शिक्षक',
+  Strengths: 'क्षमता',
+  Qualifications: 'योग्यता',
+  'Teaching experience': 'शिक्षण अनुभव',
+  'In the classroom and beyond': 'कक्षाभित्र र बाहिर',
+  'A fuller profile for': '',
+  'will be added soon.': 'को विस्तृत परिचय छिट्टै थपिनेछ।',
+  'Assistant Teacher': 'सहायक शिक्षक',
+  Teacher: 'शिक्षक',
+  'Teaching staff': 'शिक्षण कर्मचारी',
+  'Sociology and Computer Teacher, House In-charge': 'समाजशास्त्र र कम्प्युटर शिक्षक, हाउस इन्चार्ज',
+  'English Teacher and House In-charge': 'अंग्रेजी शिक्षक र हाउस इन्चार्ज',
+
+  // subjects and roles
+  Mathematics: 'गणित',
+  Physics: 'भौतिकशास्त्र',
+  'Physics, Mathematics': 'भौतिकशास्त्र, गणित',
+  'Chemistry & Biology': 'रसायनशास्त्र र जीवविज्ञान',
+  'Biology & General Science': 'जीवविज्ञान र सामान्य विज्ञान',
+  Computer: 'कम्प्युटर',
+  English: 'अंग्रेजी',
+  'English I': 'अंग्रेजी I',
+  'English II': 'अंग्रेजी II',
+  'English I & II, Drama (XI–XII)': 'अंग्रेजी I र II, नाटक (XI–XII)',
+  Hindi: 'हिन्दी',
+  Nepali: 'नेपाली',
+  'Geography / Economics': 'भूगोल / अर्थशास्त्र',
+  Geography: 'भूगोल',
+  'Geography, Economics Applications': 'भूगोल, अर्थशास्त्र अनुप्रयोग',
+  History: 'इतिहास',
+  'Political Science': 'राजनीतिशास्त्र',
+  Sociology: 'समाजशास्त्र',
+  'Sociology, Computer': 'समाजशास्त्र, कम्प्युटर',
+  'Physical Training (PTI)': 'शारीरिक प्रशिक्षण (PTI)',
+  Culture: 'संस्कृति',
+  Dance: 'नृत्य',
+  Librarian: 'पुस्तकालयाध्यक्ष',
+  'Pre-primary': 'पूर्व-प्राथमिक',
+  'Hostel warden': 'छात्रावास वार्डेन',
+  'Hostel cook': 'छात्रावास भान्से',
+  'Security guard': 'सुरक्षा गार्ड',
+  Janitor: 'सरसफाइ कर्मचारी',
+  'Water department': 'पानी विभाग',
+  'English, Hindi, Nepali': 'अंग्रेजी, हिन्दी, नेपाली',
+  'English, Nepali, Hindi': 'अंग्रेजी, नेपाली, हिन्दी',
+  'Nepali, English, Hindi': 'नेपाली, अंग्रेजी, हिन्दी',
+
+  // qualifications and posts
+  'M.A. in Geography': 'भूगोलमा एम.ए.',
+  'M.A. in History': 'इतिहासमा एम.ए.',
+  'M.A. in Political Science': 'राजनीतिशास्त्रमा एम.ए.',
+  'M.A. in Sociology': 'समाजशास्त्रमा एम.ए.',
+  'M.A. in English': 'अंग्रेजीमा एम.ए.',
+  'M.A. in Hindi': 'हिन्दीमा एम.ए.',
+  'B.A. (Honours) in English': 'अंग्रेजीमा बी.ए. (अनर्स)',
+  'UGC NET, CTET and WBTET qualified': 'UGC NET, CTET र WBTET उत्तीर्ण',
+  'Bachelor’s degree': 'स्नातक उपाधि',
+  'Nursery Teacher Training (NTT) and Montessori training': 'नर्सरी शिक्षक तालिम (NTT) र मन्टेसरी तालिम',
+  'Nursery Primary Teacher Training (NPTT)': 'नर्सरी प्राथमिक शिक्षक तालिम (NPTT)',
+  'Diploma in Computer Application (DCA)': 'कम्प्युटर एप्लिकेसनमा डिप्लोमा (DCA)',
+  'NCC “A” Certificate': 'NCC “A” प्रमाणपत्र',
+  'Assistant Teacher, Brindavan Boarding School (2007–present)':
+    'सहायक शिक्षक, वृन्दावन बोर्डिङ स्कूल (2007–हालसम्म)',
+  'Assistant Teacher, Brindavan Boarding School (2008–present)':
+    'सहायक शिक्षक, वृन्दावन बोर्डिङ स्कूल (2008–हालसम्म)',
+  'Assistant Teacher, Brindavan Boarding School (2009–present)':
+    'सहायक शिक्षक, वृन्दावन बोर्डिङ स्कूल (2009–हालसम्म)',
+  'Assistant Teacher, Brindavan Boarding School (2016–present)':
+    'सहायक शिक्षक, वृन्दावन बोर्डिङ स्कूल (2016–हालसम्म)',
+  'Assistant Teacher, Brindavan Boarding School (2023–present)':
+    'सहायक शिक्षक, वृन्दावन बोर्डिङ स्कूल (2023–हालसम्म)',
+  'Assistant Teacher, Brindavan Boarding School (2025–present)':
+    'सहायक शिक्षक, वृन्दावन बोर्डिङ स्कूल (2025–हालसम्म)',
+  'Teacher, Brindavan Boarding School (2020–present)': 'शिक्षक, वृन्दावन बोर्डिङ स्कूल (2020–हालसम्म)',
+  'Teacher, Brindavan Boarding School (2023–present)': 'शिक्षक, वृन्दावन बोर्डिङ स्कूल (2023–हालसम्म)',
+  'Assistant Teacher, Tharbo High School (2018–2023)': 'सहायक शिक्षक, थार्बो हाई स्कूल (2018–2023)',
+  'Assistant Teacher, Dreamland English School (2012–2018)':
+    'सहायक शिक्षक, ड्रिमल्यान्ड इंग्लिस स्कूल (2012–2018)',
+  'Lecturer in Hindi, Government Senior Secondary School (1996–1998)':
+    'हिन्दी प्राध्यापक, सरकारी उच्च माध्यमिक विद्यालय (1996–1998)',
+  'Bhagsu Model Public School, Himachal Pradesh (1995–1996)':
+    'भागसु मोडल पब्लिक स्कूल, हिमाचल प्रदेश (1995–1996)',
+  '13 years of teaching before joining Brindavan': 'वृन्दावनमा आउनुअघि 13 वर्षको शिक्षण अनुभव',
+
+  // about paragraphs and stated aims
+  'A member of the Brindavan faculty since 2007, with close to two decades of Mathematics teaching. Lessons pair clear explanation with practical problem-solving, and students of differing abilities get individual support.':
+    '2007 देखि वृन्दावनका शिक्षक, गणित पढाएको झन्डै दुई दशकको अनुभव। स्पष्ट व्याख्यालाई व्यावहारिक समस्या समाधानसँग जोडेर पढाउनुहुन्छ, र फरक क्षमताका विद्यार्थीलाई व्यक्तिगत सहयोग दिनुहुन्छ।',
+  'Brings more than nine years of teaching experience to Brindavan, with a focus on Physics and Mathematics taught through clear, practical lessons in a patient and inclusive classroom.':
+    'नौ वर्षभन्दा बढीको शिक्षण अनुभवसहित वृन्दावनमा हुनुहुन्छ। धैर्यपूर्ण र समावेशी कक्षामा स्पष्ट, व्यावहारिक पाठमार्फत भौतिकशास्त्र र गणित पढाउनुहुन्छ।',
+  'Teaches English and serves as the school’s Overall House In-charge and primary event coordinator, organising literary, cultural and sports events through the year.':
+    'अंग्रेजी पढाउनुहुन्छ र विद्यालयको समग्र हाउस इन्चार्ज तथा मुख्य कार्यक्रम संयोजकको जिम्मेवारी सम्हाल्नुहुन्छ, वर्षभरि साहित्यिक, सांस्कृतिक र खेलकुद कार्यक्रम आयोजना गर्नुहुन्छ।',
+  'Joined Brindavan in 2007 after teaching and lecturing in Hindi in Himachal Pradesh. Sees teaching as helping students develop confidence and capacity.':
+    'हिमाचल प्रदेशमा हिन्दी पढाएपछि 2007 मा वृन्दावनमा आउनुभयो। शिक्षणलाई विद्यार्थीको आत्मविश्वास र क्षमता विकास गर्न सघाउने काम ठान्नुहुन्छ।',
+  'Improve academic performance and support well-rounded student development.':
+    'शैक्षिक उपलब्धि सुधार्ने र विद्यार्थीको सर्वाङ्गीण विकासमा सघाउने।',
+  'Joined Brindavan in 2024 as a Geography teacher and later took on Economics Applications as well. Lessons connect the curriculum with real environments, places and human activity, with an emphasis on conceptual foundations and critical thinking.':
+    '2024 मा भूगोल शिक्षकका रूपमा वृन्दावनमा आउनुभयो र पछि अर्थशास्त्र अनुप्रयोग पनि पढाउन थाल्नुभयो। पाठलाई वास्तविक वातावरण, ठाउँ र मानवीय गतिविधिसँग जोड्नुहुन्छ, र आधारभूत अवधारणा तथा आलोचनात्मक सोचमा जोड दिनुहुन्छ।',
+  'Help students understand the world and prepare them for life, not only examinations.':
+    'विद्यार्थीलाई संसार बुझ्न सघाउने र परीक्षाका लागि मात्र होइन, जीवनका लागि तयार पार्ने।',
+  'Uses stories, critical thinking and an understanding of the historical past to build students’ curiosity, confidence, discipline and responsibility.':
+    'कथा, आलोचनात्मक सोच र इतिहासको बुझाइमार्फत विद्यार्थीमा जिज्ञासा, आत्मविश्वास, अनुशासन र जिम्मेवारी विकास गर्नुहुन्छ।',
+  'Educate, Inspire and Empower.': 'शिक्षित गर, प्रेरित गर र सशक्त बनाऊ।',
+  'Has taught at Brindavan since 2008. Focuses on developing each student’s confidence, potential, personality and academic growth within a favourable learning environment.':
+    '2008 देखि वृन्दावनमा पढाउँदै आउनुभएको छ। अनुकूल सिकाइ वातावरणमा प्रत्येक विद्यार्थीको आत्मविश्वास, क्षमता, व्यक्तित्व र शैक्षिक प्रगतिमा ध्यान दिनुहुन्छ।',
+  'Grew up in the Darjeeling district and joined Brindavan in January 2025. Helps students understand society and learn practical computer applications.':
+    'दार्जिलिङ जिल्लामा हुर्कनुभएको हो र जनवरी 2025 मा वृन्दावनमा आउनुभयो। विद्यार्थीलाई समाज बुझ्न र व्यावहारिक कम्प्युटर प्रयोग सिक्न सघाउनुहुन्छ।',
+  'Make learning simple, practical, and useful for students’ futures.':
+    'सिकाइलाई सरल, व्यावहारिक र विद्यार्थीको भविष्यका लागि उपयोगी बनाउने।',
+  'Provide quality education, nurture student abilities and contribute to overall development.':
+    'गुणस्तरीय शिक्षा दिने, विद्यार्थीको क्षमता निखार्ने र सर्वाङ्गीण विकासमा योगदान गर्ने।',
+  'Joined Brindavan in 2020 after 13 years of teaching in other schools. Teaches Nepali with an emphasis on language, cultural identity, heritage and student confidence.':
+    'अन्य विद्यालयमा 13 वर्ष पढाएपछि 2020 मा वृन्दावनमा आउनुभयो। भाषा, सांस्कृतिक पहिचान, सम्पदा र विद्यार्थीको आत्मविश्वासमा जोड दिँदै नेपाली पढाउनुहुन्छ।',
+  'Use teaching experience to create a positive and effective learning environment.':
+    'शिक्षण अनुभवलाई सकारात्मक र प्रभावकारी सिकाइ वातावरण बनाउन प्रयोग गर्ने।',
+  'A pre-primary teacher who uses child-centred, creative methods, with a focus on emotional growth, a positive learning environment and each child’s all-round development.':
+    'बालकेन्द्रित, सिर्जनात्मक विधि अपनाउने पूर्व-प्राथमिक शिक्षक, जसले भावनात्मक विकास, सकारात्मक सिकाइ वातावरण र प्रत्येक बालबालिकाको सर्वाङ्गीण विकासमा ध्यान दिनुहुन्छ।',
+  'Teach effectively and efficiently, motivate students and create interest with innovative techniques and modern teaching aids.':
+    'प्रभावकारी र कुशलतापूर्वक पढाउने, विद्यार्थीलाई प्रेरित गर्ने, र नवीन तरिका तथा आधुनिक शिक्षण सामग्रीले रुचि जगाउने।',
+  'Provide quality education, nurture abilities, and develop professionally.':
+    'गुणस्तरीय शिक्षा दिने, क्षमता निखार्ने र पेसागत रूपमा विकसित हुने।',
+
+  // strengths
+  'Instructional excellence': 'उत्कृष्ट शिक्षण',
+  'Real-world learning': 'वास्तविक जीवनसँग जोडिएको सिकाइ',
+  'Holistic student mentorship': 'विद्यार्थीको समग्र मार्गदर्शन',
+  'Classroom management': 'कक्षा व्यवस्थापन',
+  'Geography and Economics teaching': 'भूगोल र अर्थशास्त्र शिक्षण',
+  'Honesty and punctuality': 'इमानदारी र समयपालन',
+  Integrity: 'निष्ठा',
+  Respect: 'सम्मान',
+  'Equal opportunity': 'समान अवसर',
+  Creativity: 'सिर्जनशीलता',
+  Teamwork: 'टोलीमा काम',
+  'Continuous learning and self-improvement': 'निरन्तर सिकाइ र आत्मसुधार',
+  'Structured lesson planning': 'व्यवस्थित पाठयोजना',
+  'Computer hardware and software fundamentals': 'कम्प्युटर हार्डवेयर र सफ्टवेयरका आधारभूत कुरा',
+  'Explaining complex concepts simply': 'जटिल अवधारणालाई सरल ढंगले बुझाउने',
+  'Patient listening and empathy': 'धैर्यपूर्वक सुन्ने र समानुभूति',
+  'Conflict resolution': 'द्वन्द्व समाधान',
+  Counselling: 'परामर्श',
+  'Leadership and teamwork': 'नेतृत्व र टोलीमा काम',
+  'Assessment and evaluation': 'परीक्षण र मूल्याङ्कन',
+  'Behaviour management': 'व्यवहार व्यवस्थापन',
+  'Literature and cultural identity': 'साहित्य र सांस्कृतिक पहिचान',
+  'Student empowerment': 'विद्यार्थी सशक्तीकरण',
+  'Nepali grammar': 'नेपाली व्याकरण',
+  Vocabulary: 'शब्द भण्डार',
+  'Public speaking': 'सार्वजनिक वक्तृत्व',
+  Writing: 'लेखन',
+  'Inclusive education': 'समावेशी शिक्षा',
+  'Activity-based learning': 'क्रियाकलापमा आधारित सिकाइ',
+  'Patience and empathy': 'धैर्य र समानुभूति',
+  'Arts and crafts': 'कला र हस्तकला',
+  'Lesson planning': 'पाठयोजना',
+  'Curriculum implementation': 'पाठ्यक्रम कार्यान्वयन',
+  'Early childhood education': 'प्रारम्भिक बाल शिक्षा',
+  'Child development': 'बाल विकास',
+  'Mathematics instruction': 'गणित शिक्षण',
+  'Student support and guidance': 'विद्यार्थी सहयोग र मार्गदर्शन',
+  'Inclusive learning': 'समावेशी सिकाइ',
+  'Patience and responsibility': 'धैर्य र जिम्मेवारी',
+  'Character development': 'चरित्र निर्माण',
+  'Clear practical lessons': 'स्पष्ट व्यावहारिक पाठ',
+  'Student support': 'विद्यार्थी सहयोग',
+  'Academic progress': 'शैक्षिक प्रगति',
+  'Literature analysis': 'साहित्य विश्लेषण',
+  'Grammar mastery': 'व्याकरणमा दक्षता',
+  'Interactive classroom management': 'अन्तरक्रियात्मक कक्षा व्यवस्थापन',
+  'Early childhood integration': 'प्रारम्भिक बाल शिक्षासँगको तालमेल',
+  'Digital teaching aids': 'डिजिटल शिक्षण सामग्री',
+  'Event coordination': 'कार्यक्रम संयोजन',
+  Mentorship: 'मार्गदर्शन',
+  Leadership: 'नेतृत्व',
+  'Academic performance': 'शैक्षिक उपलब्धि',
+  'Teacher, student and parent collaboration': 'शिक्षक, विद्यार्थी र अभिभावकबीच सहकार्य',
+  'Intellectual, social and emotional development': 'बौद्धिक, सामाजिक र भावनात्मक विकास',
+  'Mental well-being': 'मानसिक स्वास्थ्य',
+
+  // focus areas
+  'Sociology and practical computer skills': 'समाजशास्त्र र व्यावहारिक कम्प्युटर सीप',
+  'Managing house activities and leading school teams': 'हाउसका गतिविधि सञ्चालन र विद्यालय टोलीको नेतृत्व',
+  'Mentoring, counselling and motivating pupils': 'विद्यार्थीलाई मार्गदर्शन, परामर्श र प्रेरणा',
+  'Coordinating cultural activities and participation': 'सांस्कृतिक गतिविधि र सहभागिताको संयोजन',
+  'Modern teaching methods': 'आधुनिक शिक्षण विधि',
+  'Communication with parents': 'अभिभावकसँग सञ्चार',
+  'Activities, meetings and examinations': 'गतिविधि, बैठक र परीक्षा',
+  'Student discipline and values': 'विद्यार्थीको अनुशासन र मूल्य',
+  'Collaboration and professional development': 'सहकार्य र पेसागत विकास',
+  'Lessons planned around the school’s context': 'विद्यालयको परिवेश अनुसार योजना गरिएका पाठ',
+  Assessments: 'मूल्याङ्कन',
+  'A positive classroom environment and discipline': 'सकारात्मक कक्षा वातावरण र अनुशासन',
+  'Social and academic support for students': 'विद्यार्थीलाई सामाजिक र शैक्षिक सहयोग',
+  'Use of technology in teaching': 'शिक्षणमा प्रविधिको प्रयोग',
+  'Preparing and delivering daily lessons': 'दैनिक पाठको तयारी र अध्यापन',
+  'Lesson plans, classwork, homework, tests and examinations':
+    'पाठयोजना, कक्षाकार्य, गृहकार्य, जाँच र परीक्षा',
+  'Assessing learning and keeping progress records': 'सिकाइको मूल्याङ्कन र प्रगति अभिलेख',
+  'Individual guidance': 'व्यक्तिगत मार्गदर्शन',
+  'Discipline and encouraging activities': 'अनुशासन र गतिविधिमा प्रोत्साहन',
+  'Planning and delivering lessons to the curriculum': 'पाठ्यक्रम अनुसार पाठ योजना र अध्यापन',
+  'Maintaining discipline': 'अनुशासन कायम राख्ने',
+  'Assessing performance': 'उपलब्धिको मूल्याङ्कन',
+  'Encouraging participation, creativity and confidence': 'सहभागिता, सिर्जनशीलता र आत्मविश्वासमा प्रोत्साहन',
+  'Engaging Mathematics lessons': 'रोचक गणित पाठ',
+  'Support for students of varied abilities': 'फरक क्षमताका विद्यार्थीलाई सहयोग',
+  'Individualised guidance': 'व्यक्तिगत मार्गदर्शन',
+  'Independent thinking, discipline and character': 'स्वतन्त्र सोच, अनुशासन र चरित्र',
+  'Lessons planned to suit each class': 'प्रत्येक कक्षा सुहाउँदो गरी योजना गरिएका पाठ',
+  'A positive classroom environment': 'सकारात्मक कक्षा वातावरण',
+  'Managing the classroom space and behaviour': 'कक्षाकोठा र व्यवहारको व्यवस्थापन',
+  'Academic, social and emotional development': 'शैक्षिक, सामाजिक र भावनात्मक विकास',
+  'English language and literature foundations': 'अंग्रेजी भाषा र साहित्यको आधार',
+  'Lesson planning with digital teaching aids': 'डिजिटल शिक्षण सामग्रीसहित पाठयोजना',
+  'Debates, creative arts, sports, assemblies and school functions':
+    'वादविवाद, सिर्जनात्मक कला, खेलकुद, प्रार्थना सभा र विद्यालयका कार्यक्रम',
+  'Mentoring student leaders': 'विद्यार्थी नेतृत्वको मार्गदर्शन',
+  'Announcements and public speaking': 'घोषणा र सार्वजनिक वक्तृत्व',
+};

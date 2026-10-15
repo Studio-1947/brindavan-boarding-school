@@ -1,25 +1,33 @@
+'use client';
+
 import Link from 'next/link';
 import { CurrentYear } from './CurrentYear';
 import { FooterMap } from './FooterMap';
+import { localizeHref } from '@/i18n/lang';
+import { useLang, useT } from '@/i18n/ui';
 
 export function Footer() {
+  const lang = useLang();
+  const t = useT();
+  const href = (path: string) => localizeHref(path, lang);
   return (
     <footer>
       <div className="footer-top">
         <div className="footer-brand">
-          <Link className="brand" href="/" prefetch={false}>
-            <img className="logo" src="/assets/logo.png" alt="Brindavan Boarding School crest" />
+          <Link className="brand" href={href('/')} prefetch={false}>
+            <img className="logo" src="/assets/logo.png" alt={t('Brindavan Boarding School crest')} />
             <span className="brand-name">
-              Brindavan<span>Boarding School</span>
+              {t('Brindavan')}
+              <span>{t('Boarding School')}</span>
             </span>
           </Link>
           <p>
-            Learn with curiosity.
+            {t('Learn with curiosity.')}
             <br />
-            Grow with purpose.
+            {t('Grow with purpose.')}
           </p>
           <a href="#main" className="text-link">
-            Back to top{' '}
+            {t('Back to top')}{' '}
             <svg
               className="icon-arrow"
               width="13"
@@ -40,21 +48,21 @@ export function Footer() {
           </a>
         </div>
         <div className="footer-col">
-          <h4>EXPLORE</h4>
-          <Link href="/about">About the School</Link>
-          <Link href="/academics">Academics</Link>
-          <Link href="/boarding">Boarding life</Link>
-          <Link href="/life">Beyond class</Link>
-          <Link href="/admissions">Admissions</Link>
+          <h4>{t('EXPLORE')}</h4>
+          <Link href={href('/about')}>{t('About the School')}</Link>
+          <Link href={href('/academics')}>{t('Academics')}</Link>
+          <Link href={href('/boarding')}>{t('Boarding life')}</Link>
+          <Link href={href('/life')}>{t('Beyond class')}</Link>
+          <Link href={href('/admissions')}>{t('Admissions')}</Link>
         </div>
         <div className="footer-col footer-social">
-          <h4>CONNECT</h4>
+          <h4>{t('CONNECT')}</h4>
           <address>
-            Brindavan Boarding School
+            {t('Brindavan Boarding School')}
             <br />
-            Seeyok Fatak, Mirik
+            {t('Seeyok Fatak, Mirik')}
             <br />
-            Darjeeling, West Bengal · 734214
+            {t('Darjeeling, West Bengal · 734214')}
           </address>
           <a
             href="https://www.facebook.com/p/Brindavan-boarding-school-61574700620509/"
@@ -78,16 +86,16 @@ export function Footer() {
           </a>
         </div>
         <div className="footer-col footer-find">
-          <h4>FIND US</h4>
+          <h4>{t('FIND US')}</h4>
           <FooterMap />
         </div>
       </div>
       <div className="footer-bottom">
         <span>
-          © <CurrentYear /> Brindavan Boarding School
+          © <CurrentYear /> {t('Brindavan Boarding School')}
         </span>
         <span>
-          Website Designed by :{' '}
+          {t('Website Designed by :')}{' '}
           <a className="credit-link" href="https://www.1947.io" target="_blank" rel="noopener">
             Studio 1947
           </a>

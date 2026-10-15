@@ -4,6 +4,9 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { SwooshArrow } from './icons';
 import { ProspectusButton } from './Prospectus';
+import { LangToggle } from './LangToggle';
+import { localizeHref } from '@/i18n/lang';
+import { useLang, useT } from '@/i18n/ui';
 
 const NAV_LINKS = [
   { href: '/about', label: 'About the School' },
@@ -20,6 +23,8 @@ const onScroll = (notify: () => void) => {
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const lang = useLang();
+  const t = useT();
   const menuButton = useRef<HTMLButtonElement>(null);
   // Give the persistent navigation a clear, quiet state once the page moves.
   const scrolled = useSyncExternalStore(
@@ -44,29 +49,36 @@ export function Header() {
   return (
     <header className={scrolled ? 'is-scrolled' : undefined}>
       {/* Links to the homepage skip prefetching: it would download the 170 kB hero photo on every page. */}
-      <Link className="brand" href="/" prefetch={false} aria-label="Brindavan Boarding School home">
-        <img className="logo" src="/assets/logo.png" alt="Brindavan Boarding School crest" />
+      <Link
+        className="brand"
+        href={localizeHref('/', lang)}
+        prefetch={false}
+        aria-label={t('Brindavan Boarding School home')}
+      >
+        <img className="logo" src="/assets/logo.png" alt={t('Brindavan Boarding School crest')} />
         <span className="brand-name">
-          Brindavan<span>Boarding School</span>
+          {t('Brindavan')}
+          <span>{t('Boarding School')}</span>
         </span>
       </Link>
+      <LangToggle onNavigate={() => setMenuOpen(false)} />
       <button
         ref={menuButton}
         className="menu"
-        aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+        aria-label={t(menuOpen ? 'Close navigation' : 'Open navigation')}
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen((open) => !open)}
       >
-        {menuOpen ? 'Close ×' : 'Menu ☰'}
+        {t(menuOpen ? 'Close ×' : 'Menu ☰')}
       </button>
-      <nav aria-label="Main navigation" className={menuOpen ? 'open' : undefined}>
+      <nav aria-label={t('Main navigation')} className={menuOpen ? 'open' : undefined}>
         {NAV_LINKS.map(({ href, label }) => (
-          <Link key={href} href={href} onClick={closeMenu}>
-            {label}
+          <Link key={href} href={localizeHref(href, lang)} onClick={closeMenu}>
+            {t(label)}
           </Link>
         ))}
         <ProspectusButton className="button is-outline small">
-          Prospectus &apos;26{' '}
+          {t("Prospectus '26")}{' '}
           <svg
             width="15"
             height="15"
@@ -83,8 +95,8 @@ export function Header() {
             <path d="M5 19h14" />
           </svg>
         </ProspectusButton>
-        <Link className="button small" href="/admissions" onClick={closeMenu}>
-          Admissions{' '}
+        <Link className="button small" href={localizeHref('/admissions', lang)} onClick={closeMenu}>
+          {t('Admissions')}{' '}
           <span>
             <SwooshArrow />
           </span>

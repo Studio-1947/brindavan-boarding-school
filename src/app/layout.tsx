@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const FONTS =
-  'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Inter:wght@600&family=Manrope:wght@400;500;600;650;700;750;800&display=swap';
+  'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Inter:wght@600&family=Manrope:wght@400;500;600;650;700;750;800&family=Mukta:wght@400;500;600;700;800&display=swap';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

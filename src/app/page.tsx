@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AwardShowcase, type AwardItem } from '@/components/AwardShowcase';
 import { CountUp } from '@/components/CountUp';
 import { FaqSection } from '@/components/FaqSection';
 import { SpotlightGrid } from '@/components/SpotlightGrid';
 import { SwooshArrow } from '@/components/icons';
-import { Marquee } from '@/components/Marquee';
 import { ValueCards } from '@/components/ValueCards';
 import { VisionMotto } from '@/components/VisionMotto';
 import { VoiceReel } from '@/components/VoiceReel';
@@ -19,6 +19,57 @@ const VISION_PHOTOS = [
   '/assets/hero/hero-4.webp',
   '/assets/hero/hero-7.webp',
   '/assets/hero/hero-1.webp',
+];
+
+const AWARDS: AwardItem[] = [
+  {
+    id: 'scholarship',
+    title: 'Scholarship Excellence Award',
+    description: 'Recognising consistent effort and strong academic progress.',
+    src: '/assets/hero/hero-9.webp',
+  },
+  {
+    id: 'academic',
+    title: 'Academic Merit Award',
+    description: 'Celebrating curiosity, achievement and a love of learning.',
+    src: '/assets/hero/hero-3.webp',
+  },
+  {
+    id: 'discipline',
+    title: 'Best Discipline Award',
+    description: 'Honouring responsibility, respect and everyday leadership.',
+    src: '/assets/hero/hero-1.webp',
+  },
+  {
+    id: 'sports',
+    title: 'Outstanding Sports Achievement',
+    description: 'Teamwork, resilience and confident participation in sport.',
+    src: '/assets/outdoor/football2.jpeg',
+  },
+  {
+    id: 'culture',
+    title: 'Cultural Excellence Award',
+    description: 'Celebrating performance, creativity and cultural expression.',
+    src: '/assets/about/auditorium.webp',
+  },
+  {
+    id: 'community',
+    title: 'Community Service',
+    description: 'Learning to contribute with care beyond the classroom.',
+    src: '/assets/hero/hero-2.webp',
+  },
+  {
+    id: 'mentor',
+    title: 'Outstanding Mentor',
+    description: 'Recognising educators who guide every learner with care.',
+    src: '/assets/hero/hero-6.webp',
+  },
+  {
+    id: 'innovation',
+    title: 'Innovation in Teaching',
+    description: 'Fresh ideas that make learning practical and memorable.',
+    src: '/assets/hero/hero-7.webp',
+  },
 ];
 
 const OUTCOMES = [
@@ -113,74 +164,12 @@ export default function HomePage() {
             A place to learn, belong and become, shaped by knowledge, character and community in the hills of
             Mirik.
           </p>
-          <div className="pill-marquee" aria-label="Awards and recognitions">
-            <Marquee className="pill-track" duration={24} from={0} to={-50}>
-              <span className="pill-badge">
-                <i />
-                Scholarship Excellence
-              </span>
-              <span className="pill-badge">
-                <i />
-                Award Academic
-              </span>
-              <span className="pill-badge">
-                <i />
-                Best Discipline
-              </span>
-              <span className="pill-badge">
-                <i />
-                Sports Achievement
-              </span>
-              <span className="pill-badge">
-                <i />
-                Cultural Excellence
-              </span>
-              <span className="pill-badge">
-                <i />
-                Community Service
-              </span>
-              <span className="pill-badge">
-                <i />
-                Outstanding Mentor
-              </span>
-              <span className="pill-badge">
-                <i />
-                Innovation in Teaching
-              </span>
-              <span className="pill-badge">
-                <i />
-                Scholarship Excellence
-              </span>
-              <span className="pill-badge">
-                <i />
-                Award Academic
-              </span>
-              <span className="pill-badge">
-                <i />
-                Best Discipline
-              </span>
-              <span className="pill-badge">
-                <i />
-                Sports Achievement
-              </span>
-              <span className="pill-badge">
-                <i />
-                Cultural Excellence
-              </span>
-              <span className="pill-badge">
-                <i />
-                Community Service
-              </span>
-              <span className="pill-badge">
-                <i />
-                Outstanding Mentor
-              </span>
-              <span className="pill-badge">
-                <i />
-                Innovation in Teaching
-              </span>
-            </Marquee>
-          </div>
+          <AwardShowcase
+            ariaLabel="Awards and recognitions"
+            eyebrow="Award spotlight"
+            items={AWARDS}
+            duration={50}
+          />
           <div className="pill-actions">
             <Link className="pill-btn" href="/visit">
               Visit us{' '}

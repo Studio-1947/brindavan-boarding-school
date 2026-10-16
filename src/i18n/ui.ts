@@ -15,6 +15,7 @@ const ui: Record<string, string> = {
   Visit: 'भ्रमण',
   "Prospectus '26": 'विवरणिका 2026',
   Admissions: 'भर्ना',
+  'View sitemap': 'साइटम्याप हेर्नुहोस्',
   'Menu ☰': 'मेनु ☰',
   'Close ×': 'बन्द ×',
   'Open navigation': 'मेनु खोल्नुहोस्',

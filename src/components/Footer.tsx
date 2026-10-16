@@ -85,6 +85,10 @@ export function Footer() {
           <Link href={href('/boarding')}>{t('Boarding life')}</Link>
           <Link href={href('/life')}>{t('Beyond class')}</Link>
           <Link href={href('/admissions')}>{t('Admissions')}</Link>
+          <Link className="footer-sitemap-cta" href={href('/sitemap')}>
+            {t('View sitemap')}
+            <SwooshArrow />
+          </Link>
         </div>
         <div className="footer-col footer-cta">
           <div className="footer-cta-card">

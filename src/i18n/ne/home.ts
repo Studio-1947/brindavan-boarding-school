@@ -12,6 +12,22 @@ export const home: Record<string, string> = {
   'Brindavan Boarding School | Homepage Option 2': 'वृन्दावन बोर्डिङ स्कूल | गृहपृष्ठ विकल्प 2',
 
   // hero
+  'Award spotlight': 'पुरस्कार झलक',
+  'Recognising consistent effort and strong academic progress.':
+    'निरन्तर मेहनत र उत्कृष्ट शैक्षिक प्रगतिको सम्मान।',
+  'Celebrating curiosity, achievement and a love of learning.':
+    'जिज्ञासा, उपलब्धि र सिकाइप्रतिको प्रेमको उत्सव।',
+  'Honouring responsibility, respect and everyday leadership.': 'जिम्मेवारी, सम्मान र दैनिक नेतृत्वको कदर।',
+  'Teamwork, resilience and confident participation in sport.':
+    'खेलकुदमा टोली भावना, दृढता र आत्मविश्वासी सहभागिता।',
+  'Celebrating performance, creativity and cultural expression.':
+    'प्रस्तुति, सिर्जनशीलता र सांस्कृतिक अभिव्यक्तिको उत्सव।',
+  'Learning to contribute with care beyond the classroom.':
+    'कक्षाकोठाबाहिर पनि जिम्मेवारी र सेवाभावका साथ योगदान गर्न सिकाइ।',
+  'Recognising educators who guide every learner with care.':
+    'हरेक विद्यार्थीलाई हेरचाहपूर्वक मार्गदर्शन गर्ने शिक्षकहरूको सम्मान।',
+  'Fresh ideas that make learning practical and memorable.':
+    'सिकाइलाई व्यावहारिक र स्मरणीय बनाउने नयाँ विचारहरूको सम्मान।',
   'A place to learn, belong and become, shaped by knowledge, character and community in the hills of Mirik.':
     'मिरिकका पहाडमा ज्ञान, चरित्र र समुदायले आकार दिएको सिक्ने, आफ्नो ठान्ने र केही बन्ने ठाउँ।',
   'Awards and recognitions': 'पुरस्कार र सम्मान',

@@ -2510,7 +2510,38 @@ footer:before {
 }
 .footer-col a:hover {
   opacity: 1;
-  text-decoration: underline;
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer-col a.footer-sitemap-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-width: 166px;
+  margin: 10px 0 0;
+  padding: 10px 13px;
+  color: #000881;
+  background: var(--orange);
+  border: 1px solid var(--orange);
+  border-radius: 12px 12px 12px 3px;
+  font-weight: 750;
+  opacity: 1;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.footer-col a.footer-sitemap-cta:hover,
+.footer-col a.footer-sitemap-cta:focus-visible {
+  color: #000881;
+  background: #ffd966;
+  border-color: #ffd966;
+  transform: translateY(-2px);
+}
+.footer-sitemap-cta .swoosh-arrow {
+  width: 18px;
+  height: 13px;
 }
 .footer-col address {
   font-style: normal;
@@ -2524,6 +2555,10 @@ footer:before {
   align-items: center;
   gap: 9px;
   margin-bottom: 0;
+}
+.footer-social a:hover {
+  font-weight: 700;
+  text-decoration: none;
 }
 .footer-social svg {
   flex-shrink: 0;
@@ -2953,6 +2988,95 @@ footer:before {
   font-weight: 550;
   color: var(--ink);
 }
+.sitemap-intro {
+  padding-bottom: 28px;
+}
+.sitemap-intro .lead {
+  max-width: 650px;
+}
+.sitemap-section {
+  padding-top: 24px;
+}
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.sitemap-card {
+  padding: clamp(24px, 3vw, 38px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 26px 26px 6px 26px;
+  box-shadow: 0 20px 48px -38px rgba(0, 8, 75, 0.35);
+}
+.sitemap-card-heading {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.sitemap-card-heading > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #000881;
+  background: var(--orange);
+  border-radius: 50% 50% 8px 50%;
+  font-size: 12px;
+  font-weight: 800;
+}
+.sitemap-card h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.05;
+}
+.sitemap-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.sitemap-card nav {
+  display: grid;
+  gap: 8px;
+}
+.sitemap-card nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 15px;
+  color: var(--ink);
+  background: #f5f6ff;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 650;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.sitemap-card nav a:hover,
+.sitemap-card nav a:focus-visible {
+  color: #fff;
+  background: var(--blue);
+  transform: translateX(3px);
+}
+.sitemap-card nav .swoosh-arrow {
+  width: 18px;
+  height: 13px;
+}
+@media (max-width: 700px) {
+  .sitemap-grid {
+    grid-template-columns: 1fr;
+  }
+  .sitemap-card {
+    padding: 24px 20px;
+  }
+}
 .award-pill svg {
   width: 16px;
   height: 16px;
@@ -2968,6 +3092,8 @@ footer:before {
   padding-bottom: 50px;
 }
 .hero-card {
+  position: relative;
+  z-index: 2;
   grid-column: 1;
   grid-row: 1;
   min-width: 0;
@@ -2992,8 +3118,12 @@ footer:before {
   font-size: 16px;
   font-weight: 400;
 }
-.pill-marquee {
+.award-showcase {
+  position: relative;
   margin-top: 16px;
+  z-index: 4;
+}
+.pill-marquee {
   width: 100%;
   min-width: 0;
   max-width: 100%;
@@ -3004,7 +3134,12 @@ footer:before {
 .pill-track {
   display: flex;
   width: max-content;
+  will-change: transform;
+}
+.pill-loop {
+  display: flex;
   gap: 12px;
+  padding-right: 12px;
 }
 .pill-badge {
   display: inline-flex;
@@ -3015,8 +3150,26 @@ footer:before {
   -webkit-backdrop-filter: blur(6px);
   border-radius: 999px;
   padding: 9px 18px;
+  border: 0;
   font-size: 13px;
+  font-family: inherit;
   color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.pill-badge:hover,
+.pill-badge:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+.pill-badge:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
 }
 .pill-badge i {
   width: 9px;
@@ -3026,6 +3179,71 @@ footer:before {
   box-shadow: 0 0 0 4px rgba(248, 212, 42, 0.2);
   display: inline-block;
   flex-shrink: 0;
+}
+.award-preview {
+  position: absolute;
+  left: calc(100% + 28px);
+  top: 50%;
+  z-index: 8;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  width: min(370px, 72vw);
+  overflow: hidden;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(0, 8, 129, 0.12);
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 22px 55px rgba(0, 8, 80, 0.28);
+  transform: translateY(-50%);
+  animation: award-preview-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.award-preview img {
+  width: 100%;
+  height: 100%;
+  min-height: 132px;
+  object-fit: cover;
+}
+.award-preview > div {
+  align-self: center;
+  padding: 16px 18px;
+}
+.award-preview span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.award-preview strong {
+  display: block;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.2;
+}
+.award-preview p {
+  margin: 7px 0 0;
+  color: #5b6075;
+  font-size: 12px;
+  line-height: 1.45;
+}
+@keyframes award-preview-in {
+  from {
+    opacity: 0;
+    transform: translate(-10px, -50%) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .award-preview {
+    animation: none;
+  }
 }
 .pill-actions {
   display: flex;
@@ -3111,6 +3329,8 @@ footer:before {
   white-space: nowrap;
 }
 .hero-showcase .hero-visual {
+  position: relative;
+  z-index: 1;
   grid-column: 2;
   grid-row: 1/3;
   align-self: stretch;
@@ -3129,6 +3349,23 @@ footer:before {
     grid-column: 1;
     grid-row: 1;
     padding: 36px 28px 32px;
+  }
+  .award-preview {
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 10px);
+    width: min(390px, calc(100vw - 64px));
+    transform: translateX(-50%);
+  }
+  @keyframes award-preview-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 8px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+    }
   }
   .hero-strip {
     grid-column: 1;

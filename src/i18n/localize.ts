@@ -9,7 +9,7 @@
    .i18n-missing.txt. */
 
 import { appendFileSync } from 'node:fs';
-import { cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
+import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { localizeHref, type Lang } from './lang';
 import { ne, phrases } from './ne';
@@ -93,7 +93,7 @@ async function translateValue(value: unknown, key: string, lang: Lang): Promise<
 export async function localizeTree(node: ReactNode, lang: Lang): Promise<ReactNode> {
   if (lang === 'en') return node;
   if (typeof node === 'string') return translate(node, lang);
-  if (Array.isArray(node)) return Promise.all(node.map((n) => localizeTree(n, lang)));
+  if (Array.isArray(node)) return Promise.all(Children.toArray(node).map((n) => localizeTree(n, lang)));
   if (!isValidElement(node)) return node;
 
   const element = node as ReactElement<Record<string, unknown>>;
@@ -104,7 +104,12 @@ export async function localizeTree(node: ReactNode, lang: Lang): Promise<ReactNo
   // Server components are rendered here so their output can be translated too.
   if (isServerComponent) {
     const rendered = await (type as (p: unknown) => ReactNode | Promise<ReactNode>)(element.props);
-    return localizeTree(rendered, lang);
+    const localized = await localizeTree(rendered, lang);
+    // Calling a server component directly does not pass React's special `key` prop.
+    // Restore it on the rendered root so keyed child arrays stay keyed after translation.
+    return element.key === null || !isValidElement(localized)
+      ? localized
+      : cloneElement(localized, { key: element.key });
   }
 
   const props: Record<string, unknown> = {};

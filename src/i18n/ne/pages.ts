@@ -1,6 +1,33 @@
 /* Nepali: Academics, Admissions, Boarding life, Beyond class and Visit pages. */
 
 export const pages: Record<string, string> = {
+  'Sitemap | Brindavan Boarding School': 'साइटम्याप | वृन्दावन बोर्डिङ स्कूल',
+  'Explore every section of the Brindavan Boarding School website from one clear directory.':
+    'एउटै स्पष्ट निर्देशिकाबाट वृन्दावन बोर्डिङ स्कूल वेबसाइटका सबै भागहरू हेर्नुहोस्।',
+  'FIND YOUR WAY': 'आफ्नो बाटो खोज्नुहोस्',
+  'Everything at Brindavan, in one place.': 'वृन्दावनका सबै कुरा एउटै ठाउँमा।',
+  'Use this directory to move quickly through school information, academics, admissions and student life.':
+    'विद्यालयको जानकारी, शैक्षिक कार्यक्रम, भर्ना र विद्यार्थी जीवन छिट्टै हेर्न यो निर्देशिका प्रयोग गर्नुहोस्।',
+  'Website directory': 'वेबसाइट निर्देशिका',
+  School: 'विद्यालय',
+  'Start with the school, its setting and the values that shape daily life.':
+    'विद्यालय, यसको परिवेश र दैनिक जीवनलाई आकार दिने मूल्यहरूबाट सुरु गर्नुहोस्।',
+  Home: 'गृहपृष्ठ',
+  'About the School': 'विद्यालयबारे',
+  Academics: 'शैक्षिक',
+  Admissions: 'भर्ना',
+  'Boarding life': 'छात्रावास जीवन',
+  'Beyond class': 'कक्षाभन्दा बाहिर',
+  Learning: 'सिकाइ',
+  'Explore the academic journey, classrooms and teaching community.':
+    'शैक्षिक यात्रा, कक्षाकोठा र शिक्षण समुदायबारे जान्नुहोस्।',
+  'Admissions & Visits': 'भर्ना र भ्रमण',
+  'Find the information families need before starting a conversation or campus visit.':
+    'कुराकानी सुरु गर्न वा क्याम्पस भ्रमण गर्नुअघि परिवारलाई चाहिने जानकारी पाउनुहोस्।',
+  'Visit the School': 'विद्यालय भ्रमण गर्नुहोस्',
+  'Student Life': 'विद्यार्थी जीवन',
+  'Discover boarding, activities, culture and the wider student experience.':
+    'छात्रावास, गतिविधि, संस्कृति र विस्तृत विद्यार्थी अनुभवबारे जान्नुहोस्।',
   // ---------- Academics
   'Academics | Brindavan Boarding School': 'शैक्षिक | वृन्दावन बोर्डिङ स्कूल',
   'The academic pathway at Brindavan Boarding School, Mirik: primary years through to the ICSE and ISC stages.':
@@ -245,6 +272,8 @@ export const pages: Record<string, string> = {
 };
 
 export const pagePhrases: Record<string, string> = {
+  // sitemap
+  'Everything at<1/>Brindavan, in <2>one place.</2>': 'वृन्दावनका सबै कुरा<1/><2>एउटै ठाउँमा।</2>',
   // academics
   'Room to discover.<1/>Confidence to<2/><3>go further.</3>':
     'पत्ता लगाउने ठाउँ।<1/>अझ अगाडि बढ्ने<2/><3>आत्मविश्वास।</3>',

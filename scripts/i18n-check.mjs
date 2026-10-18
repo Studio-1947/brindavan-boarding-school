@@ -13,5 +13,7 @@ rmSync('.i18n-missing.txt', { force: true });
 const missing = [...new Set(lines.filter(Boolean))]
   .filter((l) => l.startsWith('"'))
   .map((l) => JSON.parse(l))
-  .filter((s) => !KEEP_IN_ENGLISH.test(s));
+  .filter((s) => !KEEP_IN_ENGLISH.test(s))
+  // photo credits (photographer and licence) stay as the licence asks
+  .filter((s) => !/CC BY/.test(s));
 console.log(missing.length ? missing.join('\n') : 'All page text has a Nepali translation.');

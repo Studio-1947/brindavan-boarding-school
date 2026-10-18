@@ -7,6 +7,8 @@
 /* Existing site styles. They sit in the components layer so Tailwind utilities can override them. */
 @import '../styles/site.css' layer(components);
 @import '../styles/profile-card.css' layer(components);
+@import '../styles/life.css' layer(components);
+@import '../styles/visit.css' layer(components);
 
 @source not '../../legacy';
 

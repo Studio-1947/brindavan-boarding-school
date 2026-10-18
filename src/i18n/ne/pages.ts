@@ -230,6 +230,75 @@ export const pages: Record<string, string> = {
   'Ask about activities': 'गतिविधिबारे सोध्नुहोस्',
   'Start the conversation about student life.': 'विद्यार्थी जीवनबारे कुराकानी सुरु गर्नुहोस्।',
   'School updates': 'विद्यालयका अपडेट',
+  'Three threads that run through school life once the bell has gone.':
+    'घण्टी बजेपछि पनि विद्यालय जीवनभरि चल्ने तीन धागो।',
+  'Morning assembly': 'बिहानको प्रार्थना सभा',
+  'Inter-house sport': 'अन्तर-हाउस खेलकुद',
+  'Art & craft': 'कला र हस्तकला',
+  'Prize day': 'पुरस्कार दिवस',
+  Sport: 'खेलकुद',
+  Assembly: 'प्रार्थना सभा',
+  Celebrations: 'उत्सव',
+  Community: 'समुदाय',
+  'The hills': 'पहाड',
+  'The whole school lined up for morning assembly in the courtyard, with house banners on the wall behind':
+    'पछाडिको पर्खालमा हाउसका ब्यानरसहित, आँगनमा बिहानको प्रार्थना सभाका लागि लाइन लागेका सम्पूर्ण विद्यार्थी',
+  'Two inter-house teams in yellow and blue jerseys holding up their trophies, medals and certificates':
+    'पहेँलो र नीलो जर्सीमा अन्तर-हाउस टोलीहरू आफ्ना ट्रफी, पदक र प्रमाणपत्र उचालेर',
+  'Young students holding up paper plates decorated with craft flowers':
+    'हस्तकलाका फूलले सजाइएका कागजका प्लेट समातेका साना विद्यार्थी',
+  'Students gathered in the courtyard beside a table of trophies, medals and prize books':
+    'ट्रफी, पदक र पुरस्कारका किताब राखिएको टेबलछेउ आँगनमा भेला भएका विद्यार्थी',
+  'An inter-house team in orange and yellow jerseys with medals, certificates and a trophy':
+    'पदक, प्रमाणपत्र र ट्रफीसहित सुन्तला र पहेँलो जर्सीमा एउटा अन्तर-हाउस टोली',
+  'Students filling the school auditorium for an event, with teachers seated at the front':
+    'अगाडि शिक्षक बसेका, कार्यक्रमका लागि विद्यालयको सभाहल भरिएका विद्यार्थी',
+  'Tea gardens rolling over the hills around Mirik, with a winding road':
+    'घुमाउरो सडकसहित मिरिक वरपरका पहाडमा फैलिएका चियाबारी',
+  'MOMENTS FROM THE YEAR': 'वर्षभरिका क्षण',
+  'Photographs from school life outside lessons. Drag the ring, click a photo or use the arrows to step through them.':
+    'पाठबाहिरको विद्यालय जीवनका तस्बिर। घेरा तान्नुहोस्, कुनै फोटोमा क्लिक गर्नुहोस् वा तीर प्रयोग गरेर एकपछि अर्को हेर्नुहोस्।',
+  RECOGNITION: 'सम्मान',
+  'Celebrating effort': 'मिहिनेतको सम्मान',
+  'Medals, certificates and trophies mark what students achieve through the year, in and out of class.':
+    'पदक, प्रमाणपत्र र ट्रफीले कक्षाभित्र र बाहिर वर्षभरि विद्यार्थीले हासिल गरेका उपलब्धि चिनाउँछन्।',
+  'Senior girls with medals and certificates standing beside a trophy, with two teachers':
+    'दुई शिक्षकसहित, ट्रफीछेउ पदक र प्रमाणपत्र लिएर उभिएका माथिल्ला कक्षाका छात्रा',
+  'Ink-blot prints': 'मसी-छाप चित्र',
+  'Younger classes get hands-on with paint and paper, folding colour into prints to hold up and share.':
+    'साना कक्षाका विद्यार्थी रङ र कागजसँग आफैं काम गर्छन्, कागज पट्याएर रङ्गीन छाप बनाउँछन् र सबैलाई देखाउँछन्।',
+  'Young students holding up colourful ink-blot prints in their classroom':
+    'कक्षाकोठामा रङ्गीन मसी-छाप चित्र उचालेका साना विद्यार्थी',
+  TRADITION: 'परम्परा',
+  'Welcoming guests': 'अतिथि स्वागत',
+  'Visitors to the school are greeted in the way of the hills: with ceremonial scarves and folded hands.':
+    'विद्यालयमा आउने अतिथिलाई पहाडकै शैलीमा स्वागत गरिन्छ: खादा ओढाएर र हात जोडेर।',
+  'A guest with folded hands being welcomed with ceremonial scarves':
+    'हात जोडेका एक अतिथिलाई खादा ओढाएर स्वागत गरिँदै',
+  'CREATIVE WORK': 'सिर्जनात्मक काम',
+  'Drawing together': 'सँगै चित्र कोर्दै',
+  'Drawing and colouring sessions give every student the chance to make something of their own.':
+    'चित्र कोर्ने र रङ भर्ने कक्षाले हरेक विद्यार्थीलाई आफ्नै केही बनाउने मौका दिन्छ।',
+  'Students bent over their desks drawing and colouring with crayons':
+    'डेस्कमा झुकेर क्रेयनले चित्र कोर्दै र रङ भर्दै गरेका विद्यार्थी',
+  'STUDENT VOICE': 'विद्यार्थीको आवाज',
+  'Hosting the day': 'कार्यक्रमको आतिथ्य',
+  'Students stand alongside staff at school events, meeting and thanking the guests who join them.':
+    'विद्यालयका कार्यक्रममा विद्यार्थी कर्मचारीसँगै उभिन्छन्, र सहभागी अतिथिलाई भेटेर धन्यवाद दिन्छन्।',
+  'Two students in school blazers standing with a guest who wears a ceremonial scarf':
+    'खादा ओढेका एक अतिथिसँग उभिएका, विद्यालयको ब्लेजर लगाएका दुई विद्यार्थी',
+  'AFTER HOURS': 'कक्षापछि',
+  'Evenings on campus': 'क्याम्पसका साँझ',
+  'When the day ends the courtyard goes quiet, and boarders settle into their evening routines.':
+    'दिन सकिएपछि आँगन शान्त हुन्छ, र छात्रावासका विद्यार्थी आफ्नो साँझको दिनचर्यामा लाग्छन्।',
+  'The school courtyard at night under a starry sky, with the classroom windows lit':
+    'ताराले भरिएको आकाशमुनि रातको विद्यालय आँगन, कक्षाका झ्यालमा बत्ती बलिरहेका',
+  'Students playing football in the courtyard between the blue school blocks':
+    'नीला विद्यालय भवनहरूबीचको आँगनमा फुटबल खेलिरहेका विद्यार्थी',
+  'A teacher wearing ceremonial scarves stands with a young student holding a Teacher’s Day gift':
+    'खादा ओढेकी एक शिक्षिका, शिक्षक दिवसको उपहार बोकेका एक साना विद्यार्थीसँग',
+  'School staff, many in traditional dress, gathered in front of the school crest':
+    'विद्यालयको चिह्नअगाडि भेला भएका, धेरैजसो परम्परागत पोशाकमा विद्यालयका कर्मचारी',
 
   // ---------- Visit
   'Visit & Location | Brindavan Boarding School': 'भ्रमण र स्थान | वृन्दावन बोर्डिङ स्कूल',
@@ -269,6 +338,35 @@ export const pages: Record<string, string> = {
   'Learn more first': 'पहिले थप जान्नुहोस्',
   'The story and values behind Brindavan.': 'वृन्दावनको कथा र मूल्यहरू।',
   'About the school': 'विद्यालयबारे',
+  'Greetings from Mirik': 'मिरिकबाट शुभकामना',
+  'Darjeeling hills': 'दार्जिलिङ पहाड',
+  'Seeyok Fatak, Mirik · Darjeeling, West Bengal': 'सियोक फाटक, मिरिक · दार्जिलिङ, पश्चिम बंगाल',
+  'Mirik town and Sumendu Lake under low cloud, with forested hills around the water':
+    'तल झरेको बादलमुनि मिरिक सहर र सुमेन्दु ताल, पानी वरिपरि वनले ढाकिएका पहाड',
+  'Rows of tea bushes covering a hillside near Mirik, topped by a stand of tall pines':
+    'मिरिक नजिकको पहाडी भिरालोमा चियाका बुट्यानका लहर, टुप्पोमा अग्ला सल्लाका रूख',
+  'Passengers walking across the apron at Bagdogra Airport toward a waiting plane, with hills behind':
+    'पछाडि पहाडसहित, बागडोगरा विमानस्थलमा पर्खिरहेको विमानतर्फ हिँडिरहेका यात्रु',
+  'The illuminated New Jalpaiguri Junction sign above the station entrance at dusk':
+    'साँझपख स्टेसनको प्रवेशद्वारमाथि बलेको न्यू जलपाईगुडी जंक्सनको बोर्ड',
+  'A hill road winding through tea gardens near Mirik, seen from Tingling View Point':
+    'टिङलिङ भ्यू पोइन्टबाट देखिएको, मिरिक नजिक चियाबारीबीच घुमाउरो पहाडी सडक',
+  Bagdogra: 'बागडोगरा',
+  NJP: 'NJP',
+  'Into the hills': 'पहाडतिर',
+  'Seeyok Fatak': 'सियोक फाटक',
+  'YOU HAVE ARRIVED': 'तपाईं आइपुग्नुभयो',
+  'The school gate at Seeyok Fatak. Arrange your visit with the school ahead of time so the admissions team can expect you.':
+    'सियोक फाटकमा विद्यालयको मूल ढोका। भर्ना टोलीले तपाईंलाई पर्खन सकोस् भनेर भ्रमण पहिल्यै विद्यालयसँग मिलाउनुहोस्।',
+  'WHEN YOU ARRIVE': 'आइपुगेपछि',
+  'A few corners of the campus to look out for. Hover over a photo to bring it forward.':
+    'क्याम्पसका केही कुना जुन तपाईंले हेर्नुपर्छ। कुनै फोटोलाई अगाडि ल्याउन त्यसमाथि माउस राख्नुहोस्।',
+  'The courtyard': 'आँगन',
+  Classrooms: 'कक्षाकोठा',
+  'The school gate': 'विद्यालयको मूल ढोका',
+  'The auditorium': 'सभाहल',
+  'The black stone gateway of Brindavan School beside the blue school buildings':
+    'नीला विद्यालय भवनछेउ वृन्दावन स्कूलको कालो ढुङ्गाको मूल ढोका',
 };
 
 export const pagePhrases: Record<string, string> = {
@@ -297,8 +395,11 @@ export const pagePhrases: Record<string, string> = {
   'MOVE.<1/>TOGETHER.': 'सँगै<1/>अघि बढौं।',
   'EXPRESS.<1/>CONNECT.': 'अभिव्यक्त गरौं।<1/>जोडिऔं।',
   'LOOK UP.<1/>DREAM BIG.': 'माथि हेरौं।<1/>ठूलो सपना देखौं।',
+  '<1/> Scroll to explore': '<1/> स्क्रोल गरेर हेर्नुहोस्',
+  'Turn through<1/>a year of<2/><3>moments.</3>': 'वर्षभरिका<1/><3>क्षणहरू</3><2/>पल्टाउनुहोस्।',
   'Rooted in<1/>the hills of<2/><3>Mirik.</3>': '<3>मिरिकका</3><1/>पहाडमा<2/>जरा गाडेको।',
   // visit
   'Your journey<1/>begins in<2/><3>Mirik.</3>': 'तपाईंको यात्रा<1/><3>मिरिकबाट</3><2/>सुरु हुन्छ।',
   'Reaching<1/>Mirik &<2/><3>Seeyok Fatak.</3>': 'मिरिक र<1/><3>सियोक फाटक</3><2/>पुग्ने बाटो।',
+  'What you’ll<1/>see on<2/><3>arrival.</3>': 'आइपुगेपछि<1/>तपाईं<2/><3>के देख्नुहुन्छ।</3>',
 };

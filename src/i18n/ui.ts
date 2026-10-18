@@ -62,6 +62,17 @@ const ui: Record<string, string> = {
   'Show the next photo': 'अर्को फोटो हेर्नुहोस्',
   'Next →': 'अर्को →',
   'What to ask ↻': 'के सोध्ने ↻',
+  // visit: postcard and find us
+  'Turn the postcard over': 'पोस्टकार्ड पल्टाउनुहोस्',
+  'Turn over ↻': 'पल्टाउनुहोस् ↻',
+  'Photos:': 'तस्बिर:',
+  'Copy address': 'ठेगाना कपी गर्नुहोस्',
+  'Address copied ✓': 'ठेगाना कपी भयो ✓',
+  // beyond class: moments ring
+  'Moments from the school year': 'विद्यालय वर्षका क्षण',
+  'Previous photo': 'अघिल्लो फोटो',
+  'Next photo': 'अर्को फोटो',
+  'Drag to spin · click a photo': 'घुमाउन तान्नुहोस् · फोटोमा क्लिक गर्नुहोस्',
   'Back to home': 'गृहपृष्ठमा फर्कनुहोस्',
   'A COMMUNITY TO CALL YOUR OWN': 'आफ्नै भन्न सकिने समुदाय',
   'School is a chapter.': 'विद्यालय एउटा अध्याय हो।',

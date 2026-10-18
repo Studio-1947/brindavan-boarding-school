@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SwooshArrow } from '@/components/icons';
+import { ArrivalFan, type FanPhoto } from '@/components/visit/ArrivalFan';
+import { CopyAddress, VisitFind } from '@/components/visit/VisitFind';
+import { VisitHero } from '@/components/visit/VisitHero';
+import { VisitRoute, type RouteStop } from '@/components/visit/VisitRoute';
 
 export const metadata: Metadata = {
   title: 'Visit & Location | Brindavan Boarding School',
@@ -12,15 +16,112 @@ export const metadata: Metadata = {
   },
 };
 
+// Photos of the route that are not the school's own come from Wikimedia Commons under the
+// licence named in each credit, which must stay visible next to the photo.
+const COMMONS = 'https://commons.wikimedia.org/wiki/File:';
+
+const stops: RouteStop[] = [
+  {
+    label: 'Bagdogra',
+    tag: 'NEAREST AIRPORT',
+    title: 'Bagdogra Airport',
+    text: 'The nearest major airport, with onward road travel of roughly 2–3 hours to Mirik depending on traffic and route.',
+    src: '/assets/visit/bagdogra-airport.webp',
+    alt: 'Passengers walking across the apron at Bagdogra Airport toward a waiting plane, with hills behind',
+    credit: {
+      text: 'Photo: Mahafujalam6131, CC BY-SA 4.0',
+      href: `${COMMONS}Bagdogra_International_Airport_with_Himalayas.jpg`,
+    },
+  },
+  {
+    label: 'NJP',
+    tag: 'NEAREST RAILWAY',
+    title: 'New Jalpaiguri (NJP)',
+    text: 'The main railhead for the region, similarly connected to Mirik by road.',
+    src: '/assets/visit/njp-station.webp',
+    alt: 'The illuminated New Jalpaiguri Junction sign above the station entrance at dusk',
+    credit: { text: 'Photo: Superfast1111, CC BY-SA 3.0', href: `${COMMONS}NJP_entrance.jpg` },
+  },
+  {
+    label: 'Into the hills',
+    tag: 'BY ROAD',
+    title: 'From Darjeeling or Siliguri',
+    text: 'Mirik is connected by hill roads to both Darjeeling town and Siliguri: confirm current travel times and routes before your visit.',
+    src: '/assets/visit/mirik-hill-road.webp',
+    alt: 'A hill road winding through tea gardens near Mirik, seen from Tingling View Point',
+    credit: { text: 'Photo: Shubh.ch1994, CC BY-SA 4.0', href: `${COMMONS}Tingling_View_Point_Mirik.jpg` },
+  },
+  {
+    label: 'Seeyok Fatak',
+    tag: 'YOU HAVE ARRIVED',
+    title: 'Seeyok Fatak, Mirik',
+    text: 'The school gate at Seeyok Fatak. Arrange your visit with the school ahead of time so the admissions team can expect you.',
+    src: '/assets/gate.webp',
+    alt: 'The black stone gateway of Brindavan School beside the blue school buildings',
+  },
+];
+
+const arrival: FanPhoto[] = [
+  {
+    src: '/assets/about/courtyard.webp',
+    alt: 'Students playing football in the courtyard between the blue school blocks',
+    caption: 'The courtyard',
+  },
+  {
+    src: '/assets/hero/hero-5.webp',
+    alt: 'Students bent over their desks drawing and colouring with crayons',
+    caption: 'Classrooms',
+  },
+  {
+    src: '/assets/gate.webp',
+    alt: 'The black stone gateway of Brindavan School beside the blue school buildings',
+    caption: 'The school gate',
+  },
+  {
+    src: '/assets/about/auditorium.webp',
+    alt: 'Students filling the school auditorium for an event, with teachers seated at the front',
+    caption: 'The auditorium',
+  },
+  {
+    src: '/assets/boarding/courtyard-night.webp',
+    alt: 'The school courtyard at night under a starry sky, with the classroom windows lit',
+    caption: 'Evenings on campus',
+  },
+];
+
 export default function VisitPage() {
   return (
     <main id="main">
-      <section className="section page-intro">
+      <VisitHero
+        front={{
+          src: '/assets/visit/mirik-lake.webp',
+          alt: 'Mirik town and Sumendu Lake under low cloud, with forested hills around the water',
+        }}
+        back={{
+          src: '/assets/boarding/courtyard-blocks.webp',
+          alt: 'Students playing football in the courtyard between the blue school blocks',
+        }}
+        behind={{
+          src: '/assets/visit/mirik-tea-garden.webp',
+          alt: 'Rows of tea bushes covering a hillside near Mirik, topped by a stand of tall pines',
+        }}
+        greeting="Greetings from Mirik"
+        stamp="Darjeeling hills"
+        title="Brindavan Boarding School"
+        place="Seeyok Fatak, Mirik · Darjeeling, West Bengal"
+        credits={[
+          {
+            text: 'Sumendu Lake: Sujay25, CC BY-SA 4.0',
+            href: `${COMMONS}View_of_Mirik_town_with_Sumendu_lake_and_surroundings.jpg`,
+          },
+          { text: 'Tea garden: Animesh Kumar, CC BY-SA 4.0', href: `${COMMONS}Mirik_Tea_Garden.jpg` },
+        ]}
+      >
         <Link className="text-link" href="/" prefetch={false}>
           <span className="back-arrow">←</span> Back to home
         </Link>
         <p className="eyebrow">COME A LITTLE CLOSER</p>
-        <h1>
+        <h1 className="vh-title">
           Your journey
           <br />
           begins in
@@ -31,9 +132,10 @@ export default function VisitPage() {
           Brindavan Boarding School sits at Seeyok Fatak, in the hill town of Mirik, Darjeeling district, West
           Bengal.
         </p>
-      </section>
-      <section className="visit">
-        <div>
+      </VisitHero>
+
+      <VisitFind>
+        <div className="vf-copy">
           <p className="eyebrow">FIND US</p>
           <h2>
             Rooted in
@@ -49,52 +151,42 @@ export default function VisitPage() {
             <br />
             Darjeeling, West Bengal · 734214
           </address>
-          <a
-            className="button orange"
-            href="https://www.google.com/maps/search/?api=1&amp;query=Brindavan+Boarding+School+Seeyok+Fatak+Mirik"
-            target="_blank"
-            rel="noopener"
-          >
-            Open in Google Maps{' '}
-            <span>
-              <SwooshArrow />
-            </span>
-          </a>
+          <div className="vf-actions">
+            <a
+              className="button orange"
+              href="https://www.google.com/maps/search/?api=1&amp;query=Brindavan+Boarding+School+Seeyok+Fatak+Mirik"
+              target="_blank"
+              rel="noopener"
+            >
+              Open in Google Maps{' '}
+              <span>
+                <SwooshArrow />
+              </span>
+            </a>
+            <CopyAddress clipboard="Brindavan Boarding School, Seeyok Fatak, Mirik, Darjeeling, West Bengal 734214" />
+          </div>
         </div>
         <div className="location-type">
           <span>INDIA / WEST BENGAL</span>
-          <strong>
-            MIRIK
-            <span>
-              <svg
-                className="icon-arrow"
-                width="13"
-                height="13"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10L10 4M10 4H5M10 4V9"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </strong>
+          <figure className="vf-card">
+            <img
+              src="/assets/gate.webp"
+              alt="The black stone gateway of Brindavan School beside the blue school buildings"
+              loading="lazy"
+            />
+          </figure>
+          <strong className="vf-place">MIRIK</strong>
           <p>
             Rooted in the hills.
             <br />
             Connected to a world of possibility.
           </p>
         </div>
-      </section>
-      <section className="section academics">
-        <div className="section-heading">
-          <div>
+      </VisitFind>
+
+      <VisitRoute
+        heading={
+          <>
             <p className="eyebrow">GETTING HERE</p>
             <h2>
               Reaching
@@ -103,42 +195,32 @@ export default function VisitPage() {
               <br />
               <em>Seeyok Fatak.</em>
             </h2>
+            <p className="vr-lede">
+              Mirik is in the Darjeeling hills of West Bengal, reachable from the region’s main gateway towns.
+            </p>
+          </>
+        }
+        stops={stops}
+        note="Travel times vary with road and weather conditions in the hills. Confirm the best route with the school ahead of an admission visit."
+      />
+
+      <section className="section visit-arrival">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">WHEN YOU ARRIVE</p>
+            <h2>
+              What you’ll
+              <br />
+              see on
+              <br />
+              <em>arrival.</em>
+            </h2>
           </div>
-          <p>
-            Mirik is in the Darjeeling hills of West Bengal, reachable from the region’s main gateway towns.
-          </p>
+          <p>A few corners of the campus to look out for. Hover over a photo to bring it forward.</p>
         </div>
-        <div className="academic-grid">
-          <article>
-            <span className="card-number">01</span>
-            <span className="stage">NEAREST AIRPORT</span>
-            <h3>Bagdogra Airport</h3>
-            <p>
-              The nearest major airport, with onward road travel of roughly 2–3 hours to Mirik depending on
-              traffic and route.
-            </p>
-          </article>
-          <article>
-            <span className="card-number">02</span>
-            <span className="stage">NEAREST RAILWAY</span>
-            <h3>New Jalpaiguri (NJP)</h3>
-            <p>The main railhead for the region, similarly connected to Mirik by road.</p>
-          </article>
-          <article className="blue-card">
-            <span className="card-number">03</span>
-            <span className="stage">BY ROAD</span>
-            <h3>From Darjeeling or Siliguri</h3>
-            <p>
-              Mirik is connected by hill roads to both Darjeeling town and Siliguri: confirm current travel
-              times and routes before your visit.
-            </p>
-          </article>
-        </div>
-        <p className="footnote">
-          Travel times vary with road and weather conditions in the hills. Confirm the best route with the
-          school ahead of an admission visit.
-        </p>
+        <ArrivalFan photos={arrival} />
       </section>
+
       <section className="section pt-0">
         <div className="quick-links">
           <Link href="/admissions">

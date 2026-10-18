@@ -2249,52 +2249,6 @@ nav > a:not(.button):hover {
   color: #bcc6d9;
   margin: 0;
 }
-.life-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-.life-art {
-  height: 235px;
-  padding: 29px;
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  overflow: hidden;
-}
-.life-art span {
-  font-family: Manrope, sans-serif;
-  font-size: 38px;
-  line-height: 1.08;
-  font-weight: 800;
-  letter-spacing: -0.045em;
-}
-.life-art b {
-  font-size: 13px;
-  font-weight: 500;
-  align-self: start;
-}
-.orange-art {
-  background: #f5c518;
-  color: #152345;
-}
-.blue-art {
-  background: #244be8;
-  color: #fff;
-}
-.light-art {
-  background: #eaf0ff;
-  color: #1b41da;
-}
-.life-grid h3 {
-  font-size: 22px;
-  margin-bottom: 14px;
-}
-.life-grid p {
-  font-size: 15px;
-  color: var(--muted);
-}
 .admissions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2706,9 +2660,6 @@ footer:before {
   .facts strong {
     font-size: 16px;
   }
-  .life-art span {
-    font-size: 30px;
-  }
   .section {
     padding-top: 75px;
     padding-bottom: 75px;
@@ -2810,16 +2761,6 @@ footer:before {
   }
   .card-number {
     margin-bottom: 20px;
-  }
-  .life-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-  .life-art {
-    height: 230px;
-  }
-  .life-art span {
-    font-size: 45px;
   }
   .visit {
     grid-template-columns: 1fr;
@@ -5007,13 +4948,7 @@ nav > a:not(.button):focus-visible:after {
 .values {
   flex-wrap: wrap;
 }
-.life-art span {
-  font-size: clamp(28px, 9vw, 38px);
-}
 @media (max-width: 800px) {
-  .life-art span {
-    font-size: clamp(30px, 11vw, 45px);
-  }
 }
 
 /* homepage facts strip: items wrap onto a second row rather than shrinking the text */

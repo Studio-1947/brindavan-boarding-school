@@ -54,6 +54,8 @@ const SKIP = new Set([
   'lineHeight',
   'color',
   'align',
+  // text handed to the clipboard stays as written (the postal address)
+  'clipboard',
 ]);
 
 const upperIndex = new Map(Object.entries(ne).map(([k, v]) => [k.toUpperCase(), v.toUpperCase()]));

@@ -209,7 +209,7 @@ export default function AboutPage() {
             <h3>A purpose, not just a name</h3>
             <p>But the heart of BBS was not simply its name, it was its purpose.</p>
             <p>
-              The founders had witnessed children from underprivileged areas travelling long distances to
+              The founders that had witnessed children from underprivileged areas travelling long distances to
               Mirik every day in search of education. Many students also came from across the Nepal border,
               where difficult road conditions made their journey even harder. This strengthened the founders’
               resolve to make education accessible at a nominal fee and to ensure that circumstances would

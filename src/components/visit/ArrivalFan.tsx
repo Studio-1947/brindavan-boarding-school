@@ -19,7 +19,7 @@ const pose = (offset: number, spread: number) => ({
 
 /**
  * Photos of the campus held in a stack that fans out into an arc as it scrolls into view.
- * Hovering or focusing a print lifts it out of the fan toward the viewer.
+ * Hovering, tapping or focusing a print lifts it out of the fan toward the viewer.
  */
 export function ArrivalFan({ photos }: { photos: FanPhoto[] }) {
   const root = useRef<HTMLDivElement>(null);
@@ -28,7 +28,9 @@ export function ArrivalFan({ photos }: { photos: FanPhoto[] }) {
     () => {
       const cards = gsap.utils.toArray<HTMLElement>('.af-card', root.current);
       const middle = (cards.length - 1) / 2;
-      const spread = () => Math.min(window.innerWidth * 0.17, 250);
+      // phones get a little more room between prints, so neighbours overlap less
+      const spread = () =>
+        window.innerWidth <= 700 ? window.innerWidth * 0.2 : Math.min(window.innerWidth * 0.17, 250);
 
       const fanned = () => cards.forEach((card, i) => gsap.set(card, pose(i - middle, spread())));
 
@@ -69,7 +71,7 @@ export function ArrivalFan({ photos }: { photos: FanPhoto[] }) {
         {photos.map((photo, i) => (
           <figure
             key={photo.src}
-            className="af-card"
+            className={Math.abs(i - (photos.length - 1) / 2) < 0.6 ? 'af-card is-front' : 'af-card'}
             tabIndex={0}
             style={{ zIndex: 10 - Math.round(Math.abs(i - (photos.length - 1) / 2)) } as CSSProperties}
           >

@@ -171,6 +171,11 @@
     left: 10px;
     bottom: -13px;
   }
+  /* the art & craft print sits over the lower left of the main print, so its tag moves right */
+  .lh-card:nth-of-type(1) .lh-tag {
+    left: auto;
+    right: 10px;
+  }
 }
 
 /* Activity band between the hero and the threads: tilted, so it is clipped to the page width */
@@ -537,12 +542,28 @@
   .moment-ring {
     --card-w: clamp(140px, 40vw, 220px);
   }
-  .mr-arrow {
-    width: 46px;
-    height: 46px;
+  /* caption gets the full width; the arrows sit together underneath it */
+  .mr-caption {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 12px;
   }
   .mr-text {
-    min-height: 190px;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 140px;
+  }
+  .mr-arrow {
+    width: 48px;
+    height: 48px;
+  }
+  .mr-arrow:first-child {
+    justify-self: end;
+  }
+  .mr-arrow:last-child {
+    justify-self: start;
+  }
+  .mr-arrow:hover {
+    transform: none;
   }
 }
 

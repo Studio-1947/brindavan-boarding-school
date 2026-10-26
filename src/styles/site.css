@@ -125,20 +125,20 @@ header > .brand {
   height: 52px;
   object-fit: contain;
 }
-nav {
+header nav {
   display: flex;
   align-items: center;
   gap: clamp(12px, 1.9vw, 30px);
   font-size: clamp(12.5px, 1.05vw, 14px);
   font-weight: 550;
 }
-nav > a {
+header nav > a {
   white-space: nowrap;
 }
 .button {
   white-space: nowrap;
 }
-nav > a:not(.button):hover {
+header nav > a:not(.button):hover {
   color: var(--blue);
 }
 .button {
@@ -4086,7 +4086,7 @@ footer:before {
     padding: 8px 12px;
     font-size: 14px;
   }
-  nav {
+  header nav {
     display: none;
     position: absolute;
     top: 100%;
@@ -4099,11 +4099,11 @@ footer:before {
     font-size: 15px;
     gap: 4px;
   }
-  nav.open {
+  header nav.open {
     display: flex;
     flex-direction: column;
   }
-  nav > a {
+  header nav > a {
     padding: 8px;
     white-space: normal;
   }
@@ -4127,10 +4127,10 @@ header.is-scrolled {
   border-color: var(--line);
   box-shadow: 0 12px 28px rgba(20, 32, 57, 0.07);
 }
-nav > a:not(.button) {
+header nav > a:not(.button) {
   position: relative;
 }
-nav > a:not(.button):after {
+header nav > a:not(.button):after {
   content: '';
   position: absolute;
   right: 0;
@@ -4142,8 +4142,8 @@ nav > a:not(.button):after {
   transform-origin: right;
   transition: transform 0.25s ease;
 }
-nav > a:not(.button):hover:after,
-nav > a:not(.button):focus-visible:after {
+header nav > a:not(.button):hover:after,
+header nav > a:not(.button):focus-visible:after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -4151,7 +4151,7 @@ nav > a:not(.button):focus-visible:after {
   transition-duration: 0s;
 }
 @media (max-width: 1300px) {
-  nav > a:not(.button):after {
+  header nav > a:not(.button):after {
     display: none;
   }
   header.is-scrolled {
@@ -4752,7 +4752,7 @@ nav > a:not(.button):focus-visible:after {
     font-size: 15px;
   }
   /* comfortable tap targets */
-  nav > a {
+  header nav > a {
     padding: 12px 8px;
     min-height: 44px;
     display: flex;
@@ -5260,10 +5260,10 @@ nav > a:not(.button):focus-visible:after {
   header {
     gap: 16px;
   }
-  nav {
+  header nav {
     gap: 18px;
   }
-  nav .button.small {
+  header nav .button.small {
     gap: 12px;
     padding-inline: 16px;
   }
@@ -5430,5 +5430,45 @@ nav > a:not(.button):focus-visible:after {
   }
   .footer-cta {
     grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Phone polish ---------- */
+
+/* Interaction hints: mouse wording by default, touch wording on touch screens */
+.hint-touch {
+  display: none;
+}
+@media (hover: none) {
+  .hint-hover {
+    display: none;
+  }
+  .hint-touch {
+    display: inline;
+  }
+}
+@media (max-width: 800px) {
+  /* page intros: 25px runs long paragraphs to ten lines on a phone */
+  .page-intro .lead {
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  /* the footer map is a card, not a row: keep the tap-target rule for links off it */
+  .footer-col a.footer-map {
+    display: block;
+    min-height: 0;
+    padding: 10px 10px 14px;
+  }
+  .footer-map-link {
+    padding: 4px 4px 0;
+  }
+  /* the sticky quick-action bar is homepage only, so only that page needs room for it;
+     the room sits inside the footer so no white strip shows below it */
+  body {
+    padding-bottom: 0;
+  }
+  body:has(.mobile-cta) footer {
+    padding-bottom: calc(116px + env(safe-area-inset-bottom, 0px));
   }
 }

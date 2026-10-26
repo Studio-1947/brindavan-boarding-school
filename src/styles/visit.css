@@ -239,6 +239,11 @@
     font-size: 9px;
     padding: 7px 9px;
   }
+  /* leave room for the "Turn over" chip on the right */
+  .vh-greeting {
+    max-width: 52%;
+    font-size: clamp(20px, 5.6vw, 34px);
+  }
   .vh-hint {
     font-size: 11px;
     padding: 6px 10px;
@@ -611,12 +616,13 @@
   font-weight: 650;
   text-align: center;
 }
+/* :focus as well as :hover, so a tap on a touch screen lifts the print too */
 .af-card:hover,
-.af-card:focus-visible {
+.af-card:focus {
   z-index: 30 !important;
 }
 .af-card:hover .af-lift,
-.af-card:focus-visible .af-lift {
+.af-card:focus .af-lift {
   transform: translateY(-34px) translateZ(90px) scale(1.06);
   box-shadow: 0 50px 70px -30px rgba(20, 32, 57, 0.7);
 }
@@ -626,7 +632,23 @@
 }
 @media (max-width: 700px) {
   .af-stage {
-    --w: 36vw;
+    --w: 31vw;
+  }
+  .af-lift {
+    padding: 6px 6px 2px;
+  }
+  .af-lift figcaption {
+    padding: 8px 2px 5px;
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  /* prints overlap on a phone, so only the front one (or the one lifted) shows its caption */
+  .af-card:not(.is-front):not(:hover):not(:focus) figcaption {
+    visibility: hidden;
+  }
+  .af-card:hover .af-lift,
+  .af-card:focus .af-lift {
+    transform: translateY(-22px) translateZ(60px) scale(1.05);
   }
 }
 

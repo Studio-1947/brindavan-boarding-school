@@ -256,8 +256,11 @@ export const pages: Record<string, string> = {
   'Tea gardens rolling over the hills around Mirik, with a winding road':
     'घुमाउरो सडकसहित मिरिक वरपरका पहाडमा फैलिएका चियाबारी',
   'MOMENTS FROM THE YEAR': 'वर्षभरिका क्षण',
-  'Photographs from school life outside lessons. Drag the ring, click a photo or use the arrows to step through them.':
-    'पाठबाहिरको विद्यालय जीवनका तस्बिर। घेरा तान्नुहोस्, कुनै फोटोमा क्लिक गर्नुहोस् वा तीर प्रयोग गरेर एकपछि अर्को हेर्नुहोस्।',
+  'Photographs from school life outside lessons.': 'पाठबाहिरको विद्यालय जीवनका तस्बिर।',
+  'Drag the ring, click a photo or use the arrows to step through them.':
+    'घेरा तान्नुहोस्, कुनै फोटोमा क्लिक गर्नुहोस् वा तीर प्रयोग गरेर एकपछि अर्को हेर्नुहोस्।',
+  'Swipe the ring, tap a photo or use the arrows to step through them.':
+    'घेरा स्वाइप गर्नुहोस्, कुनै फोटोमा ट्याप गर्नुहोस् वा तीर प्रयोग गरेर एकपछि अर्को हेर्नुहोस्।',
   RECOGNITION: 'सम्मान',
   'Celebrating effort': 'मिहिनेतको सम्मान',
   'Medals, certificates and trophies mark what students achieve through the year, in and out of class.':
@@ -359,8 +362,9 @@ export const pages: Record<string, string> = {
   'The school gate at Seeyok Fatak. Arrange your visit with the school ahead of time so the admissions team can expect you.':
     'सियोक फाटकमा विद्यालयको मूल ढोका। भर्ना टोलीले तपाईंलाई पर्खन सकोस् भनेर भ्रमण पहिल्यै विद्यालयसँग मिलाउनुहोस्।',
   'WHEN YOU ARRIVE': 'आइपुगेपछि',
-  'A few corners of the campus to look out for. Hover over a photo to bring it forward.':
-    'क्याम्पसका केही कुना जुन तपाईंले हेर्नुपर्छ। कुनै फोटोलाई अगाडि ल्याउन त्यसमाथि माउस राख्नुहोस्।',
+  'A few corners of the campus to look out for.': 'क्याम्पसका केही कुना जुन तपाईंले हेर्नुपर्छ।',
+  'Hover over a photo to bring it forward.': 'कुनै फोटोलाई अगाडि ल्याउन त्यसमाथि माउस राख्नुहोस्।',
+  'Tap a photo to bring it forward.': 'कुनै फोटोलाई अगाडि ल्याउन त्यसमा ट्याप गर्नुहोस्।',
   'The courtyard': 'आँगन',
   Classrooms: 'कक्षाकोठा',
   'The school gate': 'विद्यालयको मूल ढोका',

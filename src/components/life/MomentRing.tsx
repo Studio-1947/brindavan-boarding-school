@@ -188,7 +188,8 @@ export function MomentRing({ moments }: { moments: Moment[] }) {
         </button>
       </div>
       <p className="mr-hint" aria-hidden="true">
-        {t('Drag to spin · click a photo')}
+        <span className="hint-hover">{t('Drag to spin · click a photo')}</span>
+        <span className="hint-touch">{t('Swipe to spin · tap a photo')}</span>
       </p>
     </div>
   );

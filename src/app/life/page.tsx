@@ -255,8 +255,11 @@ export default function LifePage() {
             </h2>
           </div>
           <p>
-            Photographs from school life outside lessons. Drag the ring, click a photo or use the arrows to
-            step through them.
+            Photographs from school life outside lessons.{' '}
+            <span className="hint-hover">
+              Drag the ring, click a photo or use the arrows to step through them.
+            </span>
+            <span className="hint-touch">Swipe the ring, tap a photo or use the arrows to step through them.</span>
           </p>
         </div>
         <MomentRing moments={moments} />

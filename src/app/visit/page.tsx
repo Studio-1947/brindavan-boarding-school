@@ -216,7 +216,11 @@ export default function VisitPage() {
               <em>arrival.</em>
             </h2>
           </div>
-          <p>A few corners of the campus to look out for. Hover over a photo to bring it forward.</p>
+          <p>
+            A few corners of the campus to look out for.{' '}
+            <span className="hint-hover">Hover over a photo to bring it forward.</span>
+            <span className="hint-touch">Tap a photo to bring it forward.</span>
+          </p>
         </div>
         <ArrivalFan photos={arrival} />
       </section>

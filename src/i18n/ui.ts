@@ -73,6 +73,7 @@ const ui: Record<string, string> = {
   'Previous photo': 'अघिल्लो फोटो',
   'Next photo': 'अर्को फोटो',
   'Drag to spin · click a photo': 'घुमाउन तान्नुहोस् · फोटोमा क्लिक गर्नुहोस्',
+  'Swipe to spin · tap a photo': 'घुमाउन स्वाइप गर्नुहोस् · फोटोमा ट्याप गर्नुहोस्',
   'Back to home': 'गृहपृष्ठमा फर्कनुहोस्',
   'A COMMUNITY TO CALL YOUR OWN': 'आफ्नै भन्न सकिने समुदाय',
   'School is a chapter.': 'विद्यालय एउटा अध्याय हो।',

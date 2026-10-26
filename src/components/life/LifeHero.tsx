@@ -69,9 +69,19 @@ export function LifeHero({ photos, children }: { photos: HeroPhoto[]; children: 
         // as the hero leaves, the cluster turns away and the prints drift apart
         const leave = { trigger: root.current, start: 'top top', end: 'bottom top', scrub: 0.8 };
         gsap.to('.lh-scene', { rotationY: -18, rotationX: 14, z: -160, ease: 'none', scrollTrigger: leave });
+        // drift is tuned for a desktop-sized stage; a phone stage gets a proportionally smaller one
+        const reach = () =>
+          window.innerWidth > 900
+            ? 1
+            : Math.min(1, (root.current?.querySelector('.lh-stage')?.clientWidth ?? 900) / 900);
         cards.forEach((card, i) => {
           const { dx, dy } = POSES[i % POSES.length];
-          gsap.to(card, { x: dx, y: dy, ease: 'none', scrollTrigger: leave });
+          gsap.to(card, {
+            x: () => dx * reach(),
+            y: () => dy * reach(),
+            ease: 'none',
+            scrollTrigger: { ...leave, invalidateOnRefresh: true },
+          });
         });
       });
 

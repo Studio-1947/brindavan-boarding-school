@@ -5,8 +5,10 @@
 
 import { usePathname } from 'next/navigation';
 import { langFromPath, type Lang } from './lang';
+import { names } from './ne/names';
 
 const ui: Record<string, string> = {
+  ...names,
   // header
   'About the School': 'विद्यालयबारे',
   Academics: 'शैक्षिक',
@@ -111,8 +113,13 @@ export function useLang(): Lang {
   return langFromPath(usePathname());
 }
 
+/** Gives a UI string in the given language. */
+export function translate(text: string, lang: Lang) {
+  return lang === 'ne' ? (ui[text] ?? text) : text;
+}
+
 /** Returns a function that gives the current page's language version of a UI string. */
 export function useT() {
   const lang = useLang();
-  return (text: string) => (lang === 'ne' ? (ui[text] ?? text) : text);
+  return (text: string) => translate(text, lang);
 }

@@ -4618,6 +4618,10 @@ header nav > a:not(.button):focus-visible:after {
   height: 78vh;
   aspect-ratio: 9 / 16;
 }
+.voice-stage.is-square video {
+  width: min(100%, 78vh);
+  aspect-ratio: 1;
+}
 .voice-caption {
   display: flex;
   flex-direction: column;
@@ -5182,6 +5186,10 @@ header nav > a:not(.button):focus-visible:after {
     background 0.2s,
     color 0.2s;
 }
+/* fixed typefaces, so the switch keeps the same width in both languages */
+.lang-toggle span:first-child {
+  font-family: 'DM Sans', sans-serif !important;
+}
 .lang-toggle span:last-child {
   font-family: Mukta, 'DM Sans', sans-serif;
 }
@@ -5203,6 +5211,42 @@ header nav > a:not(.button):focus-visible:after {
     padding: 7px 8px;
     font-size: 12px;
   }
+}
+
+/* Labels that hold both languages in one spot (StableLabel): sized by the longer one, the other
+   language's copy hidden. The English copy keeps its own typeface even inside Nepali text. */
+.stable-label {
+  display: inline-grid;
+  justify-items: center;
+}
+.brand-name .stable-label {
+  justify-items: start;
+}
+.stable-label > * {
+  grid-area: 1 / 1;
+}
+/* in a button, each version of the text carries its icon at the button's own spacing; not the
+   large arrow size that .button span sets */
+.button .stable-label,
+.button .stable-label > * {
+  font-size: inherit;
+  line-height: inherit;
+  gap: inherit;
+}
+.button .stable-label > * {
+  display: inline-flex;
+  align-items: center;
+}
+.stable-label > [aria-hidden] {
+  visibility: hidden;
+}
+.stable-label > :lang(en) {
+  font-family: var(--en-font, 'DM Sans', Arial, sans-serif) !important;
+  letter-spacing: var(--en-tracking, normal) !important;
+}
+.brand-name {
+  --en-font: Manrope, sans-serif;
+  --en-tracking: 0.01em;
 }
 
 /* Devanagari: its own typeface, no letter spacing (it splits the joined letters) and taller lines
@@ -5233,8 +5277,16 @@ header nav > a:not(.button):focus-visible:after {
 }
 /* phones: the switch shows just the other language, so the header still fits on one line */
 @media (max-width: 480px) {
+  /* both words share one spot, the current one hidden, so the switch is the same width in both languages */
+  .lang-toggle {
+    display: inline-grid;
+  }
+  .lang-toggle span {
+    grid-area: 1 / 1;
+    justify-self: center;
+  }
   .lang-toggle .is-current {
-    display: none;
+    visibility: hidden;
   }
   .lang-toggle span {
     padding: 7px 10px;

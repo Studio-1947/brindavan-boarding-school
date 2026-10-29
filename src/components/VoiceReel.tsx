@@ -12,8 +12,8 @@ type Voice = {
   role: 'Student' | 'Teacher';
   /** Class for students, subject for teachers. Falls back to the role when unknown. */
   detail?: string;
-  /** Filmed upright on a phone (9:16) rather than landscape (16:9). */
-  portrait: boolean;
+  /** Frame shape: square (1:1, the edited films), upright phone footage (9:16) or landscape (16:9). */
+  shape: 'square' | 'portrait' | 'landscape';
   /** Seconds. */
   duration: number;
   /** Shown as the large tile that opens the grid. Only one voice should have this. */
@@ -22,8 +22,8 @@ type Voice = {
   captions?: boolean;
 };
 
-/* Footage lives in public/assets/voices: <slug>.mp4 (all of a person's clips joined, 720p H.264,
-   audio cleaned up), <slug>.en.vtt (English captions, machine-made from the audio and translated
+/* Footage lives in public/assets/voices: <slug>.mp4 (the person's edited film, 720p H.264, audio
+   levelled; Khadka and Nim Dolma Dukpa still have their raw clips joined until their films arrive), <slug>.en.vtt (English captions, machine-made from the audio and translated
    where the speaker uses Nepali or Hindi) and <slug>.webp (poster cropped from their portrait photo).
    The original footage is kept out of the site in raw-footage/ (gitignored). */
 const VOICES: Voice[] = [
@@ -32,8 +32,8 @@ const VOICES: Voice[] = [
     name: 'Shradha Tamang',
     role: 'Student',
     detail: 'Class 12',
-    portrait: true,
-    duration: 100,
+    shape: 'square',
+    duration: 67,
     featured: true,
   },
   {
@@ -41,68 +41,75 @@ const VOICES: Voice[] = [
     name: 'Anirudh Gupta',
     role: 'Student',
     detail: 'Class 6',
-    portrait: true,
-    duration: 48,
+    shape: 'square',
+    duration: 18,
   },
   {
     slug: 'saikriti-chettri',
     name: 'Miss Saikriti Chettri',
     role: 'Teacher',
     detail: 'English Teacher',
-    portrait: true,
-    duration: 82,
+    shape: 'square',
+    duration: 74,
   },
-  { slug: 'jaikumari', name: 'Jaikumari', role: 'Student', detail: 'Class 12', portrait: true, duration: 30 },
+  {
+    slug: 'jaikumari',
+    name: 'Jaikumari',
+    role: 'Student',
+    detail: 'Class 12',
+    shape: 'square',
+    duration: 26,
+  },
   {
     slug: 'shourya-pradhan',
     name: 'Shourya Pradhan',
     role: 'Student',
     detail: 'Class 12',
-    portrait: false,
-    duration: 39,
+    shape: 'square',
+    duration: 43,
   },
   {
     slug: 'sanjok-pradhan',
     name: 'Mr Sanjok Pradhan',
     role: 'Teacher',
     detail: 'Biology Teacher',
-    portrait: false,
-    duration: 166,
+    shape: 'square',
+    duration: 78,
   },
-  { slug: 'khadka', name: 'Khadka', role: 'Student', detail: 'Class 6', portrait: true, duration: 49 },
+  { slug: 'khadka', name: 'Khadka', role: 'Student', detail: 'Class 6', shape: 'portrait', duration: 49 },
   {
     slug: 'chandana-ghimire',
     name: 'Miss Chandana Ghimire',
     role: 'Teacher',
     detail: 'Economics & Geography Teacher',
-    portrait: true,
-    duration: 72,
+    shape: 'square',
+    duration: 60,
   },
   // TODO(school data): class not supplied yet.
-  { slug: 'nim-dolma-dukpa', name: 'Nim Dolma Dukpa', role: 'Student', portrait: false, duration: 92 },
+  { slug: 'nim-dolma-dukpa', name: 'Nim Dolma Dukpa', role: 'Student', shape: 'landscape', duration: 92 },
   {
     slug: 'sungnima-subba',
     name: 'Sungnima Subba',
     role: 'Student',
     detail: 'Class 11',
-    portrait: false,
-    duration: 40,
+    shape: 'square',
+    duration: 33,
   },
   {
     slug: 'yuden-lama',
     name: 'Yuden Lama',
     role: 'Student',
     detail: 'Class 7',
-    portrait: true,
-    duration: 51,
+    shape: 'square',
+    duration: 29,
   },
   // TODO(school data): the footage folder only says "Northeast Student" - add the student's name and class.
   {
     slug: 'northeast-student',
     name: 'Student from the Northeast',
     role: 'Student',
-    portrait: false,
-    duration: 42,
+    shape: 'square',
+    duration: 19,
     // Spoken in Garo, which speech recognition does not support: needs a human translation.
     captions: false,
   },
@@ -237,7 +244,7 @@ export function VoiceReel() {
         onClick={(e) => e.target === e.currentTarget && dialog.current?.close()}
       >
         {current && (
-          <div className={`voice-stage${current.portrait ? ' is-portrait' : ''}`}>
+          <div className={`voice-stage is-${current.shape}`}>
             <video
               key={current.slug}
               src={`/assets/voices/${current.slug}.mp4`}

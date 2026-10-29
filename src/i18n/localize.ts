@@ -85,7 +85,8 @@ async function translateValue(value: unknown, key: string, lang: Lang): Promise<
   if (Array.isArray(value)) return Promise.all(value.map((v) => translateValue(v, '', lang)));
   if (isPlainObject(value)) {
     const out: Record<string, unknown> = {};
-    for (const [k, v] of Object.entries(value)) out[k] = await translateValue(v, k, lang);
+    // `name` is a code value on elements (form fields) but readable text in data, such as a person's name
+    for (const [k, v] of Object.entries(value)) out[k] = await translateValue(v, k === 'name' ? '' : k, lang);
     return out;
   }
   return value;

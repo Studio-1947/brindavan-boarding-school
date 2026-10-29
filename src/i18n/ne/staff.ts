@@ -1,5 +1,5 @@
 /* Nepali: staff cards, teacher profile pages and their labels.
-   Staff names are kept as written in English. */
+   Staff names are in names.ts. */
 
 export const staff: Record<string, string> = {
   // profile page labels

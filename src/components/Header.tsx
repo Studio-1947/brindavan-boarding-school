@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { SwooshArrow } from './icons';
 import { ProspectusButton } from './Prospectus';
 import { LangToggle } from './LangToggle';
+import { StableLabel } from './StableLabel';
 import { localizeHref } from '@/i18n/lang';
 import { useLang, useT } from '@/i18n/ui';
 
@@ -47,7 +48,8 @@ export function Header() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={scrolled ? 'is-scrolled' : undefined}>
+    // lang on the header itself, so Nepali labels get their typeface in the same paint as the new text
+    <header lang={lang} className={scrolled ? 'is-scrolled' : undefined}>
       {/* Links to the homepage skip prefetching: it would download the 170 kB hero photo on every page. */}
       <Link
         className="brand"
@@ -57,8 +59,8 @@ export function Header() {
       >
         <img className="logo" src="/assets/logo.png" alt={t('Brindavan Boarding School crest')} />
         <span className="brand-name">
-          {t('Brindavan')}
-          <span>{t('Boarding School')}</span>
+          <StableLabel text="Brindavan" />
+          <StableLabel text="Boarding School" />
         </span>
       </Link>
       <LangToggle onNavigate={() => setMenuOpen(false)} />
@@ -69,37 +71,45 @@ export function Header() {
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen((open) => !open)}
       >
-        {t(menuOpen ? 'Close ×' : 'Menu ☰')}
+        <StableLabel text={menuOpen ? 'Close ×' : 'Menu ☰'} />
       </button>
       <nav aria-label={t('Main navigation')} className={menuOpen ? 'open' : undefined}>
         {NAV_LINKS.map(({ href, label }) => (
           <Link key={href} href={localizeHref(href, lang)} onClick={closeMenu}>
-            {t(label)}
+            <StableLabel text={label} />
           </Link>
         ))}
         <ProspectusButton className="button is-outline small">
-          {t("Prospectus '26")}{' '}
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M12 3v12" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M5 19h14" />
-          </svg>
+          <StableLabel
+            text="Prospectus '26"
+            after={
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M5 19h14" />
+              </svg>
+            }
+          />
         </ProspectusButton>
         <Link className="button small" href={localizeHref('/admissions', lang)} onClick={closeMenu}>
-          {t('Admissions')}{' '}
-          <span>
-            <SwooshArrow />
-          </span>
+          <StableLabel
+            text="Admissions"
+            after={
+              <span>
+                <SwooshArrow />
+              </span>
+            }
+          />
         </Link>
       </nav>
     </header>

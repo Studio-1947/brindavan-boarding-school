@@ -5,8 +5,9 @@
 
 import { about, aboutPhrases } from './about';
 import { home, homePhrases } from './home';
+import { names } from './names';
 import { pagePhrases, pages } from './pages';
 import { staff } from './staff';
 
-export const ne: Record<string, string> = { ...staff, ...home, ...about, ...pages };
+export const ne: Record<string, string> = { ...names, ...staff, ...home, ...about, ...pages };
 export const phrases: Record<string, string> = { ...homePhrases, ...aboutPhrases, ...pagePhrases };

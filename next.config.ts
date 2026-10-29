@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   // site still uploads to any static host and old URLs like /about.html keep working.
   output: 'export',
   images: { unoptimized: true },
+  experimental: {
+    agentUpgrade: 'security',
+  },
 };
 
 export default nextConfig;

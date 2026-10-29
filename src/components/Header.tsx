@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { SwooshArrow } from './icons';
-import { ProspectusButton } from './Prospectus';
+import { ProspectusVideoButton } from './ProspectusVideo';
 import { LangToggle } from './LangToggle';
 import { StableLabel } from './StableLabel';
 import { localizeHref } from '@/i18n/lang';
@@ -79,7 +79,7 @@ export function Header() {
             <StableLabel text={label} />
           </Link>
         ))}
-        <ProspectusButton className="button is-outline small">
+        <ProspectusVideoButton className="button is-outline small">
           <StableLabel
             text="Prospectus '26"
             after={
@@ -100,7 +100,7 @@ export function Header() {
               </svg>
             }
           />
-        </ProspectusButton>
+        </ProspectusVideoButton>
         <Link className="button small" href={localizeHref('/admissions', lang)} onClick={closeMenu}>
           <StableLabel
             text="Admissions"

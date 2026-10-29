@@ -18,13 +18,13 @@ type Voice = {
   duration: number;
   /** Shown as the large tile that opens the grid. Only one voice should have this. */
   featured?: boolean;
-  /** False when there is no <slug>.en.vtt yet. */
+  /** True when there is a <slug>.en.vtt. The edited films have no captions. */
   captions?: boolean;
 };
 
-/* Footage lives in public/assets/voices: <slug>.mp4 (the person's edited film, 720p H.264, audio
-   levelled; Khadka and Nim Dolma Dukpa still have their raw clips joined until their films arrive), <slug>.en.vtt (English captions, machine-made from the audio and translated
-   where the speaker uses Nepali or Hindi) and <slug>.webp (poster cropped from their portrait photo).
+/* Footage lives in public/assets/voices: <slug>.mp4 (the person's edited film, square 720p H.264,
+   audio levelled) and <slug>.webp (poster cropped from their portrait photo). Nim Dolma Dukpa
+   still has her raw clips joined until her film arrives, with English captions (<slug>.en.vtt).
    The original footage is kept out of the site in raw-footage/ (gitignored). */
 const VOICES: Voice[] = [
   {
@@ -76,7 +76,6 @@ const VOICES: Voice[] = [
     shape: 'square',
     duration: 78,
   },
-  { slug: 'khadka', name: 'Khadka', role: 'Student', detail: 'Class 6', shape: 'portrait', duration: 49 },
   {
     slug: 'chandana-ghimire',
     name: 'Miss Chandana Ghimire',
@@ -86,7 +85,14 @@ const VOICES: Voice[] = [
     duration: 60,
   },
   // TODO(school data): class not supplied yet.
-  { slug: 'nim-dolma-dukpa', name: 'Nim Dolma Dukpa', role: 'Student', shape: 'landscape', duration: 92 },
+  {
+    slug: 'nim-dolma-dukpa',
+    name: 'Nim Dolma Dukpa',
+    role: 'Student',
+    shape: 'landscape',
+    duration: 92,
+    captions: true,
+  },
   {
     slug: 'sungnima-subba',
     name: 'Sungnima Subba',
@@ -110,8 +116,6 @@ const VOICES: Voice[] = [
     role: 'Student',
     shape: 'square',
     duration: 19,
-    // Spoken in Garo, which speech recognition does not support: needs a human translation.
-    captions: false,
   },
 ];
 
@@ -150,7 +154,7 @@ function startPreview(video: HTMLVideoElement | null) {
 /**
  * Video testimonials as an editorial grid: one featured story with a silent preview running, the
  * other voices as tiles that preview on hover, and an invitation to visit closing the grid. Any tile
- * opens its film, with sound and captions, in a dialog.
+ * opens its film, with sound, in a dialog.
  */
 export function VoiceReel() {
   const t = useT();
@@ -254,7 +258,7 @@ export function VoiceReel() {
               playsInline
               preload="metadata"
             >
-              {current.captions !== false && (
+              {current.captions && (
                 <track
                   kind="captions"
                   src={`/assets/voices/${current.slug}.en.vtt`}

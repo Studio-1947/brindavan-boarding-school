@@ -16,6 +16,7 @@ const ui: Record<string, string> = {
   'Beyond class': 'कक्षाभन्दा बाहिर',
   Visit: 'भ्रमण',
   "Prospectus '26": 'विवरणिका 2026',
+  'Prospectus film': 'विवरणिका भिडियो',
   Admissions: 'भर्ना',
   'View sitemap': 'साइटम्याप हेर्नुहोस्',
   'Menu ☰': 'मेनु ☰',

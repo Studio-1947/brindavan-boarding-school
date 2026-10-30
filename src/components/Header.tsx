@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { SwooshArrow } from './icons';
+import { CallButton } from './CallButton';
 import { ProspectusVideoButton } from './ProspectusVideo';
 import { LangToggle } from './LangToggle';
 import { StableLabel } from './StableLabel';
@@ -10,10 +11,11 @@ import { localizeHref } from '@/i18n/lang';
 import { useLang, useT } from '@/i18n/ui';
 
 const NAV_LINKS = [
-  { href: '/about', label: 'About the School' },
+  { href: '/about', label: 'About us' },
   { href: '/academics', label: 'Academics' },
   { href: '/boarding', label: 'Boarding life' },
-  { href: '/life', label: 'Beyond class' },
+  { href: '/impact', label: 'Impact' },
+  { href: '/life', label: 'Beyond Classrooms' },
   { href: '/visit', label: 'Visit' },
 ];
 
@@ -64,6 +66,7 @@ export function Header() {
         </span>
       </Link>
       <LangToggle onNavigate={() => setMenuOpen(false)} />
+      <CallButton />
       <button
         ref={menuButton}
         className="menu"
@@ -71,7 +74,13 @@ export function Header() {
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <StableLabel text={menuOpen ? 'Close ×' : 'Menu ☰'} />
+        <span className="menu-text">
+          <StableLabel text={menuOpen ? 'Close ×' : 'Menu ☰'} />
+        </span>
+        {/* phones show only the icon, to leave room for the call button */}
+        <span className="menu-icon" aria-hidden="true">
+          {menuOpen ? '×' : '☰'}
+        </span>
       </button>
       <nav aria-label={t('Main navigation')} className={menuOpen ? 'open' : undefined}>
         {NAV_LINKS.map(({ href, label }) => (
@@ -81,7 +90,7 @@ export function Header() {
         ))}
         <ProspectusVideoButton className="button is-outline small">
           <StableLabel
-            text="Prospectus '26"
+            text="Prospectus"
             after={
               <svg
                 width="15"
@@ -103,7 +112,7 @@ export function Header() {
         </ProspectusVideoButton>
         <Link className="button small" href={localizeHref('/admissions', lang)} onClick={closeMenu}>
           <StableLabel
-            text="Admissions"
+            text="Admission"
             after={
               <span>
                 <SwooshArrow />

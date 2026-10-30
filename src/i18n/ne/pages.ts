@@ -376,6 +376,60 @@ export const pages: Record<string, string> = {
   'The auditorium': 'सभाहल',
   'The black stone gateway of Brindavan School beside the blue school buildings':
     'नीला विद्यालय भवनछेउ वृन्दावन स्कूलको कालो ढुङ्गाको मूल ढोका',
+  // ---------- Impact
+  Impact: 'प्रभाव',
+  'About us': 'हाम्रोबारे',
+  'Beyond Classrooms': 'कक्षाकोठाभन्दा बाहिर',
+  Admission: 'भर्ना',
+  'Impact | Brindavan Boarding School': 'प्रभाव | वृन्दावन बोर्डिङ स्कूल',
+  'The difference Brindavan Boarding School makes beyond its gate: a 1.5 km road from Nepal to India, a wooden footbridge, and support for HelpAge India.':
+    'वृन्दावन बोर्डिङ स्कूलले आफ्नो ढोकाबाहिर ल्याएको परिवर्तन: नेपालदेखि भारतसम्म 1.5 किमी सडक, काठको पुल र हेल्पएज इन्डियालाई सहयोग।',
+  'The Impact of Brindavan Boarding School': 'वृन्दावन बोर्डिङ स्कूलको प्रभाव',
+  'A road, a bridge and a cause the whole school stood behind.':
+    'एउटा सडक, एउटा पुल र सिङ्गो विद्यालयले साथ दिएको एउटा अभियान।',
+  'OUR IMPACT': 'हाम्रो प्रभाव',
+  'Brindavan’s motto is Love All, Serve All. Here is what that has meant for the community around us: a road, a bridge, and a cause the whole school stood behind.':
+    'वृन्दावनको मूलमन्त्र हो — सबैलाई प्रेम गर, सबैको सेवा गर। हाम्रो वरपरको समुदायका लागि यसको अर्थ यस्तो रह्यो: एउटा सडक, एउटा पुल र सिङ्गो विद्यालयले साथ दिएको एउटा अभियान।',
+  'A narrow concrete road curving along a forested hillside under a clear blue sky':
+    'सफा नीलो आकाशमुनि जङ्गलले ढाकिएको पहाडी भिरमा घुमेको साँघुरो ढलान सडक',
+  'Impact at a glance': 'एक नजरमा प्रभाव',
+  m: 'मि.',
+  'of road built, linking Nepal and India': 'सडक निर्माण, नेपाल र भारत जोड्दै',
+  'wooden footbridge across a forest stream': 'जङ्गलको खोलामाथि काठको पैदल पुल',
+  'raised for HelpAge India by staff and students':
+    'शिक्षक-कर्मचारी र विद्यार्थीले हेल्पएज इन्डियाका लागि सङ्कलन गरेको रकम',
+  'IMPACT STORY · 01': 'प्रभावको कथा · 01',
+  'IMPACT STORY · 02': 'प्रभावको कथा · 02',
+  'Brindavan built a 1.5 km road across the forested hillside, connecting Nepal and India.':
+    'वृन्दावनले जङ्गलले ढाकिएको पहाडी भिरमा नेपाल र भारत जोड्ने 1.5 किमी सडक बनायो।',
+  'Where there was once only a rough track, there is now a firm path through the bamboo and pine. Scroll to follow it from one end to the other.':
+    'कुनै बेला जहाँ खाली कच्ची गोरेटो थियो, त्यहाँ अहिले बाँस र सल्लाको बीचबाट बलियो बाटो छ। एक छेउदेखि अर्को छेउसम्म पछ्याउन तल स्क्रोल गर्नुहोस्।',
+  'The road Brindavan built, curving through bamboo and young pines on a sunny hillside':
+    'घमाइलो पहाडी भिरमा बाँस र साना सल्लाका रूखहरूबीच घुमेको, वृन्दावनले बनाएको सडक',
+  'The road, winding through the hills': 'पहाडहरूबीच घुम्दै गएको सडक',
+  NEPAL: 'नेपाल',
+  INDIA: 'भारत',
+  'Brindavan also built a small wooden footbridge over a forest stream.':
+    'वृन्दावनले जङ्गलको एउटा खोलामाथि काठको सानो पैदल पुल पनि बनायो।',
+  'Simple timber, built by hand, so that walkers can cross the gully on firm footing. Tap the photo to see it from another side.':
+    'हातैले बनाइएको साधारण काठको पुल, ताकि बटुवाहरू खोल्सो सुरक्षित रूपमा तर्न सकून्। अर्को कोणबाट हेर्न फोटोमा ट्याप गर्नुहोस्।',
+  'A small wooden footbridge with plank railings crossing a stream in a forest clearing':
+    'जङ्गलको खुला ठाउँमा खोलामाथि फल्याकका रेलिङसहितको काठको सानो पैदल पुल',
+  'The footbridge from the side': 'छेउबाट देखिएको पैदल पुल',
+  'Looking along the wooden footbridge toward a dirt path that leads into tall trees':
+    'काठको पुलबाट अग्ला रूखहरूतिर जाने माटोको बाटोतर्फ हेर्दा',
+  'Crossing over, toward the path': 'पुल तर्दै, बाटोतर्फ',
+  RECOGNISED: 'सम्मानित',
+  'In 2016, the staff and students of Brindavan raised ₹28,410 for HelpAge India, for the care of elderly people in need.':
+    '2016 मा वृन्दावनका शिक्षक-कर्मचारी र विद्यार्थीले खाँचोमा परेका वृद्धवृद्धाको हेरचाहका लागि हेल्पएज इन्डियालाई ₹28,410 सङ्कलन गरे।',
+  'Awarded by': 'प्रदान गर्ने',
+  'HelpAge India': 'हेल्पएज इन्डिया',
+  Year: 'वर्ष',
+  Raised: 'सङ्कलित रकम',
+  For: 'उद्देश्य',
+  'The care of the needy aged': 'खाँचोमा परेका वृद्धवृद्धाको हेरचाह',
+  'HelpAge India Certificate of Appreciation to the staff and students of Brindavan Boarding School, Seyok Phatak, for raising Rs. 28,410 in 2016':
+    '2016 मा रु. 28,410 सङ्कलन गरेकोमा वृन्दावन बोर्डिङ स्कूल, सियोक फाटकका शिक्षक-कर्मचारी र विद्यार्थीलाई हेल्पएज इन्डियाले दिएको प्रशंसापत्र',
 };
 
 export const pagePhrases: Record<string, string> = {
@@ -411,4 +465,10 @@ export const pagePhrases: Record<string, string> = {
   'Your journey<1/>begins in<2/><3>Mirik.</3>': 'तपाईंको यात्रा<1/><3>मिरिकबाट</3><2/>सुरु हुन्छ।',
   'Reaching<1/>Mirik &<2/><3>Seeyok Fatak.</3>': 'मिरिक र<1/><3>सियोक फाटक</3><2/>पुग्ने बाटो।',
   'What you’ll<1/>see on<2/><3>arrival.</3>': 'आइपुगेपछि<1/>तपाईं<2/><3>के देख्नुहुन्छ।</3>',
+  // impact
+  'Learning that reaches<1/>beyond the <2>school gate.</2>':
+    'विद्यालयको ढोकाभन्दा<1/>बाहिरसम्म पुग्ने <2>सिकाइ।</2>',
+  'A road from<1/>Nepal to <2>India.</2>': 'नेपालदेखि<1/><2>भारतसम्म</2> एउटा सडक।',
+  'A small bridge,<1/>a safer <2>crossing.</2>': 'सानो पुल,<1/><2>सुरक्षित</2> बाटो।',
+  'Caring for those<1/>who came <2>before us.</2>': 'हामीभन्दा अघिका<1/><2>पुस्ताको</2> हेरचाह।',
 };

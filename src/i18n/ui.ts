@@ -15,6 +15,13 @@ const ui: Record<string, string> = {
   'Boarding life': 'छात्रावास जीवन',
   'Beyond class': 'कक्षाभन्दा बाहिर',
   Visit: 'भ्रमण',
+  Impact: 'प्रभाव',
+  'About us': 'हाम्रोबारे',
+  'Beyond Classrooms': 'कक्षाकोठाभन्दा बाहिर',
+  Prospectus: 'विवरणिका',
+  Admission: 'भर्ना',
+  'Talk to the school': 'विद्यालयसँग कुरा गर्नुहोस्',
+  'Call now': 'अहिले फोन गर्नुहोस्',
   "Prospectus '26": 'विवरणिका 2026',
   'Prospectus film': 'विवरणिका भिडियो',
   Admissions: 'भर्ना',
@@ -90,6 +97,9 @@ const ui: Record<string, string> = {
   'Show the next photo': 'अर्को फोटो हेर्नुहोस्',
   'Next →': 'अर्को →',
   'What to ask ↻': 'के सोध्ने ↻',
+  // impact: certificate
+  'View the certificate full size': 'प्रमाणपत्र ठूलो आकारमा हेर्नुहोस्',
+  'Tap to read it ↗': 'पढ्न ट्याप गर्नुहोस् ↗',
   // visit: postcard and find us
   'Turn the postcard over': 'पोस्टकार्ड पल्टाउनुहोस्',
   'Turn over ↻': 'पल्टाउनुहोस् ↻',

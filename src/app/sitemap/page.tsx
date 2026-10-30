@@ -14,7 +14,8 @@ const GROUPS = [
     description: 'Start with the school, its setting and the values that shape daily life.',
     links: [
       { label: 'Home', href: '/' },
-      { label: 'About the School', href: '/about' },
+      { label: 'About us', href: '/about' },
+      { label: 'Impact', href: '/impact' },
     ],
   },
   {
@@ -28,7 +29,7 @@ const GROUPS = [
     title: 'Admissions & Visits',
     description: 'Find the information families need before starting a conversation or campus visit.',
     links: [
-      { label: 'Admissions', href: '/admissions' },
+      { label: 'Admission', href: '/admissions' },
       { label: 'Visit the School', href: '/visit' },
     ],
   },
@@ -38,7 +39,7 @@ const GROUPS = [
     description: 'Discover boarding, activities, culture and the wider student experience.',
     links: [
       { label: 'Boarding life', href: '/boarding' },
-      { label: 'Beyond class', href: '/life' },
+      { label: 'Beyond Classrooms', href: '/life' },
     ],
   },
 ];

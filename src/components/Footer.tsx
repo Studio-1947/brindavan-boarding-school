@@ -5,6 +5,7 @@ import { CurrentYear } from './CurrentYear';
 import { FooterMap } from './FooterMap';
 import { SwooshArrow } from './icons';
 import { ProspectusButton } from './Prospectus';
+import { SCHOOL_PHONE } from '@/lib/contact';
 import { localizeHref } from '@/i18n/lang';
 import { useLang, useT } from '@/i18n/ui';
 
@@ -80,11 +81,13 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h4>{t('EXPLORE')}</h4>
-          <Link href={href('/about')}>{t('About the School')}</Link>
+          <Link href={href('/about')}>{t('About us')}</Link>
           <Link href={href('/academics')}>{t('Academics')}</Link>
           <Link href={href('/boarding')}>{t('Boarding life')}</Link>
-          <Link href={href('/life')}>{t('Beyond class')}</Link>
-          <Link href={href('/admissions')}>{t('Admissions')}</Link>
+          <Link href={href('/impact')}>{t('Impact')}</Link>
+          <Link href={href('/life')}>{t('Beyond Classrooms')}</Link>
+          <Link href={href('/admissions')}>{t('Admission')}</Link>
+          <Link href={href('/visit')}>{t('Visit')}</Link>
           <Link className="footer-sitemap-cta" href={href('/sitemap')}>
             {t('View sitemap')}
             <SwooshArrow />
@@ -116,8 +119,7 @@ export function Footer() {
                   <path d="M5 19h14" />
                 </svg>
               </ProspectusButton>
-              {/* TODO(contact): placeholder. Replace +910000000000 with the school's real phone number. */}
-              <a className="footer-cta-btn" href="tel:+910000000000">
+              <a className="footer-cta-btn" href={`tel:${SCHOOL_PHONE}`}>
                 {t('Call the school')}
                 <svg
                   viewBox="0 0 24 24"

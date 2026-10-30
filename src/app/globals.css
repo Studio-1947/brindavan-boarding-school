@@ -9,6 +9,7 @@
 @import '../styles/profile-card.css' layer(components);
 @import '../styles/life.css' layer(components);
 @import '../styles/visit.css' layer(components);
+@import '../styles/impact.css' layer(components);
 
 @source not '../../legacy';
 

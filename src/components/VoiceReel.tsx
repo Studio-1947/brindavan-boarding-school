@@ -14,16 +14,16 @@ type Voice = {
   detail?: string;
   /** Frame shape: square (1:1, the edited films), upright phone footage (9:16) or landscape (16:9). */
   shape: 'square' | 'portrait' | 'landscape';
+  /** File name in public/assets/voices. Defaults to the legacy MP4 named after the slug. */
+  video?: string;
   /** Seconds. */
   duration: number;
   /** True when there is a <slug>.en.vtt. The edited films have no captions. */
   captions?: boolean;
 };
 
-/* Footage lives in public/assets/voices: <slug>.mp4 (the person's edited film, square 720p H.264,
-   audio levelled) and <slug>.webp (poster cropped from their portrait photo). Nim Dolma Dukpa
-   still has her raw clips joined until her film arrives, with English captions (<slug>.en.vtt).
-   The original footage is kept out of the site in raw-footage/ (gitignored). */
+/* Footage lives in public/assets/voices. The newly supplied films use WebM; Chandana Ghimire's
+   testimonial remains on its edited MP4 because no replacement was supplied. Card images use <slug>.webp. */
 const VOICES: Voice[] = [
   {
     slug: 'shradha-tamang',
@@ -31,6 +31,7 @@ const VOICES: Voice[] = [
     role: 'Student',
     detail: 'Class 12',
     shape: 'square',
+    video: 'shradha-tamang.webm',
     duration: 67,
   },
   {
@@ -39,6 +40,7 @@ const VOICES: Voice[] = [
     role: 'Student',
     detail: 'Class 6',
     shape: 'square',
+    video: 'anirudh-gupta.webm',
     duration: 18,
   },
   {
@@ -47,6 +49,7 @@ const VOICES: Voice[] = [
     role: 'Teacher',
     detail: 'English Teacher',
     shape: 'square',
+    video: 'saikriti-chettri.webm',
     duration: 74,
   },
   {
@@ -55,6 +58,7 @@ const VOICES: Voice[] = [
     role: 'Student',
     detail: 'Class 12',
     shape: 'square',
+    video: 'jaikumari.webm',
     duration: 26,
   },
   {
@@ -63,6 +67,7 @@ const VOICES: Voice[] = [
     role: 'Student',
     detail: 'Class 12',
     shape: 'square',
+    video: 'shourya-pradhan.webm',
     duration: 43,
   },
   {
@@ -71,6 +76,7 @@ const VOICES: Voice[] = [
     role: 'Teacher',
     detail: 'Biology Teacher',
     shape: 'square',
+    video: 'sanjok-pradhan.webm',
     duration: 78,
   },
   {
@@ -87,8 +93,8 @@ const VOICES: Voice[] = [
     name: 'Nim Dolma Dukpa',
     role: 'Student',
     shape: 'landscape',
-    duration: 92,
-    captions: true,
+    video: 'nim-dolma-dukpa.webm',
+    duration: 39,
   },
   {
     slug: 'sungnima-subba',
@@ -96,6 +102,7 @@ const VOICES: Voice[] = [
     role: 'Student',
     detail: 'Class 11',
     shape: 'square',
+    video: 'sungnima-subba.webm',
     duration: 33,
   },
   {
@@ -104,6 +111,7 @@ const VOICES: Voice[] = [
     role: 'Student',
     detail: 'Class 7',
     shape: 'square',
+    video: 'yuden-lama.webm',
     duration: 29,
   },
   // TODO(school data): the footage folder only says "Northeast Student" - add the student's name and class.
@@ -112,12 +120,14 @@ const VOICES: Voice[] = [
     name: 'Student from the Northeast',
     role: 'Student',
     shape: 'square',
+    video: 'northeast-student.webm',
     duration: 19,
   },
 ];
 
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 const prefersMotion = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const videoSrc = (voice: Voice) => `/assets/voices/${voice.video ?? `${voice.slug}.mp4`}`;
 
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -183,7 +193,7 @@ function VoiceRow({
                 <img src={`/assets/voices/${v.slug}.webp`} width="640" height="800" loading="lazy" alt="" />
                 <video
                   className="voice-preview"
-                  data-src={`/assets/voices/${v.slug}.mp4`}
+                  data-src={videoSrc(v)}
                   muted
                   loop
                   playsInline
@@ -259,7 +269,7 @@ export function VoiceReel() {
           <div className={`voice-stage is-${current.shape}`}>
             <video
               key={current.slug}
-              src={`/assets/voices/${current.slug}.mp4`}
+              src={videoSrc(current)}
               controls
               autoPlay
               playsInline

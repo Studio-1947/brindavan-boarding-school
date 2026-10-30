@@ -32,14 +32,10 @@ export function ProspectusVideoButton({ className, children }: { className?: str
       >
         {isOpen && (
           <div className="voice-stage is-landscape">
-            <video
-              src="/assets/prospectus.mp4"
-              poster="/assets/prospectus.webp"
-              controls
-              autoPlay
-              playsInline
-              preload="metadata"
-            />
+            <video poster="/assets/prospectus.webp" controls autoPlay playsInline preload="metadata">
+              <source src="/assets/prospectus.webm" type="video/webm" />
+              <source src="/assets/prospectus.mp4" type="video/mp4" />
+            </video>
           </div>
         )}
         <button type="button" className="voice-close" onClick={() => dialog.current?.close()}>

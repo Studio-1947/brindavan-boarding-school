@@ -76,7 +76,7 @@ const OUTCOMES = [
   {
     value: 98,
     suffix: '%',
-    label: 'ICSE Class 10 pass rate',
+    label: 'ICSE Class 10 pass\u00a0rate',
     icon: (
       <>
         <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
@@ -88,7 +88,7 @@ const OUTCOMES = [
   {
     value: 96,
     suffix: '%',
-    label: 'ISC Class 12 pass rate',
+    label: 'ISC Class 12 pass\u00a0rate',
     icon: (
       <>
         <path d="M12 4 2 9l10 5 10-5-10-5Z" />
@@ -100,13 +100,13 @@ const OUTCOMES = [
   {
     value: 64,
     suffix: '',
-    label: 'Students scoring 90% and above',
+    label: 'Students scoring 90%\u00a0and\u00a0above',
     icon: <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3l-5.5 2.9 1-6.2L3 9.6l6.2-.9z" />,
   },
   {
     value: 27,
     suffix: '',
-    label: 'Inter-school competition wins',
+    label: 'Inter-school competition\u00a0wins',
     icon: (
       <>
         <path d="M8 4h8v5a4 4 0 0 1-8 0z" />
@@ -638,7 +638,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">ADMISSIONS 2026–27</p>
             <h2 id="journey-title">
-              Join <em>Brindavan Boarding School.</em>
+              Join <em className="journey-title-name">{'Brindavan\nBoarding School.'}</em>
             </h2>
           </div>
         </div>

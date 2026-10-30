@@ -107,8 +107,13 @@ export const pages: Record<string, string> = {
   'HOW TO START': 'कसरी सुरु गर्ने',
   'Use the school’s official contact channels for the current admission calendar, fee structure and eligibility criteria.':
     'हालको भर्ना पात्रो, शुल्क संरचना र योग्यताका मापदण्डका लागि विद्यालयका आधिकारिक सम्पर्क माध्यम प्रयोग गर्नुहोस्।',
-  'Admission dates, seats and fees must be confirmed with the school. This website does not collect applications.':
-    'भर्ना मिति, सिट र शुल्क विद्यालयसँग पक्का गर्नुपर्छ। यो वेबसाइटले आवेदन लिँदैन।',
+  'Admission dates, seats and fees must be confirmed with the school. Use the enquiry form below to share your child’s details with the admissions team.':
+    'भर्ना मिति, सिट र शुल्क विद्यालयसँग पक्का गर्नुपर्छ। आफ्ना बच्चाको विवरण भर्ना टोलीसँग साझा गर्न तलको जिज्ञासा फाराम प्रयोग गर्नुहोस्।',
+  'ADMISSION ENQUIRY': 'भर्नासम्बन्धी जिज्ञासा',
+  'Tell us about': 'हामीलाई भन्नुहोस्',
+  'your child.': 'आफ्नो बच्चाबारे।',
+  'Complete the form and the admissions team can follow up with the next steps for your family.':
+    'फाराम भर्नुहोस्, र भर्ना टोलीले तपाईंको परिवारका लागि अर्को चरणबारे सम्पर्क गर्नेछ।',
   'Start with your questions': 'आफ्ना प्रश्नबाट सुरु गर्नुहोस्',
   'Share your child’s age, current class, and whether you are considering day scholar or boarding admission.':
     'बच्चाको उमेर, हालको कक्षा र डे-स्कलर वा बोर्डिङमध्ये कुन भर्ना सोच्दै हुनुहुन्छ, बताउनुहोस्।',

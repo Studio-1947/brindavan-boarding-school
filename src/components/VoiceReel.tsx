@@ -260,7 +260,6 @@ export function VoiceReel() {
             <video
               key={current.slug}
               src={`/assets/voices/${current.slug}.mp4`}
-              poster={`/assets/voices/${current.slug}.webp`}
               controls
               autoPlay
               playsInline

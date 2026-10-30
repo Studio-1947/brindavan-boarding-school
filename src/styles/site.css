@@ -477,14 +477,17 @@ header nav > a:not(.button):hover {
     max-width: 100%;
   }
   #about .lead {
-    font-size: clamp(13px, 3.8vw, 16px);
-    line-height: 1.3;
+    font-size: clamp(24px, 7vw, 34px);
+    line-height: 1.2;
   }
   .lead-warp {
-    height: clamp(70px, 20vw, 90px);
+    height: clamp(116px, 30vw, 150px);
   }
   #explore-school .about-illustration {
     margin-top: 0;
+  }
+  #explore-school .explore-school-body {
+    padding-top: clamp(40px, 10vw, 64px);
   }
 }
 .about .eyebrow,
@@ -2306,6 +2309,120 @@ header nav > a:not(.button):hover {
   color: var(--muted);
   margin: 0;
 }
+.admission-enquiry {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.65fr) minmax(0, 1.35fr);
+  align-items: start;
+  gap: clamp(36px, 7vw, 108px);
+  background: var(--blue);
+  color: #fff;
+}
+.admission-enquiry .eyebrow,
+.admission-enquiry h2 em {
+  color: var(--orange);
+}
+.admission-enquiry-copy > p:last-child {
+  max-width: 390px;
+  margin: 24px 0 0;
+  color: #d9e1ff;
+}
+.admission-form {
+  padding: clamp(22px, 3vw, 36px);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 18px;
+}
+.admission-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.admission-form label,
+.admission-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+}
+.admission-form legend {
+  margin-bottom: 7px;
+  padding: 0;
+}
+.admission-form input:not([type='radio']),
+.admission-form select,
+.admission-form textarea {
+  width: 100%;
+  border: 1px solid #c7d0e9;
+  border-radius: 9px;
+  padding: 11px 12px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 400;
+}
+.admission-form textarea {
+  resize: vertical;
+}
+.admission-form input:focus,
+.admission-form select:focus,
+.admission-form textarea:focus {
+  outline: 3px solid rgba(25, 61, 232, 0.28);
+  outline-offset: 1px;
+  border-color: var(--blue);
+}
+.admission-form-options {
+  display: flex;
+  gap: 20px;
+  min-height: 44px;
+  align-items: center;
+}
+.admission-form-options label {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+}
+.admission-form-options input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--blue);
+}
+.admission-form-full {
+  grid-column: 1 / -1;
+}
+.admission-form-botcheck {
+  display: none;
+}
+.admission-form-note {
+  margin: 22px 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.admission-form-submit {
+  cursor: pointer;
+}
+.admission-form-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+.admission-form-message {
+  margin: 16px 0 0;
+  font-weight: 650;
+}
+.admission-form-message.is-success {
+  color: #137333;
+}
+.admission-form-message.is-error {
+  color: #b3261e;
+}
 .faq {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -2742,6 +2859,7 @@ footer:before {
   .about,
   .boarding,
   .admissions,
+  .admission-enquiry,
   .faq {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -3726,41 +3844,57 @@ footer:before {
 }
 @media (max-width: 800px) {
   .vm-stage {
+    --vm-gutter: clamp(22px, 6vw, 32px);
     min-height: 0;
-    padding-top: 46vw;
-    padding-bottom: 46vw;
+    align-items: flex-start;
+    justify-content: center;
+    padding: calc(46vw + 28px) var(--vm-gutter) 40px;
+    background:
+      radial-gradient(circle at 92% 102%, rgba(25, 61, 232, 0.65), transparent 35%),
+      #000881;
   }
   .vm-eyebrow {
-    max-width: 26ch;
-    text-align: center;
-    line-height: 1.6;
+    max-width: 24ch;
+    margin-bottom: 18px;
+    color: #cbd6ff;
+    text-align: left;
+    line-height: 1.45;
   }
   .vm-motto {
-    font-size: 15vw;
+    align-items: flex-start;
+    font-size: clamp(49px, 14.5vw, 76px);
+    line-height: 0.94;
+    color: #fff;
+    text-align: left;
+  }
+  .vm-line + .vm-line {
+    color: #ffd966;
   }
   .vm-pill {
-    width: 1.4em;
+    width: 1.28em;
+    margin-right: 0.12em;
+    margin-left: 0.12em;
+    box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.72);
   }
   .vm-f1 {
-    top: 4%;
-    left: 4%;
-    width: 24vw;
+    z-index: 3;
+    top: 16px;
+    left: var(--vm-gutter);
+    width: 23vw;
+    aspect-ratio: 3 / 4;
+    border: 3px solid #fff;
+    border-radius: 15px;
   }
   .vm-f2 {
-    top: 3%;
-    right: 4%;
-    width: 34vw;
+    top: 28px;
+    right: var(--vm-gutter);
+    width: 68vw;
+    height: 34vw;
+    aspect-ratio: auto;
+    border-radius: 20px;
   }
-  .vm-f3 {
-    bottom: 3%;
-    left: 6%;
-    width: 38vw;
-  }
-  .vm-f4 {
-    bottom: 5%;
-    right: 6%;
-    width: 22vw;
-  }
+  .vm-f3,
+  .vm-f4,
   .vm-f5,
   .vm-f6 {
     display: none;
@@ -4782,6 +4916,57 @@ header nav > a:not(.button):focus-visible:after {
   .principal-name {
     font-size: 15px;
   }
+  .outcome-label {
+    line-height: 1.3;
+  }
+  .journey-title-name {
+    white-space: pre-line;
+  }
+  .journey-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    counter-reset: journey;
+  }
+  .journey-steps li,
+  .journey-steps li:last-child {
+    min-height: 0;
+    padding: 18px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px 0 14px 14px;
+    background: var(--pale);
+    counter-increment: journey;
+  }
+  .journey-steps li::before,
+  .journey-steps li::after {
+    display: none;
+  }
+  .journey-steps h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .journey-steps h3::before {
+    content: '0' counter(journey);
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  .journey-steps p {
+    max-width: none;
+    font-size: 14px;
+    line-height: 1.45;
+  }
   /* comfortable tap targets */
   header nav > a {
     padding: 12px 8px;
@@ -4868,6 +5053,21 @@ header nav > a:not(.button):focus-visible:after {
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(10px);
     border-top: 1px solid var(--line);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(100%);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 0s linear 180ms;
+  }
+  .mobile-cta.is-visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
   }
   .mcta {
     flex: 1;
@@ -5549,5 +5749,8 @@ header nav > a:not(.button):focus-visible:after {
   }
   body:has(.mobile-cta) footer {
     padding-bottom: calc(116px + env(safe-area-inset-bottom, 0px));
+  }
+  body:has(.mobile-cta.is-footer-visible) footer {
+    padding-bottom: 40px;
   }
 }

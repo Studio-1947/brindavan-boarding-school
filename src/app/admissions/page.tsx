@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AdmissionForm } from '@/components/AdmissionForm';
 import { FaqSection } from '@/components/FaqSection';
 import { SwooshArrow } from '@/components/icons';
 
@@ -42,8 +43,8 @@ export default function AdmissionsPage() {
             <em>decision.</em>
           </h2>
           <p>
-            Admission dates, seats and fees must be confirmed with the school. This website does not collect
-            applications.
+            Admission dates, seats and fees must be confirmed with the school. Use the enquiry form below to
+            share your child’s details with the admissions team.
           </p>
           <a
             className="button"
@@ -93,6 +94,20 @@ export default function AdmissionsPage() {
             </div>
           </li>
         </ol>
+      </section>
+      <section className="section admission-enquiry" aria-labelledby="admission-enquiry-title">
+        <div className="admission-enquiry-copy">
+          <p className="eyebrow">ADMISSION ENQUIRY</p>
+          <h2 id="admission-enquiry-title">
+            Tell us about
+            <br />
+            <em>your child.</em>
+          </h2>
+          <p>
+            Complete the form and the admissions team can follow up with the next steps for your family.
+          </p>
+        </div>
+        <AdmissionForm />
       </section>
       <FaqSection className="section faq">
         <div>

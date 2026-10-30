@@ -96,7 +96,6 @@ const ui: Record<string, string> = {
   Next: 'अर्को',
   'Play video': 'भिडियो हेर्नुहोस्',
   'Plan your visit': 'भ्रमणको योजना बनाउनुहोस्',
-  'Featured story': 'विशेष कथा',
   'Hear it in person.': 'आफैं आएर सुन्नुहोस्।',
   'Visit the campus and meet our students and teachers.':
     'क्याम्पस घुम्नुहोस् र हाम्रा विद्यार्थी तथा शिक्षकलाई भेट्नुहोस्।',

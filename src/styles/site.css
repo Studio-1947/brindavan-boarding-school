@@ -3767,6 +3767,10 @@ footer:before {
   }
 }
 @media (max-width: 500px) {
+  .voices-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .voices-cta-text {
     display: none;
   }
@@ -4368,8 +4372,8 @@ header nav > a:not(.button):focus-visible:after {
   line-height: 1.6;
   color: var(--muted);
 }
-/* Video testimonials (src/components/VoiceReel.tsx): an editorial grid opened by one large featured
-   story, the other voices as tiles, and a visit invitation filling the last cell. */
+/* Video testimonials (src/components/VoiceReel.tsx): two slideshow rows drifting in opposite
+   directions, edge to edge, with a visit invitation below them. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -4378,21 +4382,67 @@ header nav > a:not(.button):focus-visible:after {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
-.voices-grid {
+.voices {
+  --voice-w: clamp(170px, 17vw, 250px);
+  --voice-gap: clamp(12px, 1.2vw, 18px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--voice-gap);
+}
+/* rows run edge to edge, past the section's side padding, and fade out at both ends */
+.voices-row {
+  margin-inline: calc(-1 * max(5.5vw, 24px));
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.voices-track {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(12px, 1.2vw, 18px);
+  padding: 4px 0;
+  display: flex;
+  gap: var(--voice-gap);
+  width: max-content;
+  /* one half of the track (its first set of cards plus gaps) slides by, then it loops */
+  animation: voices-slide calc(var(--voices-count) * 7s) linear infinite;
 }
-.voices-grid > li {
+.voices-row.is-reverse .voices-track {
+  animation-direction: reverse;
+}
+/* keyboard focus only: a card clicked with the mouse keeps focus, and its row should move on after the film */
+.voices-row:hover .voices-track,
+.voices-row:has(:focus-visible) .voices-track,
+.voices.is-playing .voices-track {
+  animation-play-state: paused;
+}
+@keyframes voices-slide {
+  to {
+    transform: translateX(calc(-50% - var(--voice-gap) / 2));
+  }
+}
+.voices-track > li {
+  flex: none;
+  width: var(--voice-w);
   aspect-ratio: 4 / 5;
 }
-.voices-grid > li.is-featured {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
+/* without motion, each row is a strip to swipe or scroll through */
+@media (prefers-reduced-motion: reduce) {
+  .voices-row {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-mask-image: none;
+    mask-image: none;
+    padding-inline: max(5.5vw, 24px);
+  }
+  .voices-track {
+    animation: none;
+  }
+  .voices-track > li {
+    scroll-snap-align: start;
+  }
+  .voices-track > li[aria-hidden] {
+    display: none;
+  }
 }
 .voice-dialog-nav button {
   display: grid;
@@ -4452,8 +4502,7 @@ header nav > a:not(.button):focus-visible:after {
 .voice-preview:not([src]) {
   display: none;
 }
-.voice-card:hover .voice-preview,
-.is-featured .voice-preview {
+.voice-card:hover .voice-preview {
   opacity: 1;
 }
 .voice-card::after {
@@ -4517,45 +4566,13 @@ header nav > a:not(.button):focus-visible:after {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.78);
 }
-.voice-tag {
-  margin-bottom: 10px;
-  padding: 5px 11px;
-  border-radius: 999px;
-  background: var(--orange);
-  color: var(--ink);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-/* the featured tile reads like a cover */
-.is-featured .voice-play {
-  top: auto;
-  right: clamp(20px, 2.2vw, 34px);
-  bottom: clamp(20px, 2.2vw, 32px);
-  width: 64px;
-  height: 64px;
-}
-.is-featured .voice-play svg {
-  width: 24px;
-  height: 24px;
-}
-.is-featured .voice-meta {
-  left: clamp(20px, 2.2vw, 34px);
-  bottom: clamp(20px, 2.2vw, 32px);
-}
-.is-featured .voice-name {
-  font-size: clamp(24px, 2.2vw, 34px);
-  letter-spacing: -0.02em;
-}
-.is-featured .voice-role {
-  font-size: 15px;
-}
-.voices-cta a {
+.voices-cta {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: clamp(20px, 2vw, 30px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin-top: calc(var(--voice-gap) + 10px);
+  padding: clamp(20px, 2vw, 30px) clamp(22px, 2.6vw, 40px);
   border-radius: var(--r-card) 0 var(--r-card) var(--r-card);
   background: radial-gradient(120% 80% at 100% 0%, rgba(255, 255, 255, 0.16), transparent 60%), var(--blue);
   color: #fff;
@@ -4563,7 +4580,7 @@ header nav > a:not(.button):focus-visible:after {
     transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
     box-shadow 0.35s;
 }
-.voices-cta a:hover {
+.voices-cta:hover {
   transform: translateY(-4px);
   box-shadow: 0 22px 40px -24px rgba(25, 61, 232, 0.7);
 }
@@ -4574,8 +4591,12 @@ header nav > a:not(.button):focus-visible:after {
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
+.voices-cta-copy {
+  display: flex;
+  flex-direction: column;
+}
 .voices-cta-text {
-  margin-top: 10px;
+  margin-top: 6px;
   font-size: var(--body-sm);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
@@ -4583,8 +4604,8 @@ header nav > a:not(.button):focus-visible:after {
 .voices-cta-link {
   display: inline-flex;
   align-items: center;
+  flex: none;
   gap: 8px;
-  margin-top: auto;
   font-size: 14px;
   font-weight: 700;
 }
@@ -4709,13 +4730,6 @@ header nav > a:not(.button):focus-visible:after {
   color: var(--muted);
 }
 @media (max-width: 1000px) {
-  .voices-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .voices-grid > li.is-featured {
-    grid-row: auto;
-    aspect-ratio: 4 / 5;
-  }
   .outcome-grid {
     grid-template-columns: repeat(2, 1fr);
   }

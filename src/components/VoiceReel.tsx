@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, type CSSProperties } from 'react';
 import { SwooshArrow } from '@/components/icons';
 import { localizeHref } from '@/i18n/lang';
 import { useLang, useT } from '@/i18n/ui';
@@ -16,8 +16,6 @@ type Voice = {
   shape: 'square' | 'portrait' | 'landscape';
   /** Seconds. */
   duration: number;
-  /** Shown as the large tile that opens the grid. Only one voice should have this. */
-  featured?: boolean;
   /** True when there is a <slug>.en.vtt. The edited films have no captions. */
   captions?: boolean;
 };
@@ -34,7 +32,6 @@ const VOICES: Voice[] = [
     detail: 'Class 12',
     shape: 'square',
     duration: 67,
-    featured: true,
   },
   {
     slug: 'anirudh-gupta',
@@ -151,32 +148,84 @@ function startPreview(video: HTMLVideoElement | null) {
   video.play().catch(() => {});
 }
 
+/** One slideshow row: its voices repeated so each half of the track is wider than any screen, then
+    the track doubled so sliding it by half loops without a seam. Copies are hidden from assistive
+    tech and keyboard focus; the first set stays reachable. */
+function VoiceRow({
+  items,
+  reverse,
+  onOpen,
+}: {
+  items: { voice: Voice; index: number }[];
+  reverse?: boolean;
+  onOpen: (index: number) => void;
+}) {
+  const t = useT();
+  const half = [...items, ...items];
+  const track = [...half, ...half];
+  return (
+    <div className={`voices-row${reverse ? ' is-reverse' : ''}`}>
+      <ul className="voices-track" style={{ '--voices-count': half.length } as CSSProperties}>
+        {track.map(({ voice: v, index }, n) => {
+          const copy = n >= items.length;
+          return (
+            <li key={`${v.slug}-${n}`} aria-hidden={copy || undefined}>
+              <button
+                type="button"
+                className="voice-card"
+                tabIndex={copy ? -1 : undefined}
+                onClick={() => onOpen(index)}
+                onPointerEnter={(e) => {
+                  if (e.pointerType === 'mouse') startPreview(e.currentTarget.querySelector('video'));
+                }}
+                onPointerLeave={(e) => e.currentTarget.querySelector('video')?.pause()}
+              >
+                <img src={`/assets/voices/${v.slug}.webp`} width="640" height="800" loading="lazy" alt="" />
+                <video
+                  className="voice-preview"
+                  data-src={`/assets/voices/${v.slug}.mp4`}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  aria-hidden="true"
+                  tabIndex={-1}
+                />
+                <span className="voice-play">
+                  <PlayIcon />
+                </span>
+                <span className="voice-meta">
+                  <span className="voice-name">{t(v.name)}</span>
+                  <span className="voice-role">
+                    {t(v.detail ?? v.role)} · {minutes(v.duration)}
+                  </span>
+                </span>
+                <span className="sr-only">{t('Play video')}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
 /**
- * Video testimonials as an editorial grid: one featured story with a silent preview running, the
- * other voices as tiles that preview on hover, and an invitation to visit closing the grid. Any tile
- * opens its film, with sound, in a dialog.
+ * Video testimonials as two slideshow rows drifting in opposite directions. A row pauses while it
+ * is hovered or holds keyboard focus, and both pause while a film is open. Any card opens its film,
+ * with sound, in a dialog. An invitation to visit follows the rows.
  */
 export function VoiceReel() {
   const t = useT();
   const lang = useLang();
   const [active, setActive] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
-  const featured = useRef<HTMLVideoElement>(null);
   const current = active === null ? null : VOICES[active];
 
-  // The featured preview plays only while it is on screen.
-  useEffect(() => {
-    const video = featured.current;
-    if (!video) return;
-    const io = new IntersectionObserver(([entry]) =>
-      entry.isIntersecting ? startPreview(video) : video.pause(),
-    );
-    io.observe(video);
-    return () => io.disconnect();
-  }, []);
+  const all = VOICES.map((voice, index) => ({ voice, index }));
+  const rows = [all.filter((_, i) => i % 2 === 0), all.filter((_, i) => i % 2 === 1)];
 
   const open = (i: number) => {
-    featured.current?.pause();
     setActive(i);
     dialog.current?.showModal();
   };
@@ -184,61 +233,20 @@ export function VoiceReel() {
     setActive((i) => (i === null ? i : (i + dir + VOICES.length) % VOICES.length));
 
   return (
-    <div className="voices">
-      <ul className="voices-grid">
-        {VOICES.map((v, i) => (
-          <li key={v.slug} className={v.featured ? 'is-featured' : undefined}>
-            <button
-              type="button"
-              className="voice-card"
-              onClick={() => open(i)}
-              onPointerEnter={(e) => {
-                if (!v.featured && e.pointerType === 'mouse')
-                  startPreview(e.currentTarget.querySelector('video'));
-              }}
-              onPointerLeave={(e) => {
-                if (!v.featured) e.currentTarget.querySelector('video')?.pause();
-              }}
-            >
-              <img src={`/assets/voices/${v.slug}.webp`} width="640" height="800" loading="lazy" alt="" />
-              <video
-                ref={v.featured ? featured : undefined}
-                className="voice-preview"
-                data-src={`/assets/voices/${v.slug}.mp4`}
-                muted
-                loop
-                playsInline
-                preload="none"
-                aria-hidden="true"
-                tabIndex={-1}
-              />
-              <span className="voice-play">
-                <PlayIcon />
-              </span>
-              <span className="voice-meta">
-                {v.featured && <span className="voice-tag">{t('Featured story')}</span>}
-                <span className="voice-name">{t(v.name)}</span>
-                <span className="voice-role">
-                  {t(v.detail ?? v.role)} · {minutes(v.duration)}
-                </span>
-              </span>
-              <span className="sr-only">{t('Play video')}</span>
-            </button>
-          </li>
-        ))}
-        <li className="voices-cta">
-          <Link href={localizeHref('/visit', lang)}>
-            <span className="voices-cta-title">{t('Hear it in person.')}</span>
-            <span className="voices-cta-text">
-              {t('Visit the campus and meet our students and teachers.')}
-            </span>
-            <span className="voices-cta-link">
-              {t('Plan your visit')}
-              <SwooshArrow />
-            </span>
-          </Link>
-        </li>
-      </ul>
+    <div className={`voices${current ? ' is-playing' : ''}`}>
+      <VoiceRow items={rows[0]} onOpen={open} />
+      <VoiceRow items={rows[1]} reverse onOpen={open} />
+
+      <Link className="voices-cta" href={localizeHref('/visit', lang)}>
+        <span className="voices-cta-copy">
+          <span className="voices-cta-title">{t('Hear it in person.')}</span>
+          <span className="voices-cta-text">{t('Visit the campus and meet our students and teachers.')}</span>
+        </span>
+        <span className="voices-cta-link">
+          {t('Plan your visit')}
+          <SwooshArrow />
+        </span>
+      </Link>
 
       <dialog
         ref={dialog}

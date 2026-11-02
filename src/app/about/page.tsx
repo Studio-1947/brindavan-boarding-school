@@ -320,8 +320,14 @@ export default function AboutPage() {
             2014.
           </p>
           <p>
-            Principal Sudhir Subba told the paper the school had opened with 145 children, to bring quality
-            education to the villages around Mirik, and that Classes 11 and 12 were the next goal.
+            Founder and Director Mr. Sudhir Subba told the paper the school had opened with 145 children, to bring
+            quality education to the villages around Mirik, and that Classes 11 and 12 were the next goal. Miss Pinky
+            Gupta was principal when the school received its NOC and CISCE affiliation in 2014–15; Mrs. Anjali Subba
+            has been principal since 2019.
+          </p>
+          <p>
+            Alongside students from the Mirik region, the school imparts education to students from Nepal. In its early
+            years, it also welcomed students from Bhutan and nearby areas.
           </p>
           <ul className="press-facts">
             <li>

@@ -122,8 +122,10 @@ export const about: Record<string, string> = {
   'IN THE NEWS · 2015': 'समाचारमा · 2015',
   'A framed clipping still hangs at the school. Its headline reads “ICSE recognition for Brindavan Boarding School”, and the report, datelined Mirik, 24 December, tells how the school at Seeyok Fatak won affiliation from the council in New Delhi, soon after receiving its permanent NOC in May 2014.':
     'विद्यालयमा अझै एउटा फ्रेम गरिएको पत्रिकाको कटिङ झुन्डिएको छ। यसको शीर्षक छ “वृन्दावन बोर्डिङ स्कूललाई ICSE मान्यता”, र मिरिक, 24 डिसेम्बरको उक्त समाचारले मे 2014 मा स्थायी NOC पाएलगत्तै सियोक फाटकको विद्यालयले नयाँ दिल्लीको काउन्सिलबाट कसरी सम्बन्धन पायो भनेर बताउँछ।',
-  'Principal Sudhir Subba told the paper the school had opened with 145 children, to bring quality education to the villages around Mirik, and that Classes 11 and 12 were the next goal.':
-    'प्रधानाध्यापक सुधीर सुब्बाले पत्रिकालाई बताउनुभयो कि मिरिक वरपरका गाउँमा गुणस्तरीय शिक्षा पुर्‍याउन विद्यालय 145 बालबालिकाबाट सुरु भएको थियो, र कक्षा 11 र 12 अर्को लक्ष्य थियो।',
+  'Founder and Director Mr. Sudhir Subba told the paper the school had opened with 145 children, to bring quality education to the villages around Mirik, and that Classes 11 and 12 were the next goal. Miss Pinky Gupta was principal when the school received its NOC and CISCE affiliation in 2014–15; Mrs. Anjali Subba has been principal since 2019.':
+    'संस्थापक तथा निर्देशक श्री सुधीर सुब्बाले पत्रिकालाई बताउनुभयो कि मिरिक वरपरका गाउँमा गुणस्तरीय शिक्षा पुर्‍याउन विद्यालय 145 बालबालिकाबाट सुरु भएको थियो, र कक्षा 11 र 12 अर्को लक्ष्य थियो। विद्यालयले 2014–15 मा NOC र CISCE सम्बन्धन प्राप्त गर्दा सुश्री पिंकी गुप्ता प्रधानाध्यापक हुनुहुन्थ्यो; श्रीमती अञ्जली सुब्बा सन् 2019 देखि प्रधानाध्यापकका रूपमा कार्यरत हुनुहुन्छ।',
+  'Alongside students from the Mirik region, the school imparts education to students from Nepal. In its early years, it also welcomed students from Bhutan and nearby areas.':
+    'मिरिक क्षेत्रका विद्यार्थीका साथै, विद्यालयले नेपालका विद्यार्थीहरूलाई पनि शिक्षा प्रदान गर्छ। प्रारम्भिक वर्षहरूमा भुटान तथा नजिकका क्षेत्रबाट पनि विद्यार्थीहरू यहाँ पढ्थे।',
   'students, from opening day to the day of the report':
     'विद्यार्थी, सुरु भएको दिनदेखि समाचार छापिएको दिनसम्म',
   'teachers and non-teaching staff at the time': 'त्यस बेलाका शिक्षक र अन्य कर्मचारी',

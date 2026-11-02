@@ -2593,36 +2593,6 @@ footer:before {
   font-weight: 700;
   text-decoration: none;
 }
-.footer-col a.footer-sitemap-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  min-width: 166px;
-  margin: 10px 0 0;
-  padding: 10px 13px;
-  color: #000881;
-  background: var(--orange);
-  border: 1px solid var(--orange);
-  border-radius: 12px 12px 12px 3px;
-  font-weight: 750;
-  opacity: 1;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-.footer-col a.footer-sitemap-cta:hover,
-.footer-col a.footer-sitemap-cta:focus-visible {
-  color: #000881;
-  background: #ffd966;
-  border-color: #ffd966;
-  transform: translateY(-2px);
-}
-.footer-sitemap-cta .swoosh-arrow {
-  width: 18px;
-  height: 13px;
-}
 .footer-col address {
   font-style: normal;
   color: #c9d3ff;

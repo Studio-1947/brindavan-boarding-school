@@ -25,7 +25,6 @@ const ui: Record<string, string> = {
   "Prospectus '26": 'विवरणिका 2026',
   'Prospectus film': 'विवरणिका भिडियो',
   Admissions: 'भर्ना',
-  'View sitemap': 'साइटम्याप हेर्नुहोस्',
   'Menu ☰': 'मेनु ☰',
   'Close ×': 'बन्द ×',
   'Open navigation': 'मेनु खोल्नुहोस्',

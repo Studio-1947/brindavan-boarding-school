@@ -128,6 +128,11 @@ export const staff: Record<
     {
       name: 'Miss Muna Lepcha',
       title: 'History',
+      photo: {
+        src: '/assets/teachers/muna-lepcha.webp',
+        width: 560,
+        height: 700,
+      },
     },
     {
       name: 'Miss Pema Cheden Sherpa',
@@ -186,10 +191,20 @@ export const staff: Record<
     {
       name: 'Miss Priti Tamang',
       title: 'Nepali',
+      photo: {
+        src: '/assets/teachers/priti-tamang.webp',
+        width: 560,
+        height: 700,
+      },
     },
     {
       name: 'Miss Sushma Rai',
       title: 'English',
+      photo: {
+        src: '/assets/teachers/sushma-rai.webp',
+        width: 560,
+        height: 700,
+      },
     },
   ],
   // Teachers who are not tied to the Science or Commerce & Arts stream, or whose subject is not on record yet.
@@ -201,14 +216,38 @@ export const staff: Record<
     {
       name: 'Miss Sumi Pradhan',
       title: 'Assistant Teacher',
+      photo: {
+        src: '/assets/teachers/sumi-pradhan.webp',
+        width: 560,
+        height: 700,
+      },
     },
     {
       name: 'Miss Anjali Ghatani',
       title: 'Teacher',
+      photo: {
+        src: '/assets/teachers/anjali-ghatani.webp',
+        width: 560,
+        height: 700,
+      },
     },
     {
       name: 'Miss Renu Pradhan',
       title: 'Assistant Teacher',
+      photo: {
+        src: '/assets/teachers/renu-pradhan.webp',
+        width: 560,
+        height: 700,
+      },
+    },
+    {
+      name: 'Miss Inumith Lepcha',
+      title: 'Assistant Teacher',
+      photo: {
+        src: '/assets/teachers/inumith-lepcha.webp',
+        width: 560,
+        height: 700,
+      },
     },
   ],
   boarding: [

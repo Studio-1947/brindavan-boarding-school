@@ -74,7 +74,7 @@ const AWARDS: AwardItem[] = [
 
 const OUTCOMES = [
   {
-    value: 98,
+    value: 100,
     suffix: '%',
     label: 'ICSE Class 10 pass\u00a0rate',
     icon: (

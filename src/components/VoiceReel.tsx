@@ -125,7 +125,6 @@ const VOICES: Voice[] = [
   },
 ];
 
-const minutes = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 const prefersMotion = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const videoSrc = (voice: Voice) => `/assets/voices/${voice.video ?? `${voice.slug}.mp4`}`;
 
@@ -207,7 +206,7 @@ function VoiceRow({
                 <span className="voice-meta">
                   <span className="voice-name">{t(v.name)}</span>
                   <span className="voice-role">
-                    {t(v.detail ?? v.role)} · {minutes(v.duration)}
+                    {t(v.detail ?? v.role)}
                   </span>
                 </span>
                 <span className="sr-only">{t('Play video')}</span>

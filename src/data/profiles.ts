@@ -22,6 +22,10 @@ export type StaffProfile = {
 };
 
 export const profiles: Record<string, StaffProfile> = {
+  'inumith-lepcha': {
+    role: 'Assistant Teacher',
+    classes: '5 B',
+  },
   'deepen-gurung': {
     role: 'Assistant Teacher',
     subjects: 'Mathematics',

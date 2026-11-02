@@ -30,6 +30,7 @@ export const names: Record<string, string> = {
   'Miss Sumi Pradhan': 'सुश्री सुमी प्रधान',
   'Miss Anjali Ghatani': 'सुश्री अञ्जली घतानी',
   'Miss Renu Pradhan': 'सुश्री रेनु प्रधान',
+  'Miss Inumith Lepcha': 'सुश्री इनुमिथ लेप्चा',
   'Mr Biswajeet Tamang': 'श्री विश्वजीत तामाङ',
   'Miss Madhu Tamang': 'सुश्री मधु तामाङ',
   'Miss Shika Ojha': 'सुश्री शिका ओझा',

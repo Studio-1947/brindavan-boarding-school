@@ -63,7 +63,8 @@ const upperIndex = new Map(Object.entries(ne).map(([k, v]) => [k.toUpperCase(), 
 /** Translates one string, keeping its surrounding spaces. Unknown strings come back unchanged. */
 export function translate(text: string, lang: Lang): string {
   if (lang === 'en') return text;
-  const key = text.trim();
+  // Pages use non-breaking spaces to keep words together; the dictionaries use plain spaces.
+  const key = text.trim().replace(/ /g, ' ');
   if (!key || !/\p{L}/u.test(key)) return text;
   const hit = key in ne ? ne[key] : upperIndex.get(key);
   if (hit === undefined) {

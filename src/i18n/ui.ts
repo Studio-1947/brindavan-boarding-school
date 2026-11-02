@@ -107,6 +107,12 @@ const ui: Record<string, string> = {
   'Address copied ✓': 'ठेगाना कपी भयो ✓',
   // beyond class: moments ring
   'Moments from the school year': 'विद्यालय वर्षका क्षण',
+  'Outdoor activity stories': 'बाहिरी गतिविधिका कथाहरू',
+  'slideshow': 'स्लाइडशो',
+  'Play slideshow': 'स्लाइडशो चलाउनुहोस्',
+  'Pause slideshow': 'स्लाइडशो रोक्नुहोस्',
+  'Photo': 'फोटो',
+  'Next story': 'अर्को कथा',
   'Previous photo': 'अघिल्लो फोटो',
   'Next photo': 'अर्को फोटो',
   'Drag to spin · click a photo': 'घुमाउन तान्नुहोस् · फोटोमा क्लिक गर्नुहोस्',

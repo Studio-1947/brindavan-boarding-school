@@ -15,6 +15,7 @@ export const staff: Record<string, string> = {
   'A fuller profile for': '',
   'will be added soon.': 'को विस्तृत परिचय छिट्टै थपिनेछ।',
   'Assistant Teacher': 'सहायक शिक्षक',
+  '5 B': '5 B',
   Teacher: 'शिक्षक',
   'Teaching staff': 'शिक्षण कर्मचारी',
   'Sociology and Computer Teacher, House In-charge': 'समाजशास्त्र र कम्प्युटर शिक्षक, हाउस इन्चार्ज',

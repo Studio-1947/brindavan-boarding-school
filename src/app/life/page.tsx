@@ -265,6 +265,108 @@ export default function LifePage() {
         <MomentRing moments={moments} />
       </section>
 
+      <section className="section outdoor-stories" aria-labelledby="outdoor-stories-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">OUTDOOR ACTIVITY STORIES</p>
+            <h2 id="outdoor-stories-title">
+              Adventures and
+              <br />
+              achievements to
+              <br />
+              <em>celebrate.</em>
+            </h2>
+          </div>
+          <p>
+            Three recent stories of learning, teamwork, competition and achievement beyond the classroom.
+          </p>
+        </div>
+        <TiltCards>
+          <article className="tilt-card story-card">
+            <figure className="tilt-photo">
+              <img
+                src="/assets/outdoor-activities/excursion/836897136_122131104182823354_5077471400388180102_n.jpg"
+                alt="Students taking notes during an educational visit to a tea factory"
+                loading="lazy"
+              />
+              <span className="card-number">01</span>
+            </figure>
+            <div className="tilt-body">
+              <span className="stage">EXCURSION</span>
+              <h3>Learning beyond the classroom</h3>
+              <div className="story-copy">
+                <p>
+                  Our students embarked on an educational tour to Turbo Tea Factory, offering them a wonderful
+                  opportunity to explore the world of tea production beyond the pages of their textbooks.
+                </p>
+                <p>
+                  The visit provided a hands-on learning experience as students observed the various stages of tea
+                  processing and gained a deeper understanding of the tea industry.
+                </p>
+                <p>An enriching experience that beautifully combined education, exploration and discovery.</p>
+              </div>
+            </div>
+          </article>
+          <article className="tilt-card story-card is-blue">
+            <figure className="tilt-photo">
+              <img
+                src="/assets/outdoor-activities/Football/780919281_122124331820823354_291455501447585345_n.jpg"
+                alt="Brindavan football team with their coaches at an outdoor match"
+                loading="lazy"
+              />
+              <span className="card-number">02</span>
+            </figure>
+            <div className="tilt-body">
+              <span className="stage">STUDENT ACHIEVEMENT</span>
+              <h3>Under-17 Football Tournament</h3>
+              <div className="story-copy">
+                <p>
+                  Our school proudly participated in the Under-17 Football Tournament, giving our young footballers
+                  an opportunity to showcase their talent, teamwork, discipline and sportsmanship.
+                </p>
+                <p>
+                  Every match was a valuable experience, and every effort on the field made us proud. We congratulate
+                  our players for their enthusiasm and dedication!
+                </p>
+                <p>Keep playing, keep learning and keep shining!</p>
+              </div>
+            </div>
+          </article>
+          <article className="tilt-card story-card">
+            <figure className="tilt-photo">
+              <img
+                src="/assets/outdoor-activities/volleyball/673895629_122106377258823354_531312624256439256_n.jpg"
+                alt="Brindavan students playing volleyball at an outdoor court"
+                loading="lazy"
+              />
+              <span className="card-number">03</span>
+            </figure>
+            <div className="tilt-body">
+              <span className="stage">STUDENT ACHIEVEMENT</span>
+              <h3>AHLIS Volleyball Final</h3>
+              <div className="story-copy">
+                <p>
+                  Brindavan Boarding School, Mirik, delivered a standout campaign at the Association of Heads of
+                  Listed ICSE Schools (AHLIS) Darjeeling &amp; Kalimpong District Volleyball Tournament, reaching the
+                  final after a series of commanding wins.
+                </p>
+                <p>
+                  On their path to the title match at Lewis English School, Brindavan overcame Vidya Vikash Academy,
+                  Darjeeling; hosts Lewis English School; Sunrise School, Lebong; and St Anthony School, Kurseong,
+                  in the semi-final.
+                </p>
+                <p>
+                  In a hard-fought final, Brindavan went down to Himali Boarding School, Kurseong, who clinched the
+                  AHLIS championship. Despite the result, Brindavan’s run was hailed for its skill and determination.
+                  Yolomber Rai of Brindavan Boarding School was adjudged Best Player of the tournament for his
+                  exceptional performances throughout the competition.
+                </p>
+              </div>
+            </div>
+          </article>
+        </TiltCards>
+      </section>
+
       <section className="section academics">
         <div className="section-heading">
           <div>

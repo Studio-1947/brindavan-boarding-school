@@ -226,6 +226,36 @@ export const pages: Record<string, string> = {
   'Local engagement': 'स्थानीय सहभागिता',
   'A school life connected to Mirik’s own community and seasonal rhythms.':
     'मिरिककै समुदाय र मौसमी लयसँग जोडिएको विद्यालय जीवन।',
+  'OUTDOOR ACTIVITY STORIES': 'बाहिरी गतिविधिका कथाहरू',
+  'Three recent stories of learning, teamwork, competition and achievement beyond the classroom.':
+    'कक्षाकोठाबाहिरका सिकाइ, टोलीभावना, प्रतियोगिता र उपलब्धिका तीन हालका कथाहरू।',
+  'Students taking notes during an educational visit to a tea factory':
+    'चिया कारखानाको शैक्षिक भ्रमणमा टिपोट गर्दै गरेका विद्यार्थीहरू',
+  EXCURSION: 'भ्रमण',
+  'Learning beyond the classroom': 'कक्षाकोठाभन्दा बाहिरको सिकाइ',
+  'Our students embarked on an educational tour to Turbo Tea Factory, offering them a wonderful opportunity to explore the world of tea production beyond the pages of their textbooks.':
+    'हाम्रा विद्यार्थीहरू टर्बो चिया कारखानाको शैक्षिक भ्रमणमा गए, जसले उनीहरूलाई पाठ्यपुस्तकका पानाभन्दा बाहिर चिया उत्पादनको संसार चिन्न सुन्दर अवसर दियो।',
+  'The visit provided a hands-on learning experience as students observed the various stages of tea processing and gained a deeper understanding of the tea industry.':
+    'विद्यार्थीहरूले चिया प्रशोधनका विभिन्न चरण अवलोकन गरे र चिया उद्योगबारे गहिरो बुझाइ पाए, जसले भ्रमणलाई प्रत्यक्ष सिकाइ अनुभव बनायो।',
+  'An enriching experience that beautifully combined education, exploration and discovery.':
+    'शिक्षा, अन्वेषण र खोजलाई सुन्दर रूपमा जोड्ने समृद्ध अनुभव।',
+  'Brindavan football team with their coaches at an outdoor match':
+    'बाहिरी खेलमा आफ्ना प्रशिक्षकसँग वृन्दावन फुटबल टोली',
+  'STUDENT ACHIEVEMENT': 'विद्यार्थी उपलब्धि',
+  'Under-17 Football Tournament': 'अन्डर-17 फुटबल प्रतियोगिता',
+  'Our school proudly participated in the Under-17 Football Tournament, giving our young footballers an opportunity to showcase their talent, teamwork, discipline and sportsmanship.':
+    'हाम्रो विद्यालयले गर्वका साथ अन्डर-17 फुटबल प्रतियोगितामा भाग लियो, जसले हाम्रा युवा खेलाडीलाई आफ्नो प्रतिभा, टोलीभावना, अनुशासन र खेलभावना देखाउने अवसर दियो।',
+  'Every match was a valuable experience, and every effort on the field made us proud. We congratulate our players for their enthusiasm and dedication!':
+    'हरेक खेल मूल्यवान अनुभव थियो, र मैदानमा गरिएको हरेक प्रयासले हामीलाई गर्व गरायो। हाम्रा खेलाडीलाई उनीहरूको उत्साह र समर्पणका लागि बधाई छ!',
+  'Keep playing, keep learning and keep shining!': 'खेलिरहनुहोस्, सिकिरहनुहोस् र चम्किरहनुहोस्!',
+  'Brindavan students playing volleyball at an outdoor court': 'बाहिरी कोर्टमा भलिबल खेलिरहेका वृन्दावनका विद्यार्थी',
+  'AHLIS Volleyball Final': 'AHLIS भलिबल फाइनल',
+  'Brindavan Boarding School, Mirik, delivered a standout campaign at the Association of Heads of Listed ICSE Schools (AHLIS) Darjeeling & Kalimpong District Volleyball Tournament, reaching the final after a series of commanding wins.':
+    'वृन्दावन बोर्डिङ स्कूल, मिरिकले एसोसिएसन अफ हेड्स अफ लिस्टेड ICSE स्कूल्स (AHLIS) दार्जिलिङ र कालिम्पोङ जिल्ला भलिबल प्रतियोगितामा उत्कृष्ट प्रदर्शन गर्दै लगातार प्रभावशाली जितपछि फाइनलमा स्थान बनायो।',
+  'On their path to the title match at Lewis English School, Brindavan overcame Vidya Vikash Academy, Darjeeling; hosts Lewis English School; Sunrise School, Lebong; and St Anthony School, Kurseong, in the semi-final.':
+    'लुइस इङ्लिस स्कूलमा भएको उपाधि खेलसम्मको यात्रामा वृन्दावनले विद्या विकास एकेडेमी, दार्जिलिङ; आयोजक लुइस इङ्लिस स्कूल; सनराइज स्कूल, लेबोङ; र सेमिफाइनलमा सेन्ट एन्थोनी स्कूल, कुर्सेओङलाई पराजित गर्‍यो।',
+  'In a hard-fought final, Brindavan went down to Himali Boarding School, Kurseong, who clinched the AHLIS championship. Despite the result, Brindavan’s run was hailed for its skill and determination. Yolomber Rai of Brindavan Boarding School was adjudged Best Player of the tournament for his exceptional performances throughout the competition.':
+    'कडा प्रतिस्पर्धात्मक फाइनलमा वृन्दावन हिमाली बोर्डिङ स्कूल, कुर्सेओङसँग पराजित भयो, जसले AHLIS च्याम्पियनसिप जित्यो। नतिजाका बाबजुद वृन्दावनको यात्रालाई सीप र दृढताका लागि प्रशंसा गरियो। वृन्दावन बोर्डिङ स्कूलका योलोम्बर राई प्रतियोगिताभरको उत्कृष्ट प्रदर्शनका लागि प्रतियोगिताका उत्कृष्ट खेलाडी घोषित भए।',
   'Specific clubs, teams and the activity calendar should be confirmed directly with the school.':
     'कुन क्लब, टोली र गतिविधि पात्रो छ भन्ने कुरा विद्यालयसँग सिधै पक्का गर्नुहोस्।',
   'Life after the school day': 'विद्यालयपछिको जीवन',
@@ -453,6 +483,7 @@ export const pagePhrases: Record<string, string> = {
   'Questions worth<1/>raising on a <2>visit.</2>': '<2>भ्रमणमा</2> सोध्न<1/>लायक प्रश्न।',
   // beyond class
   'More ways to<1/><2>find yourself.</2>': 'आफूलाई चिन्ने<1/><2>थप बाटा।</2>',
+  'Adventures and<1/>achievements to<2/><3>celebrate.</3>': 'उत्सव मनाउनलायक<1/>साहसिक यात्रा र<2/><3>उपलब्धिहरू।</3>',
   'Participation,<1/>culture &<2/><3>community.</3>': 'सहभागिता,<1/>संस्कृति र<2/><3>समुदाय।</3>',
   'What students<1/>get involved<2/><3>in.</3>': 'विद्यार्थीहरू<1/>के-केमा<2/><3>सहभागी हुन्छन्।</3>',
   'MOVE.<1/>TOGETHER.': 'सँगै<1/>अघि बढौं।',

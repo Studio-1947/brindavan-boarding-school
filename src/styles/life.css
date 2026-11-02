@@ -646,6 +646,22 @@
 .tilt-card.is-blue p {
   color: #e4e8ff;
 }
+.outdoor-stories {
+  background: #f2f6ff;
+}
+.outdoor-stories .eyebrow {
+  color: var(--blue);
+}
+.story-card {
+  min-height: 100%;
+}
+.story-copy {
+  display: grid;
+  gap: 12px;
+}
+.story-copy p {
+  margin: 0;
+}
 @media (max-width: 900px) {
   .tilt-grid {
     grid-template-columns: 1fr;

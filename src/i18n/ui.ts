@@ -139,7 +139,6 @@ const ui: Record<string, string> = {
   'Hear it in person.': 'आफैं आएर सुन्नुहोस्।',
   'Visit the campus and meet our students and teachers.':
     'क्याम्पस घुम्नुहोस् र हाम्रा विद्यार्थी तथा शिक्षकलाई भेट्नुहोस्।',
-  'Student from the Northeast': 'उत्तरपूर्वकी विद्यार्थी',
   'Class 6': 'कक्षा 6',
   'Class 7': 'कक्षा 7',
   'Class 11': 'कक्षा 11',

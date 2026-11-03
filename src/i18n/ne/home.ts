@@ -143,12 +143,11 @@ export const home: Record<string, string> = {
 
   // outcomes, testimonials
   'RESULTS AND OUTCOMES': 'नतिजा र उपलब्धि',
-  'Board results, competition wins and where our students go next — updated after every academic year.':
-    'बोर्ड नतिजा, प्रतियोगितामा जित र हाम्रा विद्यार्थी पछि कहाँ पुग्छन् भन्ने कुरा: हरेक शैक्षिक वर्षपछि अद्यावधिक गरिन्छ।',
-  'ICSE Class 10 pass rate': 'ICSE कक्षा 10 उत्तीर्ण दर',
-  'ISC Class 12 pass rate': 'ISC कक्षा 12 उत्तीर्ण दर',
-  'Students scoring 90% and above': '90% वा सोभन्दा बढी ल्याउने विद्यार्थी',
-  'Inter-school competition wins': 'अन्तरविद्यालय प्रतियोगितामा जित',
+  'Board results and life beyond the classroom — updated after every academic year.':
+    'बोर्ड नतिजा र कक्षाकोठाबाहिरको जीवन: हरेक शैक्षिक वर्षपछि अद्यावधिक गरिन्छ।',
+  'ICSE Class 10 results': 'ICSE कक्षा 10 नतिजा',
+  'ISC Class 12 results': 'ISC कक्षा 12 नतिजा',
+  'Sports, games, culture & other activities': 'खेलकुद, खेल, संस्कृति र अन्य गतिविधि',
   'IN THEIR WORDS': 'उहाँहरूकै शब्दमा',
   'Students and teachers, on camera, about learning, boarding and growing up in Mirik.':
     'मिरिकमा पढाइ, छात्रावास र हुर्काइबारे क्यामेराअगाडि विद्यार्थी र शिक्षकहरू।',
@@ -163,8 +162,8 @@ export const home: Record<string, string> = {
   Integrity: 'निष्ठा',
   Service: 'सेवा',
   'FROM THE FOUNDER & DIRECTOR': 'संस्थापक तथा निर्देशकबाट',
-  'Mr Sudhir Subba, Founder and Director of Brindavan Boarding School, at his desk':
-    'वृन्दावन बोर्डिङ स्कूलका संस्थापक तथा निर्देशक श्री सुधीर सुब्बा, आफ्नो टेबलमा',
+  'Mr Sudhir Subba, Founder and Director of Brindavan Boarding School, outside the school building':
+    'वृन्दावन बोर्डिङ स्कूलका संस्थापक तथा निर्देशक श्री सुधीर सुब्बा, विद्यालय भवनबाहिर',
   'A school in the hills carries a particular responsibility: children are here to learn, but they are also growing up in our care. We try to send every child home more curious, more capable and kinder than the year before.':
     'पहाडको विद्यालयमा एउटा विशेष जिम्मेवारी हुन्छ: बच्चाहरू यहाँ सिक्न आउँछन्, तर हाम्रो हेरचाहमा हुर्किरहेका पनि हुन्छन्। हामी हरेक बच्चालाई अघिल्लो वर्षभन्दा बढी जिज्ञासु, सक्षम र दयालु बनाएर घर पठाउने प्रयास गर्छौं।',
   'Read the full message': 'पूरा सन्देश पढ्नुहोस्',

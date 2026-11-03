@@ -47,9 +47,10 @@ export const names: Record<string, string> = {
   // students (video testimonials)
   'Shradha Tamang': 'श्रद्धा तामाङ',
   'Anirudh Gupta': 'अनिरुद्ध गुप्ता',
-  Jaikumari: 'जयकुमारी',
+  'Juhi Kumari': 'जुही कुमारी',
   'Shourya Pradhan': 'शौर्य प्रधान',
   'Nim Dolma Dukpa': 'निम डोल्मा दुक्पा',
   'Sungnima Subba': 'सुङनिमा सुब्बा',
   'Yuden Lama': 'युडेन लामा',
+  'Aditi Rai': 'अदिति राई',
 };

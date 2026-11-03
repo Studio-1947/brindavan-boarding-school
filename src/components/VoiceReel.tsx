@@ -54,7 +54,7 @@ const VOICES: Voice[] = [
   },
   {
     slug: 'jaikumari',
-    name: 'Jaikumari',
+    name: 'Juhi Kumari',
     role: 'Student',
     detail: 'Class 12',
     shape: 'square',
@@ -114,10 +114,10 @@ const VOICES: Voice[] = [
     video: 'yuden-lama.webm',
     duration: 29,
   },
-  // TODO(school data): the footage folder only says "Northeast Student" - add the student's name and class.
+  // TODO(school data): class not supplied yet. Files keep the original "northeast-student" names.
   {
     slug: 'northeast-student',
-    name: 'Student from the Northeast',
+    name: 'Aditi Rai',
     role: 'Student',
     shape: 'square',
     video: 'northeast-student.webm',

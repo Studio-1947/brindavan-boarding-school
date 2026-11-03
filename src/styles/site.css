@@ -4392,7 +4392,7 @@ header nav > a:not(.button):focus-visible:after {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(14px, 1.3vw, 20px);
 }
 .outcome-grid li {
@@ -4807,7 +4807,7 @@ header nav > a:not(.button):focus-visible:after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 50% 20%;
 }
 .principal-copy h2 {
   margin: 0 0 18px;
@@ -4836,6 +4836,10 @@ header nav > a:not(.button):focus-visible:after {
 @media (max-width: 1000px) {
   .outcome-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  /* odd card out spans the full row instead of sitting alone */
+  .outcome-grid li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
   .principal-card {
     grid-template-columns: 1fr;

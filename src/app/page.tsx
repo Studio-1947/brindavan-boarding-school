@@ -76,7 +76,7 @@ const OUTCOMES = [
   {
     value: 100,
     suffix: '%',
-    label: 'ICSE Class 10 pass\u00a0rate',
+    label: 'ICSE Class 10\u00a0results',
     icon: (
       <>
         <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
@@ -86,9 +86,9 @@ const OUTCOMES = [
     ),
   },
   {
-    value: 96,
+    value: 100,
     suffix: '%',
-    label: 'ISC Class 12 pass\u00a0rate',
+    label: 'ISC Class 12\u00a0results',
     icon: (
       <>
         <path d="M12 4 2 9l10 5 10-5-10-5Z" />
@@ -98,15 +98,9 @@ const OUTCOMES = [
     ),
   },
   {
-    value: 64,
-    suffix: '',
-    label: 'Students scoring 90%\u00a0and\u00a0above',
-    icon: <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3l-5.5 2.9 1-6.2L3 9.6l6.2-.9z" />,
-  },
-  {
-    value: 27,
-    suffix: '',
-    label: 'Inter-school competition\u00a0wins',
+    value: 82,
+    suffix: '%',
+    label: 'Sports, games, culture & other\u00a0activities',
     icon: (
       <>
         <path d="M8 4h8v5a4 4 0 0 1-8 0z" />
@@ -594,7 +588,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* TODO(school data): figures below are illustrative. Replace with the school's verified results before launch. */}
+      {/* Figures supplied by the school (Nov 2026). Update after each academic year. */}
       <section className="section outcomes" aria-labelledby="outcomes-title">
         <div className="section-heading">
           <div>
@@ -604,8 +598,7 @@ export default function HomePage() {
             </h2>
           </div>
           <p>
-            Board results, competition wins and where our students go next — updated after every academic
-            year.
+            Board results and life beyond the classroom — updated after every academic year.
           </p>
         </div>
         <SpotlightGrid className="outcome-grid">
@@ -754,11 +747,11 @@ export default function HomePage() {
         <div className="principal-card">
           <div className="principal-photo">
             <img
-              src="/assets/sudhir-subba.webp"
-              width="960"
-              height="1200"
+              src="/assets/founder.webp"
+              width="1024"
+              height="1536"
               loading="lazy"
-              alt="Mr Sudhir Subba, Founder and Director of Brindavan Boarding School, at his desk"
+              alt="Mr Sudhir Subba, Founder and Director of Brindavan Boarding School, outside the school building"
             />
           </div>
           <div className="principal-copy">

@@ -53,12 +53,12 @@ const VOICES: Voice[] = [
     duration: 74,
   },
   {
-    slug: 'jaikumari',
+    slug: 'juhi-kumari',
     name: 'Juhi Kumari',
     role: 'Student',
     detail: 'Class 12',
     shape: 'square',
-    video: 'jaikumari.webm',
+    video: 'juhi-kumari.webm',
     duration: 26,
   },
   {

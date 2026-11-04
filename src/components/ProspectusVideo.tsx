@@ -32,9 +32,9 @@ export function ProspectusVideoButton({ className, children }: { className?: str
       >
         {isOpen && (
           <div className="voice-stage is-landscape">
-            <video poster="/assets/prospectus.webp" controls autoPlay playsInline preload="metadata">
-              <source src="/assets/prospectus.webm" type="video/webm" />
-              <source src="/assets/prospectus.mp4" type="video/mp4" />
+            <video poster="/assets/prospectus-film.webp" controls autoPlay playsInline preload="metadata">
+              <source src="/assets/prospectus-film.webm" type="video/webm" />
+              <source src="/assets/prospectus-film.mp4" type="video/mp4" />
             </video>
           </div>
         )}

@@ -11,7 +11,7 @@ Build: run npm run build. The finished site is written to the out folder as plai
 Hosting: upload the contents of the out folder to the root of any static website host.
 
 Where things live:
-  src/app          one folder per page (page.tsx), plus the shared layout
+  src/app          one folder per page (page.tsx), plus the  layout
   src/components   header, footer, prospectus dialog and the animated pieces
   src/data         staff list shown on the Academics page
   src/styles       the site stylesheets

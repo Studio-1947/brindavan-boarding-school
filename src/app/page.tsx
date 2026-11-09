@@ -11,7 +11,7 @@ import { VoiceReel } from '@/components/VoiceReel';
 import { WarpText, type WarpTextOptions } from '@/components/WarpText';
 import { WelcomeParallax } from '@/components/WelcomeParallax';
 
-/* Photos that pop in around the motto, in the order they appear. */
+
 const VISION_PHOTOS = [
   '/assets/hero/hero-6.webp',
   '/assets/hero/hero-2.webp',
@@ -24,7 +24,7 @@ const VISION_PHOTOS = [
 const AWARDS: AwardItem[] = [
   {
     id: 'scholarship',
-    title: 'Scholarship Excellence Award',
+    title: 'Scholarship Excellence Awards',
     description: 'Recognising consistent effort and strong academic progress.',
     src: '/assets/hero/hero-9.webp',
   },

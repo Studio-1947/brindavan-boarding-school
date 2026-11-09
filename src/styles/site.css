@@ -793,6 +793,124 @@ header nav > a:not(.button):hover {
   padding-top: 14px;
   border-color: rgba(255, 255, 255, 0.4);
 }
+/* Campus & facilities (About page): the hall film as a large tile beside four photo tiles,
+   each captioned over a soft shadow at the bottom edge. */
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(220px, 18vw, 290px);
+  gap: 16px;
+}
+.facility {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.facility--feature {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-radius: var(--r-card) 0 var(--r-card) var(--r-card);
+}
+.facility-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.facility:hover img.facility-media {
+  transform: scale(1.05);
+}
+.facility::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 14, 32, 0.85) 0%, rgba(8, 14, 32, 0.45) 32%, rgba(8, 14, 32, 0) 60%);
+  pointer-events: none;
+}
+.facility figcaption {
+  position: relative;
+  z-index: 1;
+  padding: 20px 22px 22px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+}
+.facility h3 {
+  margin: 0 0 6px;
+  color: #fff;
+}
+.facility p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+}
+.facility--feature figcaption {
+  padding: 30px 32px 32px;
+  max-width: 520px;
+}
+.facility--feature p {
+  font-size: var(--body-sm);
+}
+.facility-credit {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  max-width: calc(100% - 20px);
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(8, 14, 32, 0.55);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.facility-credit:hover {
+  color: #fff;
+  background: rgba(8, 14, 32, 0.8);
+}
+@media (max-width: 900px) {
+  .facility-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+  }
+  .facility {
+    aspect-ratio: 4 / 3;
+  }
+  .facility--feature {
+    grid-row: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+@media (max-width: 560px) {
+  .facility-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+    gap: 12px;
+  }
+  .facility {
+    aspect-ratio: 16 / 10;
+  }
+  .facility--feature {
+    grid-column: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .facility-media {
+    transition: none;
+  }
+}
 /* Founders (About page): portrait beside a short introduction. */
 .founders {
   display: grid;
@@ -3870,21 +3988,6 @@ footer:before {
     display: none;
   }
 }
-@media (max-width: 500px) {
-  .voices-cta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .voices-cta-text {
-    display: none;
-  }
-  .voices-cta-title {
-    font-size: 21px;
-  }
-  .voices-cta-link {
-    font-size: 13px;
-  }
-}
 .vision-copy {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4476,8 +4579,8 @@ header nav > a:not(.button):focus-visible:after {
   line-height: 1.6;
   color: var(--muted);
 }
-/* Video testimonials (src/components/VoiceReel.tsx): two slideshow rows drifting in opposite
-   directions, edge to edge, with a visit invitation below them. */
+/* Video testimonials (src/components/VoiceReel.tsx): a spotlight that plays the chosen film beside a
+   roster grid showing every voice at once. The roster's last tile is the visit invitation. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -4486,92 +4589,209 @@ header nav > a:not(.button):focus-visible:after {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+/* the motto stage that follows opens with its own band of space, so this section ends shorter */
+.testimonials {
+  padding-bottom: clamp(24px, 2.4vw, 40px);
+}
 .voices {
-  --voice-w: clamp(170px, 17vw, 250px);
-  --voice-gap: clamp(12px, 1.2vw, 18px);
-  display: flex;
-  flex-direction: column;
-  gap: var(--voice-gap);
+  --voice-gap: clamp(8px, 0.9vw, 14px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(16px, 1.8vw, 28px);
+  align-items: stretch;
 }
-/* rows run edge to edge, past the section's side padding, and fade out at both ends */
-.voices-row {
-  margin-inline: calc(-1 * max(5.5vw, 24px));
+
+/* spotlight: stretches to the roster's height, so the section is only as tall as three tile rows */
+.voice-spotlight {
+  position: relative;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  min-height: 280px;
+  border-radius: var(--r-card) 0 var(--r-card) var(--r-card);
+  background: #0f1d40;
+  isolation: isolate;
 }
-.voices-track {
-  list-style: none;
-  margin: 0;
-  padding: 4px 0;
-  display: flex;
-  gap: var(--voice-gap);
-  width: max-content;
-  /* one half of the track (its first set of cards plus gaps) slides by, then it loops */
-  animation: voices-slide calc(var(--voices-count) * 7s) linear infinite;
+.voice-spotlight-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-.voices-row.is-reverse .voices-track {
-  animation-direction: reverse;
+img.voice-spotlight-media {
+  object-fit: cover;
+  object-position: 50% 28%;
+  animation: voice-fade 0.5s ease both;
 }
-/* keyboard focus only: a card clicked with the mouse keeps focus, and its row should move on after the film */
-.voices-row:hover .voices-track,
-.voices-row:has(:focus-visible) .voices-track,
-.voices.is-playing .voices-track {
-  animation-play-state: paused;
+video.voice-spotlight-media {
+  object-fit: contain;
+  background: #0f1d40;
 }
-@keyframes voices-slide {
-  to {
-    transform: translateX(calc(-50% - var(--voice-gap) / 2));
+@keyframes voice-fade {
+  from {
+    opacity: 0;
   }
 }
-.voices-track > li {
-  flex: none;
-  width: var(--voice-w);
-  aspect-ratio: 4 / 5;
+.voice-spotlight-cover {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
-/* without motion, each row is a strip to swipe or scroll through */
-@media (prefers-reduced-motion: reduce) {
-  .voices-row {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-mask-image: none;
-    mask-image: none;
-    padding-inline: max(5.5vw, 24px);
-  }
-  .voices-track {
-    animation: none;
-  }
-  .voices-track > li {
-    scroll-snap-align: start;
-  }
-  .voices-track > li[aria-hidden] {
-    display: none;
-  }
+.voice-spotlight-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(15, 29, 64, 0.45), transparent 22%),
+    linear-gradient(to bottom, transparent 45%, rgba(15, 29, 64, 0.92));
 }
-.voice-dialog-nav button {
+.voice-spotlight-play {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  z-index: 1;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: clamp(60px, 5.4vw, 80px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--blue);
+  box-shadow:
+    0 0 0 10px rgba(255, 255, 255, 0.18),
+    0 18px 40px -12px rgba(15, 29, 64, 0.6);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.35s,
+    color 0.35s;
+}
+.voice-spotlight-play svg {
+  width: 38%;
+  margin-left: 6%;
+}
+.voice-spotlight-cover:hover .voice-spotlight-play,
+.voice-spotlight-cover:focus-visible .voice-spotlight-play {
+  transform: scale(1.08);
+  background: var(--blue);
+  color: #fff;
+}
+.voice-spotlight-meta {
+  position: absolute;
+  left: clamp(18px, 2vw, 30px);
+  right: clamp(18px, 2vw, 30px);
+  bottom: clamp(18px, 2vw, 28px);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.voice-spotlight-name {
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(22px, 1.9vw, 30px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.voice-spotlight-role {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--body-sm);
+  color: rgba(255, 255, 255, 0.8);
+}
+.voice-spotlight-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+}
+/* counter and arrows ride along the top, clear of the video's own controls at the bottom */
+.voice-spotlight-bar {
+  position: absolute;
+  top: 14px;
+  left: clamp(16px, 1.8vw, 26px);
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.voice-spotlight-count {
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(15, 29, 64, 0.5);
+}
+.voice-spotlight-count span {
+  opacity: 0.6;
+}
+.voice-spotlight-nav {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+.voice-spotlight-nav button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(15, 29, 64, 0.35);
+  backdrop-filter: blur(6px);
   color: #fff;
   cursor: pointer;
   transition:
     background 0.25s,
     border-color 0.25s;
 }
-.voice-dialog-nav button:hover {
+.voice-spotlight-nav button:hover {
   background: var(--blue);
   border-color: var(--blue);
 }
-.voice-dialog-nav svg {
-  width: 20px;
-  height: 20px;
+.voice-spotlight-nav svg {
+  width: 18px;
+  height: 18px;
 }
-.voice-card {
+/* while a film plays, the arrows and counter step back until the pointer is over the stage */
+.voice-spotlight.is-playing .voice-spotlight-bar {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.voice-spotlight.is-playing:hover .voice-spotlight-bar,
+.voice-spotlight.is-playing:focus-within .voice-spotlight-bar {
+  opacity: 1;
+}
+
+/* roster: every voice at once, plus the visit tile, in a 4 x 3 grid */
+.voice-roster {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--voice-gap);
+  container-type: inline-size;
+  align-content: start;
+}
+.voice-roster > li {
+  aspect-ratio: 1;
+}
+.voice-tile {
   position: relative;
   display: block;
   width: 100%;
@@ -4579,143 +4799,232 @@ header nav > a:not(.button):focus-visible:after {
   padding: 0;
   border: 0;
   overflow: hidden;
-  border-radius: var(--r-card) 0 var(--r-card) var(--r-card);
+  border-radius: 14px;
   background: var(--pale);
   cursor: pointer;
   text-align: left;
   font: inherit;
+  color: #fff;
   isolation: isolate;
+  transition: box-shadow 0.3s;
 }
-.voice-card img,
-.voice-preview {
+.voice-tile img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 26%;
   display: block;
-}
-.voice-card img {
   transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.voice-preview {
-  opacity: 0;
-  transition: opacity 0.45s;
-  pointer-events: none;
-}
-.voice-preview:not([src]) {
-  display: none;
-}
-.voice-card:hover .voice-preview {
-  opacity: 1;
-}
-.voice-card::after {
+.voice-tile::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 48%, rgba(15, 29, 64, 0.85));
+  background: linear-gradient(to bottom, transparent 42%, rgba(15, 29, 64, 0.88));
 }
-.voice-card:hover img,
-.voice-card:focus-visible img {
-  transform: scale(1.05);
+.voice-tile:hover img,
+.voice-tile:focus-visible img {
+  transform: scale(1.06);
 }
-.voice-play {
+/* the voice in the spotlight is ringed in the school blue */
+.voice-tile.is-active {
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 6px var(--blue);
+}
+.voice-tile-badge {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 8px;
+  right: 8px;
   z-index: 1;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   color: var(--blue);
-  box-shadow: 0 8px 20px -8px rgba(15, 29, 64, 0.5);
+  opacity: 0;
+  transform: scale(0.8);
   transition:
-    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
-    background 0.35s,
-    color 0.35s;
+    opacity 0.3s,
+    transform 0.3s,
+    background 0.3s,
+    color 0.3s;
 }
-.voice-play svg {
-  width: 18px;
-  height: 18px;
-  margin-left: 2px;
+.voice-tile-badge svg {
+  width: 13px;
+  height: 13px;
+  margin-left: 1px;
 }
-.voice-card:hover .voice-play,
-.voice-card:focus-visible .voice-play {
-  transform: scale(1.1);
+.voice-tile:hover .voice-tile-badge,
+.voice-tile:focus-visible .voice-tile-badge,
+.voice-tile.is-active .voice-tile-badge {
+  opacity: 1;
+  transform: none;
+}
+.voice-tile.is-active .voice-tile-badge {
   background: var(--blue);
   color: #fff;
 }
-.voice-meta {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  z-index: 1;
+/* a small equaliser marks the film that is playing */
+.voice-eq {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 2px;
-  color: #fff;
+  height: 12px;
 }
-.voice-name {
+.voice-eq i {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: voice-eq 0.9s ease-in-out infinite;
+}
+.voice-eq i:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.voice-eq i:nth-child(3) {
+  animation-delay: -0.6s;
+}
+@keyframes voice-eq {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.voice-tile-meta {
+  position: absolute;
+  left: 12px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  min-width: 0;
+}
+.voice-tile-name {
   font-family: Manrope, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 650;
-  line-height: 1.3;
+  line-height: 1.25;
 }
-.voice-role {
-  font-size: 13px;
+.voice-tile-role {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: rgba(255, 255, 255, 0.78);
+}
+/* names only once tiles are big enough to carry them; smaller tiles are faces, named in the spotlight */
+@container (min-width: 560px) {
+  .voice-tile-meta {
+    display: flex;
+  }
 }
 .voices-cta {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 16px 32px;
-  margin-top: calc(var(--voice-gap) + 10px);
-  padding: clamp(20px, 2vw, 30px) clamp(22px, 2.6vw, 40px);
-  border-radius: var(--r-card) 0 var(--r-card) var(--r-card);
-  background: radial-gradient(120% 80% at 100% 0%, rgba(255, 255, 255, 0.16), transparent 60%), var(--blue);
+  gap: 8px;
+  height: 100%;
+  padding: clamp(12px, 1.3vw, 20px);
+  border-radius: 14px 0 14px 14px;
+  background: radial-gradient(120% 80% at 100% 0%, rgba(255, 255, 255, 0.18), transparent 60%), var(--blue);
   color: #fff;
   transition:
     transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
     box-shadow 0.35s;
 }
 .voices-cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 40px -24px rgba(25, 61, 232, 0.7);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -20px rgba(25, 61, 232, 0.8);
 }
 .voices-cta-title {
   font-family: Manrope, Arial, sans-serif;
-  font-size: clamp(22px, 1.9vw, 30px);
+  font-size: clamp(17px, 1.45vw, 22px);
   font-weight: 650;
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
-.voices-cta-copy {
-  display: flex;
-  flex-direction: column;
-}
-.voices-cta-text {
-  margin-top: 6px;
-  font-size: var(--body-sm);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-}
 .voices-cta-link {
   display: inline-flex;
   align-items: center;
-  flex: none;
-  gap: 8px;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1.3;
 }
 .voices-cta-link .swoosh-arrow {
-  width: 22px;
+  width: 20px;
   height: auto;
+}
+@container (max-width: 559px) {
+  .voices-cta-title {
+    display: none;
+  }
+  .voices-cta {
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  .voices-cta-link {
+    font-size: 12px;
+  }
+}
+
+/* stacked: the spotlight above the roster */
+@media (max-width: 700px) {
+  .voices {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .voice-spotlight {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  .voice-roster {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .voice-spotlight {
+    aspect-ratio: 5 / 4;
+  }
+  .voice-roster {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .voice-tile {
+    border-radius: 10px;
+  }
+  .voice-tile-badge {
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+  }
+  .voice-tile-badge svg {
+    width: 10px;
+    height: 10px;
+  }
+  .voice-eq {
+    height: 9px;
+  }
+  .voice-eq i {
+    width: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-eq i,
+  img.voice-spotlight-media {
+    animation: none;
+  }
 }
 .voice-dialog {
   width: min(94vw, 1100px);
@@ -4759,16 +5068,6 @@ header nav > a:not(.button):focus-visible:after {
 .voice-stage.is-square video {
   width: min(100%, 78vh);
   aspect-ratio: 1;
-}
-.voice-caption {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-}
-.voice-dialog-nav {
-  display: flex;
-  gap: 10px;
 }
 .voice-close {
   position: fixed;

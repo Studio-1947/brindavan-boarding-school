@@ -62,29 +62,33 @@ export function VisionMotto({ children }: { children: ReactNode }) {
     document.fonts.ready.then(onResize);
     window.addEventListener('resize', onResize);
 
-    const build = (scrollTrigger: ScrollTrigger.Vars) => {
+    /** `intro`, when given, pops the photos in on their own scroll range instead of the main one. */
+    const build = (scrollTrigger: ScrollTrigger.Vars, intro?: ScrollTrigger.Vars) => {
+      const pop = {
+        scale: 0.2,
+        autoAlpha: 0,
+        rotate: (i: number) => (i % 2 ? 10 : -10),
+        duration: 0.22,
+        stagger: 0.12,
+        ease: 'back.out(1.8)',
+      };
       const tl = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger });
-      tl.from(pills, { width: 0, duration: 0.35, stagger: 0.45, ease: 'power2.out' }, 0)
-        .from(
-          floats,
-          {
-            scale: 0.2,
-            autoAlpha: 0,
-            rotate: (i) => (i % 2 ? 10 : -10),
-            duration: 0.22,
-            stagger: 0.12,
-            ease: 'back.out(1.8)',
-          },
-          0.05,
-        )
-        // photos below the motto drift down and away from it; the ones above barely rise, so the
-        // header never hides them
-        .to(floats, { yPercent: (i) => (i === 2 || i === 3 || i === 5 ? 12 : -4), duration: 1 }, 0);
+      tl.from(pills, { width: 0, duration: 0.35, stagger: 0.45, ease: 'power2.out' }, 0);
+      if (intro) gsap.timeline({ scrollTrigger: intro }).from(floats, pop);
+      else tl.from(floats, pop, 0.05);
+      // photos below the motto drift down and away from it; the ones above barely rise, so the
+      // header never hides them
+      tl.to(floats, { yPercent: (i) => (i === 2 || i === 3 || i === 5 ? 12 : -4), duration: 1 }, 0);
     };
 
     const mm = gsap.matchMedia();
+    // the photos pop in while the stage scrolls up into place, so the room left for them above the
+    // motto is never seen empty; the pinned stretch then opens the line photos
     mm.add('(min-width: 801px) and (prefers-reduced-motion: no-preference)', () =>
-      build({ trigger: el, start: 'top top', end: '+=160%', pin: true, scrub: 0.8 }),
+      build(
+        { trigger: el, start: 'top top', end: '+=160%', pin: true, scrub: 0.8 },
+        { trigger: el, start: 'top 85%', end: 'top 5%', scrub: 0.8 },
+      ),
     );
     mm.add('(max-width: 800px) and (prefers-reduced-motion: no-preference)', () =>
       build({ trigger: el, start: 'top 75%', end: 'bottom 35%', scrub: 0.8 }),

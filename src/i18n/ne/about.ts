@@ -162,6 +162,38 @@ export const about: Record<string, string> = {
     'चिह्नबाट लिइएको विद्यालयको आदर्श वाक्यले सामुदायिक जीवनलाई दिशा दिन्छ: साथी, कर्मचारी र सिंगो मिरिक समुदायको ख्याल।',
   '*Establishment year and CISCE affiliation details (school code WB353) are drawn from public listings and the school crest. Please confirm current accreditation directly with the school.':
     '*स्थापना वर्ष र CISCE सम्बन्धनको विवरण (विद्यालय कोड WB353) सार्वजनिक सूची र विद्यालयको चिह्नबाट लिइएको हो। हालको मान्यता विद्यालयसँग सिधै पक्का गर्नुहोस्।',
+
+  // campus & facilities
+  'CAMPUS & FACILITIES': 'क्याम्पस र सुविधा',
+  'Well-furnished spaces for study, science and play, from the labs and library to a park for the tiny tots.':
+    'पढाइ, विज्ञान र खेलका लागि राम्ररी सुसज्जित ठाउँ, प्रयोगशाला र पुस्तकालयदेखि साना नानीहरूका लागि पार्कसम्म।',
+  'A slow walk through Sarvodaya Hall, past rows of red chairs to the stage':
+    'रातो कुर्सीका लहरहरू हुँदै मञ्चसम्म सर्वोदय हलको बिस्तारै गरिएको भ्रमण',
+  'Sarvodaya Hall': 'सर्वोदय हल',
+  'The school’s main hall, with a full stage and seating for assemblies and events.':
+    'प्रार्थनासभा र कार्यक्रमका लागि पूरा मञ्च र बस्ने ठाउँ भएको विद्यालयको मुख्य हल।',
+  Library: 'पुस्तकालय',
+  'More than 4,000 books, with quiet space to read and study.':
+    '४,००० भन्दा बढी किताब, पढ्न र अध्ययन गर्न शान्त ठाउँसहित।',
+  'Library shelves packed with storybooks, dictionaries and reference books':
+    'कथाका किताब, शब्दकोश र सन्दर्भ पुस्तकले भरिएका पुस्तकालयका दराज',
+  'Computer lab': 'कम्प्युटर ल्याब',
+  'A well-furnished computer lab where students build their digital skills.':
+    'राम्ररी सुसज्जित कम्प्युटर ल्याब, जहाँ विद्यार्थीले डिजिटल सीप विकास गर्छन्।',
+  'A computer lab with rows of desktop computers on desks along both walls':
+    'दुवै भित्तातिर टेबलमा डेस्कटप कम्प्युटरका लहर भएको कम्प्युटर ल्याब',
+  Laboratory: 'प्रयोगशाला',
+  'Benches, glassware and equipment for practical science work.':
+    'व्यावहारिक विज्ञान कार्यका लागि बेन्च, सिसाका भाँडा र उपकरण।',
+  'A science laboratory with long benches and shelves of glassware':
+    'लामा बेन्च र सिसाका भाँडाका दराज भएको विज्ञान प्रयोगशाला',
+  'Play park': 'खेल पार्क',
+  'A park of slides and climbing frames for the tiny tots.':
+    'साना नानीहरूका लागि चिप्लेटी र चढ्ने संरचना भएको पार्क।',
+  'A colourful climbing frame with slides in a park ringed by trees':
+    'रूखले घेरिएको पार्कमा चिप्लेटीसहितको रंगीन चढ्ने संरचना',
+  'Photos of the labs and play park are representative images from Wikimedia Commons.':
+    'प्रयोगशाला र खेल पार्कका फोटो Wikimedia Commons बाट लिइएका प्रतिनिधि तस्बिर हुन्।',
   'EXPLORE MORE': 'थप हेर्नुहोस्',
 };
 
@@ -179,4 +211,5 @@ export const aboutPhrases: Record<string, string> = {
   'One hillside,<1/><2>twenty-one years.</2>': 'एउटै पहाड,<1/><2>एक्काइस वर्ष।</2>',
   'The day the ICSE<1/><2>said yes.</2>': 'जुन दिन ICSE ले<1/><2>स्वीकृति दियो।</2>',
   'The ideas behind<1/>a Brindavan <2>education.</2>': 'वृन्दावनको<1/><2>शिक्षाका</2> मूल विचार।',
+  'Room to learn,<1/>room to <2>grow.</2>': 'सिक्ने ठाउँ,<1/><2>बढ्ने</2> ठाउँ।',
 };

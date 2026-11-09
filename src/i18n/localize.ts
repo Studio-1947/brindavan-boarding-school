@@ -34,6 +34,8 @@ const SKIP = new Set([
   'width',
   'height',
   'loading',
+  'poster',
+  'preload',
   'key',
   'htmlFor',
   'aria-labelledby',

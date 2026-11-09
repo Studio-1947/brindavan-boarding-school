@@ -5,6 +5,52 @@ import { PhotoDeck, type DeckPhoto } from '@/components/PhotoDeck';
 import { Reveal } from '@/components/Reveal';
 import { SchoolEvolution, type EvolutionChapter } from '@/components/SchoolEvolution';
 
+// The hall film and library photo are the school's own. The other photos are representative images
+// from Wikimedia Commons, under the licence named in each credit, which must stay visible on the card.
+const COMMONS = 'https://commons.wikimedia.org/wiki/File:';
+
+const facilities: {
+  title: string;
+  text: string;
+  photo: string;
+  alt: string;
+  credit?: { text: string; href: string };
+}[] = [
+  {
+    title: 'Library',
+    text: 'More than 4,000 books, with quiet space to read and study.',
+    photo: '/assets/facilities/library.webp',
+    alt: 'Library shelves packed with storybooks, dictionaries and reference books',
+  },
+  {
+    title: 'Computer lab',
+    text: 'A well-furnished computer lab where students build their digital skills.',
+    photo: '/assets/facilities/computer-lab.webp',
+    alt: 'A computer lab with rows of desktop computers on desks along both walls',
+    credit: { text: 'Photo: Research unit at DWIT, CC BY-SA 4.0', href: `${COMMONS}DWIT_Computer_lab.jpg` },
+  },
+  {
+    title: 'Laboratory',
+    text: 'Benches, glassware and equipment for practical science work.',
+    photo: '/assets/facilities/science-lab.webp',
+    alt: 'A science laboratory with long benches and shelves of glassware',
+    credit: {
+      text: 'Photo: Kchava, CC BY-SA 4.0',
+      href: `${COMMONS}Chemistry_Lab_Silver_Oaks_Intl_School_Hyderabad.jpg`,
+    },
+  },
+  {
+    title: 'Play park',
+    text: 'A park of slides and climbing frames for the tiny tots.',
+    photo: '/assets/facilities/play-park.webp',
+    alt: 'A colourful climbing frame with slides in a park ringed by trees',
+    credit: {
+      text: 'Photo: Wuhazet (Henryk Żychowski), CC BY 3.0',
+      href: `${COMMONS}Krakow_Koz%C5%82%C3%B3wek_-_slide_on_a_playground_for_children.JPG`,
+    },
+  },
+];
+
 const milestones: Milestone[] = [
   {
     year: '2005',
@@ -446,6 +492,55 @@ export default function AboutPage() {
         <p className="footnote">
           *Establishment year and CISCE affiliation details (school code WB353) are drawn from public listings
           and the school crest. Please confirm current accreditation directly with the school.
+        </p>
+      </section>
+      <section className="section facilities" id="facilities" aria-labelledby="facilities-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">CAMPUS &amp; FACILITIES</p>
+            <h2 id="facilities-title">
+              Room to learn,
+              <br />
+              room to <em>grow.</em>
+            </h2>
+          </div>
+          <p>Well-furnished spaces for study, science and play, from the labs and library to a park for the tiny tots.</p>
+        </div>
+        <Reveal className="facility-grid" stagger={0.1}>
+          <figure className="facility facility--feature">
+            <video
+              className="facility-media"
+              src="/assets/facilities/sarvodaya-hall.webm"
+              poster="/assets/facilities/sarvodaya-hall.webp"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="A slow walk through Sarvodaya Hall, past rows of red chairs to the stage"
+            />
+            <figcaption>
+              <h3>Sarvodaya Hall</h3>
+              <p>The school’s main hall, with a full stage and seating for assemblies and events.</p>
+            </figcaption>
+          </figure>
+          {facilities.map((f) => (
+            <figure className="facility" key={f.title}>
+              <img className="facility-media" src={f.photo} alt={f.alt} loading="lazy" />
+              <figcaption>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </figcaption>
+              {f.credit && (
+                <a className="facility-credit" href={f.credit.href} target="_blank" rel="noopener">
+                  {f.credit.text}
+                </a>
+              )}
+            </figure>
+          ))}
+        </Reveal>
+        <p className="footnote">
+          Photos of the labs and play park are representative images from Wikimedia Commons.
         </p>
       </section>
       <section className="section page-intro">

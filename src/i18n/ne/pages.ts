@@ -80,6 +80,11 @@ export const pages: Record<string, string> = {
   'Individual support': 'व्यक्तिगत सहयोग',
   'Teachers work with students individually where extra support or stretch is needed.':
     'थप सहयोग वा अझ चुनौती चाहिने ठाउँमा शिक्षकले विद्यार्थीसँग व्यक्तिगत रूपमा काम गर्छन्।',
+  'Career counselling': 'करियर परामर्श',
+  'Class XII students attend career counselling sessions, and we hold regular sessions for Classes XI and XII to help students plan their next steps after school.':
+    'कक्षा XII का विद्यार्थीहरू करियर परामर्श सत्रमा सहभागी हुन्छन्, र विद्यालयपछिका कदमहरू योजना बनाउन सघाउन हामी कक्षा XI र XII का लागि नियमित सत्रहरू सञ्चालन गर्छौं।',
+  'A guest speaker leading a career counselling session for senior students in the school hall':
+    'विद्यालयको हलमा माथिल्ला कक्षाका विद्यार्थीहरूका लागि करियर परामर्श सत्र सञ्चालन गर्दै अतिथि वक्ता',
   'A teacher standing at the front of a full classroom, taking a lesson':
     'भरिभराउ कक्षाकोठाअगाडि उभिएर पाठ पढाउँदै शिक्षक',
   'Students at their desks with notebooks open, listening closely in class':

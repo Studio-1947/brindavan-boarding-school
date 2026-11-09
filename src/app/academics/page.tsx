@@ -46,6 +46,12 @@ const learning: LearningItem[] = [
     photo: '/assets/hero/hero-5.webp',
     alt: 'Young students at their desks, each working on their own drawing',
   },
+  {
+    label: 'Career counselling',
+    text: 'Class XII students attend career counselling sessions, and we hold regular sessions for Classes XI and XII to help students plan their next steps after school.',
+    photo: '/assets/classrooms/career-counselling.webp',
+    alt: 'A guest speaker leading a career counselling session for senior students in the school hall',
+  },
 ];
 
 export const metadata: Metadata = {
